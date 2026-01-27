@@ -1,78 +1,22 @@
-.input-field {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  width: 100%;
-  font-size: 14px;
-  color: #1f2933;
-}
-
-.input-label {
-  font-weight: 600;
-  color: #0f172a;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.input-required {
-  color: #e11d48;
-}
-
-.input-shell {
-  position: relative;
-}
-
 .input-control {
-  width: 100%;
-  padding: 10px 12px;
+  height: 36px;
+  padding: 0px 12px;
   border: 1px solid #d0d5dd;
   border-radius: 8px;
   background: #ffffff;
   color: #0f172a;
+  font-size: 14px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
 }
 
 .input-control:focus {
   border-color: #111827;
-  outline: none;
   box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.12);
 }
 
-.input-field.has-error .input-control {
-  border-color: #e11d48;
-  box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.1);
-}
-
-.input-field.is-disabled .input-control {
+.input-control:disabled {
   background: #f8fafc;
   color: #94a3b8;
   cursor: not-allowed;
-}
-
-.input-helper {
-  color: #4b5563;
-  font-size: 12px;
-  line-height: 1.4;
-}
-
-.input-error {
-  color: #e11d48;
-  font-size: 12px;
-  line-height: 1.4;
-}
-
-.input-icon {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: inline-flex;
-  align-items: center;
-  color: #64748b;
-  pointer-events: none;
-}
-
-.input-control.has-icon {
-  padding-left: 40px;
 }
