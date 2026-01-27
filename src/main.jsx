@@ -8,5 +8,6 @@ import Spinner from './components/common/Spinner.jsx';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Spinner />
+    <App />
   </StrictMode>,
 )
