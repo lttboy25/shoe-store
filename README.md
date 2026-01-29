@@ -4,6 +4,7 @@ File info.txt là file initial để khởi tạo repo trên github lúc nào t�
 
 ## Cấu trúc thư mục chính
 
+```
 src/
 ├── assets/
 ├── components/
@@ -16,6 +17,7 @@ src/
 ├── service/
 ├── styles/
 └── utils/
+```
 
 ---
 
@@ -147,3 +149,39 @@ Page
 
 Context và Hook được sử dụng để chia sẻ state và logic dùng chung giữa các page.
 
+<<<<<<< HEAD
+=======
+Một commit chuẩn (theo chuẩn Conventional Commits) sẽ giúp dễ đọc log,
+dễ tạo changelog và CI/CD.
+
+📌 Cấu trúc commit message chuẩn
+
+():
+
+- type → loại thay đổi (bắt buộc)
+- scope → phạm vi ảnh hưởng (tùy chọn)
+- subject → mô tả ngắn gọn, bắt đầu bằng động từ (không viết hoa chữ
+  đầu, không chấm cuối câu)
+
+🔖 Các loại type thường dùng
+
+- feat → thêm tính năng mới
+- fix → sửa bug
+- docs → thay đổi tài liệu
+- style → format code (không ảnh hưởng logic, ví dụ: prettier, eslint)
+- refactor → cải tiến code nhưng không đổi hành vi
+- test → thêm/sửa test
+- chore → việc lặt vặt (build, config, dependency update)
+- perf → tối ưu hiệu năng
+- ci → thay đổi cấu hình CI/CD
+
+✅ Ví dụ commit chuẩn
+
+- feat(auth): thêm chức năng đăng nhập bằng Google
+- fix(booking): sửa lỗi tính sai tiền khi huỷ phòng
+- docs(readme): cập nhật hướng dẫn cài đặt
+- style(ui): format code theo eslint
+- refactor(order): tách logic xử lý thanh toán ra service riêng
+- test(user): thêm unit test cho UserService
+- chore(deps): update Spring Boot 3.2.1
+>>>>>>> origin/main
