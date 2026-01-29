@@ -146,3 +146,4 @@ Page
 → Component hiển thị giao diện
 
 Context và Hook được sử dụng để chia sẻ state và logic dùng chung giữa các page.
+
