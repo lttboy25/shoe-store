@@ -7,6 +7,8 @@ import logo from './assets/img/test.png'
 import Input from './components/common/Input';
 import Breadcrumb from "./components/common/Breadcrumb";
 import Checkbox from "./components/common/Checkbox";
+import Popup from "./components/common/Popup"
+import Rating from "./components/common/Rating"
 
 
 function App() {
@@ -88,8 +90,11 @@ function App() {
           onChange={setActiveOutside}
         />
       </div>
+
+      <Popup></Popup>
+    <Rating></Rating>
     </>
   );
 }
 
-export default App
+export default App;
