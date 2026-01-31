@@ -16,7 +16,7 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [agreeModal, setAgreeModal] = useState(false);
   const [activeOutside, setActiveOutside] = useState(false);
-  const [testValue, setTestValue] = useState("");
+  const [size, setSize] = useState("");
 
   return (
     <>
@@ -90,17 +90,20 @@ function App() {
       <Rating></Rating>
 
       <div style={{ marginBottom: "30px" }}>
-        <h2>Dropdown test</h2>
+        <h2>Dropdown</h2>
         <Dropdown
-          label="Dropdown demo"
-          value={testValue}
-          onChange={setTestValue}
+          label="Chọn size giày"
+          value={size}
+          onChange={setSize}
+          placeholder="Chọn size"
           options={[
-            { value: "1", label: "Option 1" },
-            { value: "2", label: "Option 2" },
-            { value: "3", label: "Option 3" },
+            { value: "39", label: "Size 39" },
+            { value: "40", label: "Size 40" },
+            { value: "41", label: "Size 41" },
+            { value: "42", label: "Size 42" },
           ]}
         />
+        <p>Size đã chọn: {size}</p>
       </div>
       <div style={{ marginBottom: "30px" }}>
         <h2>Promotion test</h2>
