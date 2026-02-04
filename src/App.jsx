@@ -11,6 +11,8 @@ import Popup from "./components/common/Popup";
 import Rating from "./components/common/Rating";
 import Dropdown from "./components/common/Dropdown";
 import Promotion from "./components/common/Promotion";
+import ProductCard from "./components/product/ProductCard";
+import product from "./data/products"
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +23,7 @@ function App() {
   return (
     <>
       <h1 style={{ marginBottom: "55px" }}>App test</h1>
+      <ProductCard product={product}/>
       <Breadcrumb
         items={[
           { label: "Home", href: "#" },
@@ -108,11 +111,7 @@ function App() {
       <div style={{ marginBottom: "30px" }}>
         <h2>Promotion test</h2>
         <Promotion
-          title="Khuyến mãi test"
-          description="Giảm giá cho đơn hàng hôm nay"
-          discount={20}
-          code="TEST20"
-          onApply={() => alert("Áp dụng khuyến mãi")}
+          title="25"
         />
       </div>
     </>
