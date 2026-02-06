@@ -13,6 +13,8 @@ import Dropdown from "./components/common/Dropdown";
 import Promotion from "./components/common/Promotion";
 import ProductCard from "./components/product/ProductCard";
 import product from "./data/products"
+import Header from "./components/layout/Header";
+import HomeHero from "./components/section/home/HomeHero";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,6 +24,8 @@ function App() {
 
   return (
     <>
+      <Header />
+      <HomeHero />
       <h1 style={{ marginBottom: "55px" }}>App test</h1>
       <ProductCard product={product}/>
       <Breadcrumb
