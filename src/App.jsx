@@ -15,7 +15,8 @@ import ProductCard from "./components/product/ProductCard";
 import product from "./data/products";
 import LoginForm from "./components/section/auth/LoginForm";
 import RegisterForm from "./components/section/auth/RegisterForm";
-
+import Header from "./components/layout/Header";
+import HomeHero from "./components/section/home/HomeHero";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [agreeModal, setAgreeModal] = useState(false);
@@ -49,6 +50,8 @@ function App() {
           console.log("Thông tin đăng ký", data);
         }}
       />
+      <Header />
+      <HomeHero />
       <h1 style={{ marginBottom: "55px" }}>App test</h1>
       <ProductCard product={product} />
       <Breadcrumb
