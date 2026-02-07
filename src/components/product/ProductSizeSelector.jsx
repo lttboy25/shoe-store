@@ -1,0 +1,1 @@
+// component chọn size linh hoạt trong detail và cả trong giỏ hàng

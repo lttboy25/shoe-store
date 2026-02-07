@@ -149,19 +149,9 @@ Page
 
 Context và Hook được sử dụng để chia sẻ state và logic dùng chung giữa các page.
 
-Một commit chuẩn (theo chuẩn Conventional Commits) sẽ giúp dễ đọc log,
-dễ tạo changelog và CI/CD.
+---
 
-📌 Cấu trúc commit message chuẩn
-
-():
-
-- type → loại thay đổi (bắt buộc)
-- scope → phạm vi ảnh hưởng (tùy chọn)
-- subject → mô tả ngắn gọn, bắt đầu bằng động từ (không viết hoa chữ
-  đầu, không chấm cuối câu)
-
-🔖 Các loại type thường dùng
+## Cú pháp commit chuẩn sẽ sử dụng
 
 - feat → thêm tính năng mới
 - fix → sửa bug
