@@ -13,6 +13,10 @@ import Dropdown from "./components/common/Dropdown";
 import Promotion from "./components/common/Promotion";
 import ProductCard from "./components/product/ProductCard";
 import product from "./data/products"
+import SizeSelector from "./components/product/ProductSizeSelector";
+import QuantitySelector from "./components/product/ProductQuantity";
+import About from "./about/About";
+
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,101 +24,112 @@ function App() {
   const [activeOutside, setActiveOutside] = useState(false);
   const [size, setSize] = useState("");
 
-  return (
-    <>
-      <h1 style={{ marginBottom: "55px" }}>App test</h1>
-      <ProductCard product={product}/>
-      <Breadcrumb
-        items={[
-          { label: "Home", href: "#" },
-          { label: "Components", href: "#" },
-          { label: "Test", active: true },
-        ]}
-      />
-      <button
-        style={{ marginBottom: "30px" }}
-        onClick={() => {
-          setIsOpen(true);
-        }}
-      >
-        Open Modal
-      </button>
-      <Modal
-        onClose={() => setIsOpen(false)}
-        title={"Đây là test modal"}
-        isOpen={isOpen}
-        children={
-          <div>
-            <p>Đây là body bên trong modal</p>
+  // return (
+  //   <>
+  //     <h1 style={{ marginBottom: "55px" }}>App test</h1>
+  //     <ProductCard product={product}/>
+  //     <Breadcrumb
+  //       items={[
+  //         { label: "Home", href: "#" },
+  //         { label: "Components", href: "#" },
+  //         { label: "Test", active: true },
+  //       ]}
+  //     />
+  //     <button
+  //       style={{ marginBottom: "30px" }}
+  //       onClick={() => {
+  //         setIsOpen(true);
+  //       }}
+  //     >
+  //       Open Modal
+  //     </button>
+  //     <Modal
+  //       onClose={() => setIsOpen(false)}
+  //       title={"Đây là test modal"}
+  //       isOpen={isOpen}
+  //       children={
+  //         <div>
+  //           <p>Đây là body bên trong modal</p>
 
-            <Checkbox
-              id="agree"
-              label="Tôi đồng ý điều khoản"
-              checked={agreeModal}
-              onChange={setAgreeModal}
-            />
-          </div>
-        }
-        footer={
-          <div>
-            <button>Save</button>
-            <button onClick={() => setIsOpen(false)}>Close</button>
-          </div>
-        }
-      />
-      <div style={{ marginBottom: "30px" }}>
-        <h2>Loading</h2>
-        <Spinner />
-      </div>
-      <div style={{ marginBottom: "30px" }}>
-        <h2>Button</h2>
-        <Button
-          title="Đây là nút test"
-          variant="light"
-          width={400}
-          height={100}
-          image={logo}
-        />
-      </div>
-      <div style={{ marginBottom: "30px" }}>
-        <h2>Loading</h2>
-        <Input labelTitle={"Test nhập"} errorTitle={"Vui lòng nhập"} />
-      </div>
-      <div style={{ marginBottom: "30px" }}>
-        <h2>Checkbox</h2>
-        <Checkbox
-          id="active"
-          label="Kích hoạt"
-          checked={activeOutside}
-          onChange={setActiveOutside}
-        />
-      </div>
-      <Popup></Popup>
-      <Rating></Rating>
+  //           <Checkbox
+  //             id="agree"
+  //             label="Tôi đồng ý điều khoản"
+  //             checked={agreeModal}
+  //             onChange={setAgreeModal}
+  //           />
+  //         </div>
+  //       }
+  //       footer={
+  //         <div>
+  //           <button>Save</button>
+  //           <button onClick={() => setIsOpen(false)}>Close</button>
+  //         </div>
+  //       }
+  //     />
+  //     <div style={{ marginBottom: "30px" }}>
+  //       <h2>Loading</h2>
+  //       <Spinner />
+  //     </div>
+  //     <div style={{ marginBottom: "30px" }}>
+  //       <h2>Button</h2>
+  //       <Button
+  //         title="Đây là nút test"
+  //         variant="light"
+  //         width={400}
+  //         height={100}
+  //         image={logo}
+  //       />
+  //     </div>
+  //     <div style={{ marginBottom: "30px" }}>
+  //       <h2>Loading</h2>
+  //       <Input labelTitle={"Test nhập"} errorTitle={"Vui lòng nhập"} />
+  //     </div>
+  //     <div style={{ marginBottom: "30px" }}>
+  //       <h2>Checkbox</h2>
+  //       <Checkbox
+  //         id="active"
+  //         label="Kích hoạt"
+  //         checked={activeOutside}
+  //         onChange={setActiveOutside}
+  //       />
+  //     </div>
+  //     <Popup></Popup>
+  //     <Rating></Rating>
 
-      <div style={{ marginBottom: "30px" }}>
-        <h2>Dropdown</h2>
-        <Dropdown
-          label="Chọn size giày"
-          value={size}
-          onChange={setSize}
-          placeholder="Chọn size"
-          options={[
-            { value: "39", label: "Size 39" },
-            { value: "40", label: "Size 40" },
-            { value: "41", label: "Size 41" },
-            { value: "42", label: "Size 42" },
-          ]}
-        />
-        <p>Size đã chọn: {size}</p>
-      </div>
-      <div style={{ marginBottom: "30px" }}>
-        <h2>Promotion test</h2>
-        <Promotion
-          title="25"
-        />
-      </div>
-    </>
+  //     <div style={{ marginBottom: "30px" }}>
+  //       <h2>Dropdown</h2>
+  //       <Dropdown
+  //         label="Chọn size giày"
+  //         value={size}
+  //         onChange={setSize}
+  //         placeholder="Chọn size"
+  //         options={[
+  //           { value: "39", label: "Size 39" },
+  //           { value: "40", label: "Size 40" },
+  //           { value: "41", label: "Size 41" },
+  //           { value: "42", label: "Size 42" },
+  //         ]}
+  //       />
+  //       <p>Size đã chọn: {size}</p>
+  //     </div>
+  //     <div style={{ marginBottom: "30px" }}>
+  //       <h2>Promotion test</h2>
+  //       <Promotion
+  //         title="25"
+  //       />
+  //     </div>
+  //   </>
+  // );
+  return(
+    
+   <>
+    <About></About>
+    <br />
+   <SizeSelector/>
+   <br />
+   <QuantitySelector/>
+   </>
+    
   );
 }
 
