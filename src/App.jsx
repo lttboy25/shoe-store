@@ -17,6 +17,8 @@ import RegisterForm from "./components/section/auth/RegisterForm";
 import Header from "./components/layout/Header";
 import HomeHero from "./components/section/home/HomeHero";
 import ProductGrid from "./components/product/ProductGrid/ProductGrid";
+import SizeSelect from './components/product/ProductSizeSelector'
+import QuantitySelect from './components/product/ProductQuantity'
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [agreeModal, setAgreeModal] = useState(false);
@@ -40,6 +42,8 @@ function App() {
 
   return (
     <>
+      <SizeSelect />
+      <QuantitySelect/>
       {isLogin ? (
         <h2>Xin chào {user} </h2>
       ) : (
@@ -54,7 +58,7 @@ function App() {
       <HomeHero />
       <h1 style={{ marginBottom: "55px" }}>App test</h1>
       
-      <ProductGrid list={products} quantity={20}/>
+      <ProductGrid list={products} quantity={2}/>
 
 
       <Breadcrumb
