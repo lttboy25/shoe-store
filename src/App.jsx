@@ -21,6 +21,8 @@ import ProductSizeCart from "./components/product/ProductSize/ProductSizeCart";
 import ProductSizeDetail from "./components/product/ProductSize/ProductSizeDetail";
 import ProductQuantityCart from "./components/product/ProductQuantity/ProductQuantityCart";
 import ProductQuantityDetail from "./components/product/ProductQuantity/ProductQuantityDetail";
+import Footer from "./components/layout/Footer";
+import CategoryBannerSection from "./components/section/home/CategoryBannerSection";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [agreeModal, setAgreeModal] = useState(false);
@@ -154,6 +156,10 @@ function App() {
         <h2>Promotion test</h2>
         <Promotion title="25" />
       </div>
+
+      <CategoryBannerSection />
+
+      <Footer />
     </>
   );
 }
