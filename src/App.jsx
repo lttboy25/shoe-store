@@ -11,12 +11,12 @@ import Popup from "./components/common/Popup";
 import Rating from "./components/common/Rating";
 import Dropdown from "./components/common/Dropdown";
 import Promotion from "./components/common/Promotion";
-import ProductCard from "./components/product/ProductCard";
-import product from "./data/products";
+import products from "./data/products";
 import LoginForm from "./components/section/auth/LoginForm";
 import RegisterForm from "./components/section/auth/RegisterForm";
 import Header from "./components/layout/Header";
 import HomeHero from "./components/section/home/HomeHero";
+import ProductGrid from "./components/product/ProductGrid/ProductGrid";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [agreeModal, setAgreeModal] = useState(false);
@@ -53,7 +53,10 @@ function App() {
       <Header />
       <HomeHero />
       <h1 style={{ marginBottom: "55px" }}>App test</h1>
-      <ProductCard product={product} />
+      
+      <ProductGrid list={products} quantity={20}/>
+
+
       <Breadcrumb
         items={[
           { label: "Home", href: "#" },
