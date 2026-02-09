@@ -19,6 +19,9 @@ import HomeHero from "./components/section/home/HomeHero";
 import ProductGrid from "./components/product/ProductGrid/ProductGrid";
 import SizeSelect from './components/product/ProductSizeSelector'
 import QuantitySelect from './components/product/ProductQuantity'
+import Footer from "./components/layout/Footer";
+import CategoryBannerSection from "./components/section/home/CategoryBannerSection";
+
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [agreeModal, setAgreeModal] = useState(false);
@@ -149,6 +152,10 @@ function App() {
         <h2>Promotion test</h2>
         <Promotion title="25" />
       </div>
+
+      <CategoryBannerSection />
+
+      <Footer />
     </>
   );
 }
