@@ -11,19 +11,52 @@ import Popup from "./components/common/Popup";
 import Rating from "./components/common/Rating";
 import Dropdown from "./components/common/Dropdown";
 import Promotion from "./components/common/Promotion";
-import ProductCard from "./components/product/ProductCard";
-import product from "./data/products"
-
+import products from "./data/products";
+import LoginForm from "./components/section/auth/LoginForm";
+import RegisterForm from "./components/section/auth/RegisterForm";
+import Header from "./components/layout/Header";
+import HomeHero from "./components/section/home/HomeHero";
+import ProductGrid from "./components/product/ProductGrid/ProductGrid";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [agreeModal, setAgreeModal] = useState(false);
   const [activeOutside, setActiveOutside] = useState(false);
   const [size, setSize] = useState("");
+  //test login, RegisterForm
+  const [isLogin, setIsLogin] = useState(false);
+  const [user, setUser] = useState("");
+  const account = {
+    username: "admin",
+    password: "12345",
+  };
+  const handleLogin = (username, password) => {
+    if (username === account.username && password === account.password) {
+      setIsLogin(true);
+      setUser(username);
+    } else {
+      alert("Sai username hoặc password!");
+    }
+  };
 
   return (
     <>
+      {isLogin ? (
+        <h2>Xin chào {user} </h2>
+      ) : (
+        <LoginForm onLogin={handleLogin} />
+      )}
+      <RegisterForm
+        onRegister={(data) => {
+          console.log("Thông tin đăng ký", data);
+        }}
+      />
+      <Header />
+      <HomeHero />
       <h1 style={{ marginBottom: "55px" }}>App test</h1>
-      <ProductCard product={product}/>
+      
+      <ProductGrid list={products} quantity={20}/>
+
+
       <Breadcrumb
         items={[
           { label: "Home", href: "#" },
@@ -110,9 +143,7 @@ function App() {
       </div>
       <div style={{ marginBottom: "30px" }}>
         <h2>Promotion test</h2>
-        <Promotion
-          title="25"
-        />
+        <Promotion title="25" />
       </div>
     </>
   );
