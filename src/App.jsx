@@ -17,8 +17,10 @@ import RegisterForm from "./components/section/auth/RegisterForm";
 import Header from "./components/layout/Header";
 import HomeHero from "./components/section/home/HomeHero";
 import ProductGrid from "./components/product/ProductGrid/ProductGrid";
-import SizeSelect from './components/product/ProductSizeSelector'
-import QuantitySelect from './components/product/ProductQuantity'
+import ProductSizeCart from "./components/product/ProductSize/ProductSizeCart";
+import ProductSizeDetail from "./components/product/ProductSize/ProductSizeDetail";
+import ProductQuantityCart from "./components/product/ProductQuantity/ProductQuantityCart";
+import ProductQuantityDetail from "./components/product/ProductQuantity/ProductQuantityDetail";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [agreeModal, setAgreeModal] = useState(false);
@@ -42,8 +44,11 @@ function App() {
 
   return (
     <>
-      <SizeSelect />
-      <QuantitySelect/>
+      <ProductSizeDetail/>
+      <ProductQuantityDetail/>
+      <br />
+      <ProductSizeCart/>
+      <ProductQuantityCart/>
       {isLogin ? (
         <h2>Xin chào {user} </h2>
       ) : (
