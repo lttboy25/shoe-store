@@ -21,6 +21,11 @@ import ProductSizeCart from "./components/product/ProductSize/ProductSizeCart";
 import ProductSizeDetail from "./components/product/ProductSize/ProductSizeDetail";
 import ProductQuantityCart from "./components/product/ProductQuantity/ProductQuantityCart";
 import ProductQuantityDetail from "./components/product/ProductQuantity/ProductQuantityDetail";
+import {Cloudinary} from "@cloudinary/url-gen";
+import {AdvancedImage} from '@cloudinary/react';
+import {fill} from "@cloudinary/url-gen/actions/resize";
+
+
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [agreeModal, setAgreeModal] = useState(false);
@@ -42,8 +47,26 @@ function App() {
     }
   };
 
+  const cld = new Cloudinary({
+      cloud: {
+        cloudName: 'shoe-store-ptgdud'
+      }
+    });
+
+  const hinhDemo = cld.image('bitis-ez-lift-xanh-duong_opycff');
+  hinhDemo.resize(fill().width(250).height(250));
+
   return (
     <>
+    <div style={{backgroundColor:"red"}}>
+
+    <img
+  src="https://res.cloudinary.com/shoe-store-ptgdud/image/upload/v1770641740/bitis-ez-lift-xanh-duong_opycff.jpg"
+  alt="Biti's EZ Lift"
+  width={250}
+  loading="lazy"
+/>
+    </div>
       <ProductSizeDetail/>
       <ProductQuantityDetail/>
       <br />
