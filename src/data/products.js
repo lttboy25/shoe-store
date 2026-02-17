@@ -1,322 +1,348 @@
 const baseProducts = [
   {
     id: "p001",
-    sku: "BITIS-001",
-    name: "Giày Thể Thao Biti's Hunter Core Đen",
-    slug: "giay-the-thao-bitis-hunter-core-den",
-    brand: "Biti's",
-    categoryId: "cat_sneaker_nam",
+    sku: "HM6804-102",
+    name: "Nike Vomero 18 - White / Electric Green",
+    slug: "nike-vomero-18-white-electric-green",
+    brand: "Nike",
+    categoryId: "cat_running",
 
-    price: "890,000",
-    originalPrice: "1,090,000",
-    discountPercent: 18,
+    price: 2555000,
+    originalPrice: 4250000,
+    discountPercent: 40,
 
-    thumbnail: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77",
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771338095/Nike_Vomero_18_-_White_Electric_Green_qpsth6.png",
     images: [
-      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77",
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
-      "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519"
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338105/Nike_Vomero_18_-_White_Electric_Green_otjkf2.png",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338100/Nike_Vomero_18_-_White_Electric_Green_ntjo7u.png",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338113/Nike_Vomero_18_-_White_Electric_Green_hfplhu.png"
     ],
 
     variants: [
       {
-        color: "Đen",
-        colorCode: "#000000",
+        color: "White / Electric Green / Volt / Black",
+        colorCode: "#ccff00",
         sizes: [
-          { size: "40", stock: 6 },
-          { size: "41", stock: 8 },
-          { size: "42", stock: 5 },
-          { size: "43", stock: 3 }
+          { size: "36", stock: 8 }
         ]
       }
     ],
 
-    shortDescription: "Giày sneaker nam phong cách thể thao, dễ phối đồ.",
-    description: "Biti's Hunter Core mang phong cách năng động, đế êm nhẹ, phù hợp đi học và đi chơi.",
+    shortDescription: "Nike Vomero 18 phiên bản White/Electric Green nổi bật với đệm ZoomX cao cấp kết hợp ReactX foam cho trải nghiệm chạy êm ái tối đa.",
+
+    description: "Nike Vomero 18 - White / Electric Green mang đến khả năng đệm tối đa cho chạy bộ hằng ngày.",
 
     specifications: {
-      material: "Vải tổng hợp",
-      sole: "Cao su",
-      fit: "Regular fit",
-      style: "Sneaker",
-      gender: "Nam"
+      cushioning: "ZoomX + ReactX dual-density foam",
+      heelToToeDrop: "10mm",
+      outsole: "Rubber pods traction",
+      upper: "Engineered mesh",
+      weight: "263g (Women's UK 5.5)",
+      style: "Running",
+      gender: "Women",
+      shownColor: "White / Electric Green / Volt / Black"
     },
 
     disclaimer: {
-      image: "Hình ảnh chỉ mang tính minh họa.",
-      legal: "Cam kết sản phẩm chính hãng."
+      image: "Màu sắc có thể chênh lệch do ánh sáng và thiết bị hiển thị.",
+      legal: "Không sử dụng như thiết bị bảo hộ cá nhân (PPE)."
     },
 
-    rating: 4.5,
-    reviewCount: 42,
-    sold: 210,
-    views: 1850,
+    rating: 4.8,
+    reviewCount: 36,
+    sold: 185,
+    views: 1420,
 
     badges: ["sale"],
     status: "active",
 
     seo: {
-      title: "Giày Biti's Hunter Core Nam",
-      description: "Giày sneaker Biti's chính hãng, giá tốt."
+      title: "Nike Vomero 18 White Electric Green Chính Hãng Giá Tốt",
+      description:
+        "Giày chạy bộ Nike Vomero 18 White Electric Green với ZoomX và ReactX foam, đệm tối đa, êm ái cho chạy hằng ngày."
     },
 
-    createdAt: "2026-01-01T08:00:00Z",
-    updatedAt: "2026-01-05T10:00:00Z"
+    createdAt: "2026-02-17T11:30:00Z",
+    updatedAt: "2026-02-17T11:30:00Z"
   },
 
   {
     id: "p002",
-    sku: "NIKE-002",
-    name: "Nike Air Zoom Pegasus 39",
-    slug: "nike-air-zoom-pegasus-39",
+    sku: "NIKE-GF6-BLACK-001",
+    name: "Nike Giannis Freak 6 EP - Black/Red",
+    slug: "nike-giannis-freak-6-ep-black-red",
     brand: "Nike",
-    categoryId: "cat_sneaker_nam",
+    categoryId: "cat_basketball",
 
-    price: "2,650,000",
-    originalPrice: "3,200,000",
-    discountPercent: 17,
+    price: 1725000,
+    originalPrice: 3830000,
+    discountPercent: 55,
 
-    thumbnail: "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb",
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771336053/Nike_Giannis_Freak_6_EP_-_White_sxaz4w.png",
     images: [
-      "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb",
-      "https://images.unsplash.com/photo-1589187155478-87a6b7c7d4d5",
-      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a"
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771336082/Nike_Giannis_Freak_6_EP_-_White_fdxzjc.png",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771336113/Nike_Giannis_Freak_6_EP_-_White_d24kna.png",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771336125/Nike_Giannis_Freak_6_EP_-_White_jgdrp1.png"
     ],
 
     variants: [
       {
-        color: "Trắng",
-        colorCode: "#FFFFFF",
+        color: "Black/Red",
+        colorCode: "#111111",
         sizes: [
-          { size: "39", stock: 4 },
-          { size: "40", stock: 6 },
-          { size: "41", stock: 5 }
+          { size: "40", stock: 5 },
+          { size: "40.5", stock: 7 },
+          { size: "41", stock: 6 },
+          { size: "42", stock: 4 },
+          { size: "42.5", stock: 8 },
+          { size: "43", stock: 3 },
+          { size: "44", stock: 2 }
         ]
       }
     ],
 
-    shortDescription: "Giày chạy bộ Nike nhẹ, êm, bền.",
-    description: "Nike Pegasus 39 hỗ trợ tối đa cho chạy bộ và luyện tập.",
+    shortDescription: "Giày bóng rổ Nike Giannis Freak 6 EP phiên bản Black/Red, độ bám cao, hỗ trợ chuyển hướng nhanh.",
+    description: "Nike Giannis Freak 6 EP - Black/Red được thiết kế dành cho những pha bứt tốc và chuyển hướng đột ngột.",
 
     specifications: {
-      material: "Mesh",
-      sole: "React Foam",
-      fit: "Regular fit",
-      style: "Running",
-      gender: "Nam"
+      material: "Engineered Mesh",
+      sole: "Rubber outsole",
+      cushioning: "Air Zoom",
+      style: "Basketball",
+      gender: "Unisex",
+      origin: "Vietnam"
     },
 
     disclaimer: {
-      image: "Màu sắc có thể khác thực tế.",
-      legal: "Hàng chính hãng Nike."
-    },
-
-    rating: 4.7,
-    reviewCount: 58,
-    sold: 340,
-    views: 2600,
-
-    badges: ["hot"],
-    status: "active",
-
-    seo: {
-      title: "Nike Air Zoom Pegasus 39",
-      description: "Giày chạy bộ Nike chính hãng."
-    },
-
-    createdAt: "2026-01-02T08:00:00Z",
-    updatedAt: "2026-01-06T10:00:00Z"
-  },
-
-  {
-    id: "p003",
-    sku: "ADIDAS-003",
-    name: "Adidas Ultraboost Light",
-    slug: "adidas-ultraboost-light",
-    brand: "Adidas",
-    categoryId: "cat_sneaker_nam",
-
-    price: "3,990,000",
-    originalPrice: "4,500,000",
-    discountPercent: 11,
-
-    thumbnail: "https://images.unsplash.com/photo-1549298916-b41d501d3772",
-    images: [
-      "https://images.unsplash.com/photo-1549298916-b41d501d3772",
-      "https://images.unsplash.com/photo-1579338559194-a162d19bf842",
-      "https://images.unsplash.com/photo-1606813902917-0b6f6f1e3b68"
-    ],
-
-    variants: [
-      {
-        color: "Xám",
-        colorCode: "#999999",
-        sizes: [
-          { size: "40", stock: 3 },
-          { size: "41", stock: 4 },
-          { size: "42", stock: 2 }
-        ]
-      }
-    ],
-
-    shortDescription: "Giày chạy bộ cao cấp Adidas.",
-    description: "Ultraboost Light mang lại độ đàn hồi và êm ái vượt trội.",
-
-    specifications: {
-      material: "Primeknit",
-      sole: "Boost",
-      fit: "Regular fit",
-      style: "Running",
-      gender: "Nam"
-    },
-
-    disclaimer: {
-      image: "Hình ảnh mang tính minh họa.",
-      legal: "Sản phẩm chính hãng Adidas."
+      image: "Hình ảnh sản phẩm có thể chênh lệch màu sắc do ánh sáng.",
+      legal: "Sản phẩm chính hãng Nike, bảo hành theo chính sách hãng."
     },
 
     rating: 4.8,
-    reviewCount: 76,
-    sold: 180,
-    views: 2300,
+    reviewCount: 96,
+    sold: 530,
+    views: 3420,
 
-    badges: ["premium"],
+    badges: ["sale", "hot"],
     status: "active",
 
     seo: {
-      title: "Adidas Ultraboost Light",
-      description: "Giày chạy bộ cao cấp Adidas."
+      title: "Nike Giannis Freak 6 EP Black Red Chính Hãng",
+      description:
+        "Giày bóng rổ Nike Giannis Freak 6 EP Black/Red chính hãng, độ bám cao, hỗ trợ bứt tốc mạnh mẽ."
     },
 
-    createdAt: "2026-01-03T08:00:00Z",
-    updatedAt: "2026-01-07T10:00:00Z"
+    createdAt: "2026-02-10T09:00:00Z",
+    updatedAt: "2026-02-15T11:30:00Z"
+  },
+
+
+  {
+    id: "p003",
+    sku: "HF1556-003",
+    name: "Nike Pegasus 41 - Gunsmoke",
+    slug: "nike-pegasus-41-gunsmoke",
+    brand: "Nike",
+    categoryId: "cat_running",
+
+    price: 1915000,
+    originalPrice: 3830000,
+    discountPercent: 50,
+
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771337130/Nike_Pegasus_41_-_Gunsmoke_ckhr12.jpg",
+    images: [
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771337125/Nike_Pegasus_41_-_Gunsmoke_gm3df4.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771337139/Nike_Pegasus_41_-_Gunsmoke_cranqf.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771337143/Nike_Pegasus_41_-_Gunsmoke_krblqc.jpg"
+    ],
+
+    variants: [
+      {
+        color: "Gunsmoke / Cool Grey / Pure Platinum / White",
+        colorCode: "#6e6e6e",
+        sizes: [
+          { size: "44.5", stock: 6 },
+          { size: "45", stock: 4 }
+        ]
+      }
+    ],
+
+    shortDescription: "Giày chạy bộ Nike Pegasus 41 - Gunsmoke với đệm Air Zoom kép, nhẹ và phản hồi nhanh.",
+
+    description: "Nike Pegasus 41 mang lại cảm giác êm ái và phản hồi năng lượng vượt trội cho các buổi chạy hàng ngày.",
+
+    specifications: {
+      weight: "Approx. 297g (men's size 9)",
+      heelToToeDrop: "10mm",
+      cushioning: "Dual Air Zoom + ReactX foam",
+      outsole: "Waffle rubber",
+      style: "Running",
+      gender: "Men",
+      origin: "Indonesia / Vietnam"
+    },
+
+    disclaimer: {
+      image: "Màu sắc thực tế có thể chênh lệch do ánh sáng và màn hình.",
+      legal: "Không dùng như thiết bị bảo hộ cá nhân (PPE)."
+    },
+
+    rating: 4.7,
+    reviewCount: 128,
+    sold: 860,
+    views: 5420,
+
+    badges: ["sale"],
+    status: "active",
+
+    seo: {
+      title: "Nike Pegasus 41 Gunsmoke Chính Hãng Giá Tốt",
+      description:
+        "Giày chạy bộ Nike Pegasus 41 Gunsmoke với đệm Air Zoom kép, ReactX foam, độ bám waffle vượt trội."
+    },
+
+    createdAt: "2026-02-17T08:30:00Z",
+    updatedAt: "2026-02-17T08:30:00Z"
   },
 
   {
     id: "p004",
-    sku: "PUMA-004",
-    name: "Puma Smash V2",
-    slug: "puma-smash-v2",
-    brand: "Puma",
-    categoryId: "cat_sneaker_nam",
+    sku: "HF2881-101",
+    name: "Nike Sabrina 3 - Mint Foam",
+    slug: "nike-sabrina-3-mint-foam",
+    brand: "Nike",
+    categoryId: "cat_basketball",
 
-    price: "1,350,000",
-    originalPrice: "1,650,000",
-    discountPercent: 18,
+    price: 2300000,
+    originalPrice: 3830000,
+    discountPercent: 40,
 
-    thumbnail: "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f",
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771337362/Nike_Pegasus_41_-_Ole_Miss_axtkdf.jpg",
     images: [
-      "https://images.unsplash.com/photo-1519744792095-2f2205e87b6f",
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9",
-      "https://images.unsplash.com/photo-1528701800489-20be3c3ea9c9"
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771337370/Nike_Pegasus_41_-_Ole_Miss_mscntd.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771337376/Nike_Pegasus_41_-_Ole_Miss_b1wck6.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771337382/Nike_Pegasus_41_-_Ole_Miss_tqui8c.jpg"
     ],
 
     variants: [
       {
-        color: "Trắng",
-        colorCode: "#FFFFFF",
+        color: "White / Mint Foam / Metallic Silver",
+        colorCode: "#dff5f1",
         sizes: [
-          { size: "39", stock: 7 },
-          { size: "40", stock: 6 }
+          { size: "40", stock: 6 },
+          { size: "40.5", stock: 5 },
+          { size: "41", stock: 7 },
+          { size: "42", stock: 4 },
+          { size: "42.5", stock: 3 }
         ]
       }
     ],
 
-    shortDescription: "Giày sneaker Puma phong cách tối giản.",
-    description: "Puma Smash V2 phù hợp đi học, đi làm.",
+    shortDescription: "Giày bóng rổ Nike Sabrina 3 - Mint Foam, nhẹ, ôm chân và hỗ trợ chuyển hướng linh hoạt.",
+
+    description: "Nike Sabrina 3 được thiết kế để theo kịp lối chơi tốc độ cao và khả năng kiểm soát bóng linh hoạt.",
 
     specifications: {
-      material: "Da tổng hợp",
-      sole: "Cao su",
-      fit: "Regular fit",
-      style: "Casual",
-      gender: "Nam"
+      cushioning: "Forefoot Air Zoom",
+      midsole: "Dual-density foam",
+      outsole: "Multidirectional traction pattern",
+      upper: "Engineered mesh with cable support",
+      style: "Basketball",
+      gender: "Unisex",
+      shownColor: "White / Mint Foam / Metallic Silver"
     },
 
     disclaimer: {
-      image: "Ảnh chỉ mang tính minh họa.",
-      legal: "Hàng chính hãng Puma."
+      image: "Màu sắc có thể chênh lệch do ánh sáng và màn hình.",
+      legal: "Sản phẩm chính hãng Nike, bảo hành theo chính sách hãng."
     },
 
-    rating: 4.4,
-    reviewCount: 29,
-    sold: 140,
-    views: 1100,
+    rating: 4.6,
+    reviewCount: 74,
+    sold: 420,
+    views: 3100,
 
-    badges: [],
+    badges: ["sale"],
     status: "active",
 
     seo: {
-      title: "Puma Smash V2",
-      description: "Giày Puma chính hãng."
+      title: "Nike Sabrina 3 Mint Foam Chính Hãng Giá Tốt",
+      description:
+        "Giày bóng rổ Nike Sabrina 3 Mint Foam chính hãng, nhẹ, ôm chân và hỗ trợ đổi hướng linh hoạt."
     },
 
-    createdAt: "2026-01-04T08:00:00Z",
-    updatedAt: "2026-01-08T10:00:00Z"
+    createdAt: "2026-02-17T10:00:00Z",
+    updatedAt: "2026-02-17T10:00:00Z"
   },
 
   {
     id: "p005",
-    sku: "CONVERSE-005",
-    name: "Converse Chuck Taylor Classic",
-    slug: "converse-chuck-taylor-classic",
-    brand: "Converse",
-    categoryId: "cat_sneaker_nam",
+    sku: "HF2881-101",
+    name: "Nike Sabrina 3 - Mint Foam",
+    slug: "nike-sabrina-3-mint-foam",
+    brand: "Nike",
+    categoryId: "cat_basketball",
 
-    price: "1,250,000",
-    originalPrice: "1,450,000",
-    discountPercent: 14,
+    price: 2300000,
+    originalPrice: 3830000,
+    discountPercent: 40,
 
-    thumbnail: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771337279/Nike_Sabrina_3_-_Mint_Foam_qisu6n.jpg",
     images: [
-      "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f",
-      "https://images.unsplash.com/photo-1512436991641-6745cdb1723f",
-      "https://images.unsplash.com/photo-1539185441755-769473a23570"
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771337292/Nike_Sabrina_3_-_Mint_Foam_tej4o1.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771337286/Nike_Sabrina_3_-_Mint_Foam_cysmhn.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771337298/Nike_Sabrina_3_-_Mint_Foam_mmhe05.jpg"
     ],
 
     variants: [
       {
-        color: "Đen",
-        colorCode: "#000000",
+        color: "White / Mint Foam / Metallic Silver",
+        colorCode: "#dff5f1",
         sizes: [
-          { size: "39", stock: 5 },
-          { size: "40", stock: 7 }
+          { size: "40", stock: 6 },
+          { size: "40.5", stock: 5 },
+          { size: "41", stock: 7 },
+          { size: "42", stock: 4 },
+          { size: "42.5", stock: 3 }
         ]
       }
     ],
 
-    shortDescription: "Giày Converse cổ điển.",
-    description: "Chuck Taylor biểu tượng thời trang vượt thời gian.",
+    shortDescription: "Giày bóng rổ Nike Sabrina 3 - Mint Foam, nhẹ, ôm chân và hỗ trợ chuyển hướng linh hoạt.",
+    description: "Nike Sabrina 3 được thiết kế để theo kịp lối chơi tốc độ cao và khả năng kiểm soát bóng linh hoạt.",
 
     specifications: {
-      material: "Canvas",
-      sole: "Cao su",
-      fit: "Regular fit",
-      style: "Classic",
-      gender: "Unisex"
+      cushioning: "Forefoot Air Zoom",
+      midsole: "Dual-density foam",
+      outsole: "Multidirectional traction pattern",
+      upper: "Engineered mesh with cable support",
+      style: "Basketball",
+      gender: "Unisex",
+      shownColor: "White / Mint Foam / Metallic Silver"
     },
 
     disclaimer: {
-      image: "Hình ảnh mang tính minh họa.",
-      legal: "Sản phẩm chính hãng Converse."
+      image: "Màu sắc có thể chênh lệch do ánh sáng và màn hình.",
+      legal: "Sản phẩm chính hãng Nike, bảo hành theo chính sách hãng."
     },
 
     rating: 4.6,
-    reviewCount: 65,
-    sold: 500,
-    views: 4200,
+    reviewCount: 74,
+    sold: 420,
+    views: 3100,
 
-    badges: ["best-seller"],
+    badges: ["sale"],
     status: "active",
 
     seo: {
-      title: "Converse Chuck Taylor",
-      description: "Giày Converse cổ điển chính hãng."
+      title: "Nike Sabrina 3 Mint Foam Chính Hãng Giá Tốt",
+      description:
+        "Giày bóng rổ Nike Sabrina 3 Mint Foam chính hãng, nhẹ, ôm chân và hỗ trợ đổi hướng linh hoạt."
     },
 
-    createdAt: "2026-01-05T08:00:00Z",
-    updatedAt: "2026-01-09T10:00:00Z"
+    createdAt: "2026-02-17T10:00:00Z",
+    updatedAt: "2026-02-17T10:00:00Z"
   }
+
 ];
 
 // nhân bản + xáo trộn để đủ 20 sản phẩm
