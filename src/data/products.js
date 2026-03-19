@@ -546,7 +546,493 @@ const products = [
     reviewCount: 41,
     sold: 190,
     views: 1750,
-}
+},
+{
+    id: "prod_011",
+
+    name: "Giày Chạy Bộ Nike Vomero 18 Nữ",
+    slug: "giay-chay-bo-nike-vomero-18-nu",
+    brand: "Nike",
+    categoryId: ["cat_sneaker_nu"],
+
+    price: "2,555,000",
+    originalPrice: "4,250,000",
+    discountPercent: 40,
+
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771338095/Nike_Vomero_18_-_White_Electric_Green_qpsth6.png",
+    images: [
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338105/Nike_Vomero_18_-_White_Electric_Green_otjkf2.png",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338100/Nike_Vomero_18_-_White_Electric_Green_ntjo7u.png",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338113/Nike_Vomero_18_-_White_Electric_Green_hfplhu.png"
+    ],
+
+    variants: [
+      {
+        color: "White / Electric Green",
+        sizes: [{ size: "36", stock: 8 }]
+      }
+    ],
+
+    shortDescription: "Giày chạy bộ nữ đệm êm tối đa với ZoomX và ReactX.",
+
+    description: "Nike Vomero 18 mang lại trải nghiệm chạy êm ái với công nghệ ZoomX kết hợp ReactX, phù hợp cho chạy bộ hằng ngày và quãng đường dài.",
+
+    specifications: {
+      material: "Engineered mesh",
+      sole: "Rubber",
+      fit: "Regular fit",
+      style: "Running",
+      gender: "Nữ"
+    },
+
+    rating: 4.8,
+    reviewCount: 36,
+    sold: 185,
+    views: 1420,
+},
+{
+    id: "prod_012",
+
+    name: "Giày Bóng Rổ Nike Giannis Freak 6 EP Unisex",
+    slug: "giay-bong-ro-nike-giannis-freak-6-ep",
+    brand: "Nike",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "1,725,000",
+    originalPrice: "3,830,000",
+    discountPercent: 55,
+
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771336053/Nike_Giannis_Freak_6_EP_-_White_sxaz4w.png",
+    images: [
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771336082/Nike_Giannis_Freak_6_EP_-_White_fdxzjc.png",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771336113/Nike_Giannis_Freak_6_EP_-_White_d24kna.png",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771336125/Nike_Giannis_Freak_6_EP_-_White_jgdrp1.png"
+    ],
+
+    variants: [
+      {
+        color: "Black / Red",
+        sizes: [
+          { size: "40", stock: 5 },
+          { size: "41", stock: 6 },
+          { size: "42", stock: 4 }
+        ]
+      }
+    ],
+
+    shortDescription: "Giày bóng rổ hiệu suất cao, hỗ trợ chuyển hướng nhanh.",
+
+    description: "Nike Giannis Freak 6 EP được thiết kế cho tốc độ và sự linh hoạt, giúp kiểm soát tốt trong các pha bứt tốc.",
+
+    specifications: {
+      material: "Engineered mesh",
+      sole: "Rubber",
+      fit: "Regular fit",
+      style: "Basketball",
+      gender: "Unisex"
+    },
+
+    rating: 4.8,
+    reviewCount: 96,
+    sold: 530,
+    views: 3420,
+},
+{
+    id: "prod_013",
+
+    name: "Giày Chạy Bộ Nike Pegasus 41 Nam",
+    slug: "giay-chay-bo-nike-pegasus-41-nam",
+    brand: "Nike",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "1,915,000",
+    originalPrice: "3,830,000",
+    discountPercent: 50,
+
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771337130/Nike_Pegasus_41_-_Gunsmoke_ckhr12.jpg",
+    images: [
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771337125/Nike_Pegasus_41_-_Gunsmoke_gm3df4.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771337139/Nike_Pegasus_41_-_Gunsmoke_cranqf.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771337143/Nike_Pegasus_41_-_Gunsmoke_krblqc.jpg"
+    ],
+
+    variants: [
+      {
+        color: "Gunsmoke",
+        sizes: [
+          { size: "44.5", stock: 6 },
+          { size: "45", stock: 4 }
+        ]
+      }
+    ],
+
+    shortDescription: "Giày chạy bộ nam nhẹ, phản hồi tốt với Air Zoom.",
+
+    description: "Nike Pegasus 41 mang lại độ êm và phản hồi năng lượng tốt, phù hợp cho chạy bộ hằng ngày.",
+
+    specifications: {
+      material: "Engineered mesh",
+      sole: "Rubber",
+      fit: "Regular fit",
+      style: "Running",
+      gender: "Nam"
+    },
+
+    rating: 4.7,
+    reviewCount: 128,
+    sold: 860,
+    views: 5420,
+},
+{
+    id: "prod_014",
+
+    name: "Giày Bóng Rổ Nike Sabrina 3 Unisex",
+    slug: "giay-bong-ro-nike-sabrina-3",
+    brand: "Nike",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "2,300,000",
+    originalPrice: "3,830,000",
+    discountPercent: 40,
+
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771337279/Nike_Sabrina_3_-_Mint_Foam_qisu6n.jpg",
+    images: [
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771337292/Nike_Sabrina_3_-_Mint_Foam_tej4o1.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771337286/Nike_Sabrina_3_-_Mint_Foam_cysmhn.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771337298/Nike_Sabrina_3_-_Mint_Foam_mmhe05.jpg"
+    ],
+
+    variants: [
+      {
+        color: "White / Mint Foam",
+        sizes: [
+          { size: "40", stock: 6 },
+          { size: "41", stock: 7 }
+        ]
+      }
+    ],
+
+    shortDescription: "Giày bóng rổ nhẹ, ôm chân và linh hoạt.",
+
+    description: "Nike Sabrina 3 được thiết kế cho lối chơi tốc độ cao và khả năng kiểm soát bóng tối ưu.",
+
+    specifications: {
+      material: "Engineered mesh",
+      sole: "Rubber",
+      fit: "Regular fit",
+      style: "Basketball",
+      gender: "Unisex"
+    },
+
+    rating: 4.6,
+    reviewCount: 74,
+    sold: 420,
+    views: 3100,
+},
+{
+    id: "prod_015",
+
+    name: "Giày Thể Thao Adidas Samba OG Unisex",
+    slug: "giay-the-thao-adidas-samba-og",
+    brand: "Adidas",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "1,360,000",
+    originalPrice: "1,700,000",
+    discountPercent: 20,
+
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771338752/adidas_Samba_OG_Junior_-_Cloud_White_Ash_Blue_brcghy.jpg",
+    images: [
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338757/adidas_Samba_OG_Junior_-_Cloud_White_Ash_Blue_ncjowq.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338763/adidas_Samba_OG_Junior_-_Cloud_White_Ash_Blue_aahvw9.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338771/adidas_Samba_OG_Junior_-_Cloud_White_Ash_Blue_l1q5yb.jpg"
+    ],
+
+    variants: [
+      {
+        color: "White / Blue",
+        sizes: [{ size: "36", stock: 10 }]
+      }
+    ],
+
+    shortDescription: "Giày sneaker cổ điển với thiết kế Samba iconic.",
+
+    description: "Adidas Samba OG mang phong cách retro với đế gum đặc trưng và form dáng dễ phối đồ.",
+
+    specifications: {
+      material: "Leather",
+      sole: "Gum rubber",
+      fit: "Regular fit",
+      style: "Lifestyle",
+      gender: "Unisex"
+    },
+
+    rating: 4.6,
+    reviewCount: 52,
+    sold: 260,
+    views: 2100,
+},
+{
+    id: "prod_016",
+
+    name: "Giày Thể Thao Adidas Japan Unisex",
+    slug: "giay-the-thao-adidas-japan-red",
+    brand: "Adidas",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "1,740,000",
+    originalPrice: "2,900,000",
+    discountPercent: 40,
+
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771338780/adidas_Japan_-_Red_kfv0yu.jpg",
+    images: [
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338786/adidas_Japan_-_Red_twal3e.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338793/adidas_Japan_-_Red_lkmlxf.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338800/adidas_Japan_-_Red_ipzoc4.jpg"
+    ],
+
+    variants: [
+      {
+        color: "Red",
+        sizes: [
+          { size: "38.5", stock: 5 },
+          { size: "41", stock: 6 }
+        ]
+      }
+    ],
+
+    shortDescription: "Giày sneaker retro phong cách Nhật Bản cổ điển.",
+
+    description: "Adidas Japan mang thiết kế vintage từ thập niên 60, phù hợp phong cách streetwear hiện đại.",
+
+    specifications: {
+      material: "Leather",
+      sole: "Rubber",
+      fit: "Regular fit",
+      style: "Lifestyle",
+      gender: "Unisex"
+    },
+
+    rating: 4.5,
+    reviewCount: 40,
+    sold: 210,
+    views: 1800,
+},
+{
+    id: "prod_017",
+
+    name: "Giày Thể Thao Adidas x Bad Bunny Gazelle Indoor Unisex",
+    slug: "giay-the-thao-adidas-bad-bunny-gazelle-indoor",
+    brand: "Adidas",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "1,980,000",
+    originalPrice: "3,600,000",
+    discountPercent: 45,
+
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771338806/Bad_Bunny_x_adidas_Gazelle_Indoor_-_Cabo_Rojo_mejacx.jpg",
+    images: [
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338812/Bad_Bunny_x_adidas_Gazelle_Indoor_-_Cabo_Rojo_umlgdx.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338818/Bad_Bunny_x_adidas_Gazelle_Indoor_-_Cabo_Rojo_vwewmo.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338823/Bad_Bunny_x_adidas_Gazelle_Indoor_-_Cabo_Rojo_mbkqra.jpg"
+    ],
+
+    variants: [
+      {
+        color: "Pink",
+        sizes: [{ size: "36.5", stock: 4 }]
+      }
+    ],
+
+    shortDescription: "Giày collab Bad Bunny với thiết kế độc đáo và nổi bật.",
+
+    description: "Adidas Gazelle Indoor phiên bản Bad Bunny mang phong cách thời trang cá tính, chất liệu cao cấp.",
+
+    specifications: {
+      material: "Leather + textile",
+      sole: "Rubber",
+      fit: "Regular fit",
+      style: "Collab",
+      gender: "Unisex"
+    },
+
+    rating: 4.7,
+    reviewCount: 58,
+    sold: 240,
+    views: 2000,
+},
+{
+    id: "prod_018",
+
+    name: "Giày Thể Thao Adidas Japan Wales Bonner Unisex",
+    slug: "giay-the-thao-adidas-japan-wales-bonner",
+    brand: "Adidas",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "2,600,000",
+    originalPrice: "2,600,000",
+    discountPercent: 0,
+
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771338830/adidas_Japan_Wales_Bonner_-_Light_Purple_hk3cao.jpg",
+    images: [
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338837/adidas_Japan_Wales_Bonner_-_Light_Purple_zeild9.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338845/adidas_Japan_Wales_Bonner_-_Light_Purple_yd0f5i.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338852/adidas_Japan_Wales_Bonner_-_Light_Purple_g71wji.jpg"
+    ],
+
+    variants: [
+      {
+        color: "Purple",
+        sizes: [{ size: "43", stock: 3 }]
+      }
+    ],
+
+    shortDescription: "Giày collab cao cấp với thiết kế tinh tế.",
+
+    description: "Adidas Japan Wales Bonner kết hợp phong cách cổ điển và thời trang cao cấp.",
+
+    specifications: {
+      material: "Leather",
+      sole: "Rubber",
+      fit: "Regular fit",
+      style: "Collab",
+      gender: "Unisex"
+    },
+
+    rating: 4.6,
+    reviewCount: 22,
+    sold: 90,
+    views: 900,
+},
+{
+    id: "prod_019",
+
+    name: "Giày Thể Thao Adidas Blanc Unisex",
+    slug: "giay-the-thao-adidas-blanc-brown",
+    brand: "Adidas",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "1,500,000",
+    originalPrice: "1,500,000",
+    discountPercent: 0,
+
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771338858/adidas_Blanc_-_Brown_nut3fj.jpg",
+    images: [
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338864/adidas_Blanc_-_Brown_j8jt3v.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338871/adidas_Blanc_-_Brown_q8aoxm.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771338878/adidas_Blanc_-_Brown_iubn0m.jpg"
+    ],
+
+    variants: [
+      {
+        color: "Brown",
+        sizes: [{ size: "36", stock: 8 }]
+      }
+    ],
+
+    shortDescription: "Giày sneaker tối giản, dễ phối đồ.",
+
+    description: "Adidas Blanc mang phong cách basic với chất liệu da cao cấp.",
+
+    specifications: {
+      material: "Leather",
+      sole: "Rubber",
+      fit: "Regular fit",
+      style: "Lifestyle",
+      gender: "Unisex"
+    },
+
+    rating: 4.4,
+    reviewCount: 30,
+    sold: 150,
+    views: 1200,
+},
+{
+    id: "prod_020",
+    name: "Giày Thể Thao Biti's Hunter EZ Lift Nam",
+    slug: "giay-the-thao-bitis-hunter-ez-lift-nam",
+    brand: "Biti's",
+    categoryId: ["cat_sneaker_nam"],
+    price: "1,295,000",
+    originalPrice: "1,295,000",
+    discountPercent: 0,
+    thumbnail: "...",
+    images: ["..."],
+    variants: [{ color: "Orange", sizes: [{ size: "40", stock: 3 }] }],
+    shortDescription: "Giày thể thao năng động, đế êm nhẹ.",
+    description: "Thiết kế hiện đại, phù hợp đi học và đi chơi.",
+    specifications: { material: "Mesh", sole: "EVA + Rubber", fit: "Regular fit", style: "Lifestyle", gender: "Nam" },
+    rating: 4.3, reviewCount: 25, sold: 140, views: 1100
+},
+{
+    id: "prod_021",
+    name: "Giày Thể Thao Biti's Hunter Evo Đen Nam",
+    slug: "giay-the-thao-bitis-hunter-evo-den",
+    brand: "Biti's",
+    categoryId: ["cat_sneaker_nam"],
+    price: "825,000",
+    originalPrice: "825,000",
+    discountPercent: 0,
+    thumbnail: "...",
+    images: ["..."],
+    variants: [{ color: "Black", sizes: [{ size: "42", stock: 5 }] }],
+    shortDescription: "Giày sneaker basic dễ phối.",
+    description: "Thiết kế đơn giản, phù hợp sử dụng hàng ngày.",
+    specifications: { material: "Synthetic", sole: "Rubber", fit: "Regular fit", style: "Lifestyle", gender: "Nam" },
+    rating: 4.2, reviewCount: 18, sold: 120, views: 900
+},
+{
+    id: "prod_022",
+    name: "Giày Thể Thao Biti's Hunter Evo Kem Nam",
+    slug: "giay-the-thao-bitis-hunter-evo-kem",
+    brand: "Biti's",
+    categoryId: ["cat_sneaker_nam"],
+    price: "825,000",
+    originalPrice: "825,000",
+    discountPercent: 0,
+    thumbnail: "...",
+    images: ["..."],
+    variants: [{ color: "Cream", sizes: [{ size: "42", stock: 2 }] }],
+    shortDescription: "Giày sneaker màu kem phong cách nhẹ nhàng.",
+    description: "Phù hợp phong cách casual và streetwear.",
+    specifications: { material: "Synthetic", sole: "Rubber", fit: "Regular fit", style: "Lifestyle", gender: "Nam" },
+    rating: 4.2, reviewCount: 15, sold: 90, views: 700
+},
+{
+    id: "prod_023",
+    name: "Giày Thể Thao Biti's Hunter Street 2.0 Nam",
+    slug: "giay-the-thao-bitis-hunter-street-2",
+    brand: "Biti's",
+    categoryId: ["cat_sneaker_nam"],
+    price: "715,000",
+    originalPrice: "715,000",
+    discountPercent: 0,
+    thumbnail: "...",
+    images: ["..."],
+    variants: [{ color: "Blue", sizes: [{ size: "39", stock: 1 }] }],
+    shortDescription: "Giày streetwear trẻ trung.",
+    description: "Thiết kế thấp cổ, phù hợp phong cách năng động.",
+    specifications: { material: "Canvas", sole: "Rubber", fit: "Regular fit", style: "Lifestyle", gender: "Nam" },
+    rating: 4.1, reviewCount: 12, sold: 60, views: 500
+},
+{
+    id: "prod_024",
+    name: "Giày Thể Thao Biti's Hunter Litebound Nữ",
+    slug: "giay-the-thao-bitis-hunter-litebound-nu",
+    brand: "Biti's",
+    categoryId: ["cat_sneaker_nu"],
+    price: "1,175,000",
+    originalPrice: "1,175,000",
+    discountPercent: 0,
+    thumbnail: "...",
+    images: ["..."],
+    variants: [{ color: "Pink", sizes: [{ size: "37", stock: 11 }] }],
+    shortDescription: "Giày nữ nhẹ, êm và thoải mái.",
+    description: "Thiết kế dành riêng cho nữ với độ đàn hồi tốt.",
+    specifications: { material: "Knit", sole: "EVA", fit: "Regular fit", style: "Running", gender: "Nữ" },
+    rating: 4.4, reviewCount: 28, sold: 160, views: 1300
+},
+
 
   
 ];
