@@ -949,89 +949,866 @@ const products = [
 },
 {
     id: "prod_020",
+
     name: "Giày Thể Thao Biti's Hunter EZ Lift Nam",
     slug: "giay-the-thao-bitis-hunter-ez-lift-nam",
     brand: "Biti's",
     categoryId: ["cat_sneaker_nam"],
+
     price: "1,295,000",
     originalPrice: "1,295,000",
     discountPercent: 0,
-    thumbnail: "...",
-    images: ["..."],
-    variants: [{ color: "Orange", sizes: [{ size: "40", stock: 3 }] }],
+
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771339712/Cam_suqmki.jpg",
+    images: [
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339718/Cam_l3i5bg.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339724/Cam_gjlebx.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339731/Cam_btrbmu.jpg"
+    ],
+
+    variants: [
+      {
+        color: "Cam",
+        sizes: [
+          { size: "39", stock: 4 },
+          { size: "40", stock: 3 },
+          { size: "41", stock: 3 },
+          { size: "42", stock: 2 },
+          { size: "43", stock: 1 },
+          { size: "44", stock: 1 }
+        ]
+      }
+    ],
+
     shortDescription: "Giày thể thao năng động, đế êm nhẹ.",
-    description: "Thiết kế hiện đại, phù hợp đi học và đi chơi.",
-    specifications: { material: "Mesh", sole: "EVA + Rubber", fit: "Regular fit", style: "Lifestyle", gender: "Nam" },
-    rating: 4.3, reviewCount: 25, sold: 140, views: 1100
+
+    description: "Thiết kế hiện đại với upper lưới thoáng khí, đế êm giúp di chuyển linh hoạt cả ngày.",
+
+    specifications: {
+      material: "Mesh",
+      sole: "EVA + Rubber",
+      fit: "Regular fit",
+      style: "Lifestyle",
+      gender: "Nam"
+    },
+
+    rating: 4.3,
+    reviewCount: 25,
+    sold: 140,
+    views: 1100,
 },
 {
     id: "prod_021",
+
     name: "Giày Thể Thao Biti's Hunter Evo Đen Nam",
     slug: "giay-the-thao-bitis-hunter-evo-den",
     brand: "Biti's",
     categoryId: ["cat_sneaker_nam"],
+
     price: "825,000",
     originalPrice: "825,000",
     discountPercent: 0,
-    thumbnail: "...",
-    images: ["..."],
-    variants: [{ color: "Black", sizes: [{ size: "42", stock: 5 }] }],
+
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771339740/en_ynwu30.jpg",
+    images: [
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339745/en_lkygqm.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339752/en_of36nu.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339757/en_zy4l57.jpg"
+    ],
+
+    variants: [
+      {
+        color: "Đen",
+        sizes: [
+          { size: "40", stock: 6 },
+          { size: "41", stock: 5 },
+          { size: "42", stock: 5 },
+          { size: "43", stock: 4 },
+          { size: "44", stock: 3 },
+          { size: "45", stock: 3 }
+        ]
+      }
+    ],
+
     shortDescription: "Giày sneaker basic dễ phối.",
-    description: "Thiết kế đơn giản, phù hợp sử dụng hàng ngày.",
-    specifications: { material: "Synthetic", sole: "Rubber", fit: "Regular fit", style: "Lifestyle", gender: "Nam" },
-    rating: 4.2, reviewCount: 18, sold: 120, views: 900
+
+    description: "Thiết kế đơn giản, form cổ điển phù hợp sử dụng hàng ngày.",
+
+    specifications: {
+      material: "Synthetic leather",
+      sole: "Rubber",
+      fit: "Regular fit",
+      style: "Lifestyle",
+      gender: "Nam"
+    },
+
+    rating: 4.2,
+    reviewCount: 18,
+    sold: 120,
+    views: 900,
 },
 {
     id: "prod_022",
+
     name: "Giày Thể Thao Biti's Hunter Evo Kem Nam",
     slug: "giay-the-thao-bitis-hunter-evo-kem",
     brand: "Biti's",
     categoryId: ["cat_sneaker_nam"],
+
     price: "825,000",
     originalPrice: "825,000",
     discountPercent: 0,
-    thumbnail: "...",
-    images: ["..."],
-    variants: [{ color: "Cream", sizes: [{ size: "42", stock: 2 }] }],
+
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771339763/Kem_i5qmgs.jpg",
+    images: [
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339768/Kem_lf05bf.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339774/Kem_ucn2cj.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339779/Kem_e9makz.jpg"
+    ],
+
+    variants: [
+      {
+        color: "Kem",
+        sizes: [
+          { size: "40", stock: 2 },
+          { size: "41", stock: 2 },
+          { size: "42", stock: 2 },
+          { size: "43", stock: 1 },
+          { size: "44", stock: 1 },
+          { size: "45", stock: 1 }
+        ]
+      }
+    ],
+
     shortDescription: "Giày sneaker màu kem phong cách nhẹ nhàng.",
-    description: "Phù hợp phong cách casual và streetwear.",
-    specifications: { material: "Synthetic", sole: "Rubber", fit: "Regular fit", style: "Lifestyle", gender: "Nam" },
-    rating: 4.2, reviewCount: 15, sold: 90, views: 700
+
+    description: "Phối màu kem nâu phù hợp phong cách casual và streetwear.",
+
+    specifications: {
+      material: "Synthetic leather",
+      sole: "Rubber",
+      fit: "Regular fit",
+      style: "Lifestyle",
+      gender: "Nam"
+    },
+
+    rating: 4.2,
+    reviewCount: 15,
+    sold: 90,
+    views: 700,
 },
 {
     id: "prod_023",
+
     name: "Giày Thể Thao Biti's Hunter Street 2.0 Nam",
     slug: "giay-the-thao-bitis-hunter-street-2",
     brand: "Biti's",
     categoryId: ["cat_sneaker_nam"],
+
     price: "715,000",
     originalPrice: "715,000",
     discountPercent: 0,
-    thumbnail: "...",
-    images: ["..."],
-    variants: [{ color: "Blue", sizes: [{ size: "39", stock: 1 }] }],
+
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771339786/Xanh_Nht_f2dzzv.jpg",
+    images: [
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339793/Xanh_Nht_wttjmj.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339800/Xanh_Nht_zmbwqw.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339811/Xanh_Nht_jbh2sd.jpg"
+    ],
+
+    variants: [
+      {
+        color: "Xanh",
+        sizes: [
+          { size: "39", stock: 1 },
+          { size: "40", stock: 0 },
+          { size: "41", stock: 0 },
+          { size: "42", stock: 0 }
+        ]
+      }
+    ],
+
     shortDescription: "Giày streetwear trẻ trung.",
-    description: "Thiết kế thấp cổ, phù hợp phong cách năng động.",
-    specifications: { material: "Canvas", sole: "Rubber", fit: "Regular fit", style: "Lifestyle", gender: "Nam" },
-    rating: 4.1, reviewCount: 12, sold: 60, views: 500
+
+    description: "Thiết kế thấp cổ phù hợp phong cách năng động và di chuyển hằng ngày.",
+
+    specifications: {
+      material: "Canvas + synthetic",
+      sole: "Rubber",
+      fit: "Regular fit",
+      style: "Lifestyle",
+      gender: "Nam"
+    },
+
+    rating: 4.1,
+    reviewCount: 12,
+    sold: 60,
+    views: 500,
 },
 {
     id: "prod_024",
+
     name: "Giày Thể Thao Biti's Hunter Litebound Nữ",
     slug: "giay-the-thao-bitis-hunter-litebound-nu",
     brand: "Biti's",
     categoryId: ["cat_sneaker_nu"],
+
     price: "1,175,000",
     originalPrice: "1,175,000",
     discountPercent: 0,
-    thumbnail: "...",
-    images: ["..."],
-    variants: [{ color: "Pink", sizes: [{ size: "37", stock: 11 }] }],
+
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771339816/Hng_zryhxb.jpg",
+    images: [
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339824/Hng_azmbid.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339829/Hng_rdfbp2.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339835/Hng_zdiuv2.jpg"
+    ],
+
+    variants: [
+      {
+        color: "Hồng",
+        sizes: [
+          { size: "36", stock: 12 },
+          { size: "37", stock: 11 },
+          { size: "38", stock: 10 },
+          { size: "39", stock: 11 }
+        ]
+      }
+    ],
+
     shortDescription: "Giày nữ nhẹ, êm và thoải mái.",
-    description: "Thiết kế dành riêng cho nữ với độ đàn hồi tốt.",
-    specifications: { material: "Knit", sole: "EVA", fit: "Regular fit", style: "Running", gender: "Nữ" },
-    rating: 4.4, reviewCount: 28, sold: 160, views: 1300
+
+    description: "Thiết kế dành riêng cho nữ với đế Litebound đàn hồi và upper thoáng khí.",
+
+    specifications: {
+      material: "Knit fabric",
+      sole: "EVA",
+      fit: "Regular fit",
+      style: "Running",
+      gender: "Nữ"
+    },
+
+    rating: 4.4,
+    reviewCount: 28,
+    sold: 160,
+    views: 1300,
 },
+{
+    id: "prod_025",
+
+    name: "Giày Thể Thao Biti's Hunter Litebound Nữ",
+    slug: "giay-the-thao-bitis-hunter-litebound-nu",
+    brand: "Biti's",
+    categoryId: ["cat_sneaker_nu"],
+
+    price: "1,175,000",
+    originalPrice: "1,175,000",
+    discountPercent: 0,
+
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771339816/Hng_zryhxb.jpg",
+    images: [
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339824/Hng_azmbid.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339829/Hng_rdfbp2.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339835/Hng_zdiuv2.jpg"
+    ],
+
+    variants: [
+      {
+        color: "Hồng",
+        sizes: [
+          { size: "36", stock: 12 },
+          { size: "37", stock: 11 },
+          { size: "38", stock: 10 },
+          { size: "39", stock: 11 }
+        ]
+      }
+    ],
+
+    shortDescription: "Giày nữ nhẹ, êm và thoải mái.",
+    description: "Thiết kế dành riêng cho nữ với đế Litebound đàn hồi và upper thoáng khí.",
+
+    specifications: {
+      material: "Knit fabric",
+      sole: "EVA",
+      fit: "Regular fit",
+      style: "Running",
+      gender: "Nữ"
+    },
+
+    rating: 4.4,
+    reviewCount: 28,
+    sold: 160,
+    views: 1300,
+  },
+
+  {
+    id: "prod_026",
+    name: "Giày Thể Thao Balenciaga Runner Unisex",
+    slug: "giay-the-thao-balenciaga-runner-white-black",
+    brand: "Balenciaga",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "18,500,000",
+    originalPrice: "22,000,000",
+    discountPercent: 16,
+
+    thumbnail: "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773925869/runner3_lnicej.jpg",
+    images: [
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773925869/runner4_iivfp2.jpg",
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773925869/runner1_pixxvo.jpg",
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773925869/runner2_y3yrep.jpg"
+    ],
+
+    variants: [
+      {
+        color: "White / Black",
+        sizes: [{ size: "42", stock: 5 }]
+      }
+    ],
+
+    shortDescription: "Giày chunky cao cấp mang phong cách luxury streetwear.",
+    description: "Balenciaga Runner sở hữu thiết kế hầm hố đặc trưng, kết hợp nhiều lớp vật liệu.",
+
+    specifications: {
+      material: "Mesh + synthetic",
+      sole: "Rubber",
+      fit: "Regular fit",
+      style: "Luxury",
+      gender: "Unisex"
+    },
+
+    rating: 4.7,
+    reviewCount: 32,
+    sold: 120,
+    views: 1400,
+  },
+
+  {
+    id: "prod_027",
+    name: "Giày Thể Thao Balenciaga Track 2 Unisex",
+    slug: "giay-the-thao-balenciaga-track-2-grey",
+    brand: "Balenciaga",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "21,000,000",
+    originalPrice: "25,000,000",
+    discountPercent: 16,
+
+    thumbnail: "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773925990/track1_rkcmzo.jpg",
+    images: [
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773925990/track2_snjgho.jpg",
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773925990/track4_glsd5x.jpg",
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773925990/track3_vx7qyh.jpg"
+    ],
+
+    variants: [
+      {
+        color: "Grey",
+        sizes: [{ size: "41", stock: 6 }]
+      }
+    ],
+
+    shortDescription: "Giày luxury nhiều lớp với thiết kế phức tạp.",
+    description: "Balenciaga Track 2 nổi bật với cấu trúc multi-layer.",
+
+    specifications: {
+      material: "Mesh + synthetic",
+      sole: "Rubber",
+      fit: "Regular fit",
+      style: "Luxury",
+      gender: "Unisex"
+    },
+
+    rating: 4.6,
+    reviewCount: 28,
+    sold: 100,
+    views: 1200,
+  },
+
+  {
+    id: "prod_028",
+    name: "Giày Thể Thao Balenciaga Triple S Unisex",
+    slug: "giay-the-thao-balenciaga-triple-s-black",
+    brand: "Balenciaga",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "19,500,000",
+    originalPrice: "24,000,000",
+    discountPercent: 18,
+
+    thumbnail: "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926104/trippe2_opqsxf.jpg",
+    images: [
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926103/trippe1_gm27xj.jpg",
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926104/trippe3_hh2ocn.jpg",
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926104/trippe4_y1bp2o.jpg"
+    ],
+
+    variants: [
+      {
+        color: "Black",
+        sizes: [{ size: "43", stock: 4 }]
+      }
+    ],
+
+    shortDescription: "Triple S iconic với đế dày đặc trưng.",
+    description: "Balenciaga Triple S là biểu tượng chunky sneaker.",
+
+    specifications: {
+      material: "Leather + mesh",
+      sole: "Rubber",
+      fit: "Regular fit",
+      style: "Luxury",
+      gender: "Unisex"
+    },
+
+    rating: 4.8,
+    reviewCount: 45,
+    sold: 150,
+    views: 1700,
+  }
+  ,
+{
+    id: "prod_029",
+    name: "Giày Thể Thao Balenciaga Speed Trainer Unisex",
+    slug: "giay-the-thao-balenciaga-speed-trainer-black",
+    brand: "Balenciaga",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "17,500,000",
+    originalPrice: "21,000,000",
+    discountPercent: 17,
+
+    thumbnail: "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926229/speed1_jp0ozv.jpg",
+    images: [
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926229/speed2_xftdgr.jpg",
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926229/speed3_cltam8.jpg",
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926230/speed4_kodzlk.jpg"
+    ],
+
+    variants: [
+      {
+        color: "Black",
+        sizes: [{ size: "42", stock: 5 }]
+      }
+    ],
+
+    shortDescription: "Giày sock-fit ôm chân, nhẹ và linh hoạt.",
+    description: "Balenciaga Speed Trainer mang thiết kế dạng tất giúp ôm sát chân, tạo cảm giác thoải mái và hiện đại.",
+
+    specifications: {
+      material: "Knit",
+      sole: "Rubber",
+      fit: "Slim fit",
+      style: "Luxury",
+      gender: "Unisex"
+    },
+
+    rating: 4.6,
+    reviewCount: 30,
+    sold: 110,
+    views: 1300,
+},
+
+{
+    id: "prod_030",
+    name: "Giày Thể Thao Balenciaga Defender Unisex",
+    slug: "giay-the-thao-balenciaga-defender-beige",
+    brand: "Balenciaga",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "22,000,000",
+    originalPrice: "26,000,000",
+    discountPercent: 15,
+
+    thumbnail: "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926317/def1_x3mnuq.jpg",
+    images: [
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926317/def3_cxoqnj.jpg",
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926317/def2_va4cwe.jpg",
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926317/def4_pii3ci.jpg"
+    ],
+
+    variants: [
+      {
+        color: "Beige",
+        sizes: [{ size: "42", stock: 3 }]
+      }
+    ],
+
+    shortDescription: "Chunky sneaker mạnh mẽ với đế oversized.",
+    description: "Balenciaga Defender nổi bật với thiết kế hầm hố, phù hợp phong cách streetwear cao cấp.",
+
+    specifications: {
+      material: "Synthetic",
+      sole: "Rubber",
+      fit: "Regular fit",
+      style: "Luxury",
+      gender: "Unisex"
+    },
+
+    rating: 4.7,
+    reviewCount: 20,
+    sold: 80,
+    views: 900,
+},
+
+{
+    id: "prod_031",
+    name: "Giày Thể Thao Balenciaga 3XL Unisex",
+    slug: "giay-the-thao-balenciaga-3xl-white",
+    brand: "Balenciaga",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "23,000,000",
+    originalPrice: "27,000,000",
+    discountPercent: 15,
+
+    thumbnail: "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926422/xl3_sbqzwp.jpg",
+    images: [
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926422/xl2_nqiifj.jpg",
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926423/xl4_vjsh6d.jpg",
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926422/xl1_f2djxt.jpg"
+    ],
+
+    variants: [
+      {
+        color: "White",
+        sizes: [{ size: "41", stock: 4 }]
+      }
+    ],
+
+    shortDescription: "Sneaker oversized với form cực lớn.",
+    description: "Balenciaga 3XL mang phong cách thời trang cao cấp với thiết kế phóng đại độc đáo.",
+
+    specifications: {
+      material: "Mesh + synthetic",
+      sole: "Rubber",
+      fit: "Oversize fit",
+      style: "Luxury",
+      gender: "Unisex"
+    },
+
+    rating: 4.6,
+    reviewCount: 18,
+    sold: 70,
+    views: 800,
+},
+
+{
+    id: "prod_032",
+    name: "Giày Thể Thao Balenciaga Cargo Unisex",
+    slug: "giay-the-thao-balenciaga-cargo-grey",
+    brand: "Balenciaga",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "20,000,000",
+    originalPrice: "24,000,000",
+    discountPercent: 16,
+
+    thumbnail: "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926518/cargo1_fblqiq.jpg",
+    images: [
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926518/cargo2_vraqxb.jpg",
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926518/cargo3_yhlqe6.jpg",
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926522/cargo4_hkzggp.jpg"
+    ],
+
+    variants: [
+      {
+        color: "Grey",
+        sizes: [{ size: "43", stock: 3 }]
+      }
+    ],
+
+    shortDescription: "Thiết kế futuristic độc đáo.",
+    description: "Balenciaga Cargo mang phong cách hiện đại với form dáng khác biệt.",
+
+    specifications: {
+      material: "Synthetic",
+      sole: "Rubber",
+      fit: "Regular fit",
+      style: "Luxury",
+      gender: "Unisex"
+    },
+
+    rating: 4.5,
+    reviewCount: 16,
+    sold: 60,
+    views: 700,
+},
+
+{
+    id: "prod_033",
+    name: "Giày Thể Thao Balenciaga Paris Unisex",
+    slug: "giay-the-thao-balenciaga-paris-white",
+    brand: "Balenciaga",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "15,000,000",
+    originalPrice: "18,000,000",
+    discountPercent: 16,
+
+    thumbnail: "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926627/paris1_qsnd9q.webp",
+    images: [
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926627/paris2_zcomtw.jpg",
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926628/paris3_pgnv7n.jpg",
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926648/paris4_y5p823.jpg"
+    ],
+
+    variants: [
+      {
+        color: "White",
+        sizes: [{ size: "40", stock: 6 }]
+      }
+    ],
+
+    shortDescription: "Sneaker tối giản nhưng sang trọng.",
+    description: "Balenciaga Paris mang phong cách cổ điển kết hợp chất liệu cao cấp.",
+
+    specifications: {
+      material: "Canvas",
+      sole: "Rubber",
+      fit: "Regular fit",
+      style: "Luxury",
+      gender: "Unisex"
+    },
+
+    rating: 4.4,
+    reviewCount: 22,
+    sold: 100,
+    views: 900,
+},
+
+{
+    id: "prod_034",
+    name: "Giày Thể Thao Balenciaga Track LED Unisex",
+    slug: "giay-the-thao-balenciaga-track-led-black",
+    brand: "Balenciaga",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "26,000,000",
+    originalPrice: "30,000,000",
+    discountPercent: 13,
+
+    thumbnail: "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926738/led2_tbmobp.jpg",
+    images: [
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926738/led1_cxplsa.jpg",
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926738/led3_k1jnxe.jpg",
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926739/led4_a1fjp2.jpg"
+    ],
+
+    variants: [
+      {
+        color: "Black",
+        sizes: [{ size: "42", stock: 2 }]
+      }
+    ],
+
+    shortDescription: "Phiên bản sneaker tích hợp LED độc đáo.",
+    description: "Balenciaga Track LED mang phong cách công nghệ cao với thiết kế phát sáng.",
+
+    specifications: {
+      material: "Synthetic",
+      sole: "Rubber",
+      fit: "Regular fit",
+      style: "Luxury",
+      gender: "Unisex"
+    },
+
+    rating: 4.8,
+    reviewCount: 12,
+    sold: 40,
+    views: 600,
+},
+
+{
+    id: "prod_035",
+    name: "Giày Thể Thao Balenciaga Phantom Unisex",
+    slug: "giay-the-thao-balenciaga-phantom-blue",
+    brand: "Balenciaga",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "19,000,000",
+    originalPrice: "23,000,000",
+    discountPercent: 17,
+
+    thumbnail: "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926823/ptom1_i9l3kc.jpg",
+    images: [
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926825/ptom4_q7nqqv.jpg",
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926824/ptom2_n0ctuz.jpg",
+      "https://res.cloudinary.com/dnuhm9y9q/image/upload/v1773926825/ptom3_xic22e.jpg"
+    ],
+
+    variants: [
+      {
+        color: "Blue",
+        sizes: [{ size: "41", stock: 5 }]
+      }
+    ],
+
+    shortDescription: "Sneaker luxury hiện đại và nổi bật.",
+    description: "Balenciaga Phantom mang thiết kế cao cấp phù hợp phong cách thời trang hiện đại.",
+
+    specifications: {
+      material: "Synthetic",
+      sole: "Rubber",
+      fit: "Regular fit",
+      style: "Luxury",
+      gender: "Unisex"
+    },
+
+    rating: 4.6,
+    reviewCount: 14,
+    sold: 55,
+    views: 700,
+},
+{
+  id: "prod_037",
+  name: "Giày Thể Thao New Balance U9009HG Xám",
+  slug: "giay-the-thao-new-balance-u9009hg-xam",
+  brand: "New Balance",
+  categoryId: ["cat_sneaker_nam"],
+
+  price: "3,199,200",
+  originalPrice: "3,999,000",
+  discountPercent: 20,
+
+  thumbnail: "https://res.cloudinary.com/dkileuc9d/image/upload/v1773918474/z_92a367ec-74a6-459c-ba33-c6f538f9ae8d_jgiohz.jpg",
+  images: [
+    "https://res.cloudinary.com/dkileuc9d/image/upload/v1773918474/1_d0de8d46-d8c1-4163-a37d-35f6515ebd49_ngx4n6.jpg",
+    "https://res.cloudinary.com/dkileuc9d/image/upload/v1773918474/U9009HG_1_brocza.jpg",
+    "https://res.cloudinary.com/dkileuc9d/image/upload/v1773918474/U9009HG_rnlx4b.jpg"
+  ],
+
+  variants: [
+    {
+      color: "Xám",
+      sizes: [
+        { size: "39", stock: 6 },
+        { size: "40", stock: 8 },
+        { size: "40.5", stock: 10 },
+        { size: "41", stock: 9 },
+        { size: "42", stock: 7 },
+        { size: "42.5", stock: 5 },
+        { size: "43", stock: 4 }
+      ]
+    }
+  ],
+
+  shortDescription: "Giày walking êm ái, ổn định.",
+  description: "U900 là mẫu giày casual walking lấy cảm hứng từ running, mang lại sự thoải mái và ổn định.",
+
+  specifications: {
+    material: "Vải lưới + tổng hợp",
+    sole: "Cao su",
+    fit: "Regular fit",
+    style: "Walking",
+    gender: "Unisex"
+  },
+
+  rating: 4.4,
+  reviewCount: 42,
+  sold: 168,
+  views: 980,
+},
+
+{
+  id: "prod_038",
+  name: "Giày Thể Thao New Balance 530 Xám Bạc",
+  slug: "giay-the-thao-new-balance-530-xam-bac",
+  brand: "New Balance",
+  categoryId: ["cat_sneaker_nam"],
+
+  price: "2,287,200",
+  originalPrice: "2,859,000",
+  discountPercent: 20,
+
+  thumbnail: "https://res.cloudinary.com/dkileuc9d/image/upload/v1773919098/z_60f0d309-34b8-4bfa-8e0a-f6f6387e8f36_bwko8d.jpg",
+  images: [
+    "https://res.cloudinary.com/dkileuc9d/image/upload/v1773919098/U5307VI_1_f0moc7.jpg",
+    "https://res.cloudinary.com/dkileuc9d/image/upload/v1773919097/1_8a1903c7-c19d-4371-8a16-d96f98a62c14_n9kvh1.jpg",
+    "https://res.cloudinary.com/dkileuc9d/image/upload/v1773919097/U5307VI_bzf1pm.jpg"
+  ],
+
+  variants: [
+    {
+      color: "Xám / Bạc / Trắng",
+      sizes: [
+        { size: "40", stock: 6 },
+        { size: "41", stock: 10 },
+        { size: "42", stock: 12 },
+        { size: "42.5", stock: 9 },
+        { size: "43", stock: 7 },
+        { size: "44", stock: 5 },
+        { size: "44.5", stock: 4 }
+      ]
+    }
+  ],
+
+  shortDescription: "Giày lifestyle retro 2000s.",
+  description: "New Balance 530 mang phong cách retro 2000s, dễ phối đồ.",
+
+  specifications: {
+    material: "Mesh + synthetic",
+    sole: "Cao su",
+    fit: "Regular fit",
+    style: "Lifestyle",
+    gender: "Unisex"
+  },
+
+  rating: 4.6,
+  reviewCount: 74,
+  sold: 320,
+  views: 2100,
+},
+
+{
+  id: "prod_039",
+  name: "Giày Thể Thao New Balance U9005G9 Đen",
+  slug: "giay-the-thao-new-balance-u9005g9-den",
+  brand: "New Balance",
+  categoryId: ["cat_sneaker_nam"],
+
+  price: "2,300,000",
+  originalPrice: "3,830,000",
+  discountPercent: 40,
+
+  thumbnail: "https://res.cloudinary.com/dkileuc9d/image/upload/v1773919475/z_86ef0a04-077d-4103-9056-7b70687c0c9d_itfcft.jpg",
+  images: [
+    "https://res.cloudinary.com/dkileuc9d/image/upload/v1773919475/U9005G9_1_q33jcv.jpg",
+    "https://res.cloudinary.com/dkileuc9d/image/upload/v1773919476/U9005G9_eq1cv5.jpg",
+    "https://res.cloudinary.com/dkileuc9d/image/upload/v1773919475/1_ab0333f2-de21-4ef5-a100-92afe9b27a7c_npjng4.jpg"
+  ],
+
+  variants: [
+    {
+      color: "Đen",
+      sizes: [
+        { size: "39", stock: 5 },
+        { size: "40", stock: 7 },
+        { size: "40.5", stock: 6 },
+        { size: "41", stock: 8 },
+        { size: "42", stock: 6 },
+        { size: "42.5", stock: 4 },
+        { size: "43", stock: 3 }
+      ]
+    }
+  ],
+
+  shortDescription: "Giày walking nhẹ.",
+  description: "Thiết kế nhẹ, thoáng khí, phù hợp đi lại hằng ngày.",
+
+  specifications: {
+    material: "Mesh + synthetic",
+    sole: "Cao su",
+    fit: "Regular fit",
+    style: "Walking",
+    gender: "Unisex"
+  },
+
+  rating: 4.3,
+  reviewCount: 36,
+  sold: 140,
+  views: 920,
+}
 
 
   
