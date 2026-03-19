@@ -1,24 +1,25 @@
-const baseProducts = [
+const products = [
   {
-    name: "Giày Thể Thao Biti's Hunter Core Đen",
-    slug: "giay-the-thao-bitis-hunter-core-den",
-    brand: "Biti's",
-    categoryId: ["cat_sneaker_nam"], //productTag
+      id: "prod_001",
+      name: "Giày Thể Thao Biti's Hunter Core Đen",
+      slug: "giay-the-thao-bitis-hunter-core-den",
+      brand: "Biti's",
+      categoryId: ["cat_sneaker_nam"], //productTag
 
-    price: "890,000",
-    originalPrice: "1,090,000",
-    discountPercent: 18,
+      price: "890,000",
+      originalPrice: "1,090,000",
+      discountPercent: 18,
 
-    thumbnail: "https://res.cloudinary.com/shoe-store-ptgdud/image/upload/v1770641740/bitis-ez-lift-xanh-duong_opycff.jpg",
-    images: [
-      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77",
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
-      "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519"
-    ],
+      thumbnail: "https://res.cloudinary.com/shoe-store-ptgdud/image/upload/v1770641740/bitis-ez-lift-xanh-duong_opycff.jpg",
+      images: [
+        "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77",
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519"
+      ],
 
-    variants: [
+      variants: [
       {
-        color: "Đen",
+        color: "Trắng",
         sizes: [
           { size: "40", stock: 6 },
           { size: "41", stock: 8 },
@@ -43,12 +44,509 @@ const baseProducts = [
     reviewCount: 42,
     sold: 210,
     views: 1850,
-
-    status: "active",
-
-    createdAt: "2026-01-01T08:00:00Z",
-    updatedAt: "2026-01-05T10:00:00Z"
   },
+  {
+    id: "prod_002",
+
+    name: "Giày Chạy Bộ Puma Deviate Nitro 4 Nam",
+    slug: "giay-chay-bo-puma-deviate-nitro-4-nam",
+    brand: "Puma",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "4,200,000",
+    originalPrice: "4,200,000",
+    discountPercent: 0,
+
+    thumbnail: "https://res.cloudinary.com/dii0ugduv/image/upload/v1773887518/Giy_Chy_B_Deviate_NITRO_4_Nam_Alpine_Snow-Warm_Whi_ayixxo.jpg",
+    images: [
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773887518/Giy_Chy_B_Deviate_NITRO_4_Nam_Alpine_Snow-Warm_Whi_3_greuxh.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773887518/Giy_Chy_B_Deviate_NITRO_4_Nam_Alpine_Snow-Warm_Whi_ayixxo.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773887518/Giy_Chy_B_Deviate_NITRO_4_Nam_Alpine_Snow-Warm_Whi_1_wdjwrj.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773887518/Giy_Chy_B_Deviate_NITRO_4_Nam_Alpine_Snow-Warm_Whi_5_s2iebn.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773887518/Giy_Chy_B_Deviate_NITRO_4_Nam_Alpine_Snow-Warm_Whi_4_bqcjrb.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773887518/Giy_Chy_B_Deviate_NITRO_4_Nam_Alpine_Snow-Warm_Whi_2_p4qbvo.jpg"
+    ],
+
+    variants: [
+      {
+        color: ["Trắng", "Xám", "Xanh", "Hồng"],
+        sizes: [
+          { size: "39", stock: 6 },
+          { size: "40", stock: 8 },
+          { size: "41", stock: 5 },
+          { size: "42", stock: 3 },
+          { size: "43", stock: 6 },
+          { size: "44", stock: 8 },
+          { size: "45", stock: 5 },
+          { size: "46", stock: 3 }
+        ]
+      },
+      
+    ],
+
+    shortDescription: "Giày chạy bộ hiệu suất cao, nhẹ và hoàn trả năng lượng tốt.",
+
+    description: "Deviate 4 không chỉ nhanh – mà là quá nhanh. Nhẹ hơn 15g so với phiên bản trước, đôi giày hiệu suất cao này được tạo ra cho những runner không chấp nhận chậm lại. Trang bị công nghệ bọt đệm NITROFOAM™ cải tiến giúp hoàn trả năng lượng tốt hơn, thân giày bằng vải lưới kỹ thuật thoáng khí và tấm PWRPLATE bằng carbon tổng hợp, Deviate 4 mang đến lợi thế cần thiết để bạn bứt phá trong các buổi chạy giữ nhịp hoặc chinh phục ngày thi đấu. Chạy xa hơn. Chạy nhanh hơn.",
+
+    specifications: {
+      material: "Vải lưới kỹ thuật (engineered mesh)",
+      sole: "Cao su + NITROFOAM™",
+      fit: "Regular fit",
+      style: "Running",
+      gender: "Nam"
+    },
+
+    rating: 4.6,
+    reviewCount: 58,
+    sold: 320,
+    views: 2400,
+},
+{
+    id: "prod_003",
+
+    name: "Giày Thể Thao Puma H-Street OG Unisex",
+    slug: "giay-the-thao-puma-h-street-og-unisex",
+    brand: "Puma",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "2,300,000",
+    originalPrice: "2,300,000",
+    discountPercent: 0,
+
+    thumbnail: "https://res.cloudinary.com/dii0ugduv/image/upload/v1773889144/Giy_Th_Thao_H-Street_OG_Unisex_PUMA_Black-PUMA_Sil_ubpmrx.jpg",
+    images: [
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773889144/Giy_Th_Thao_H-Street_OG_Unisex_PUMA_Black-PUMA_Sil_ubpmrx.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773889145/Giy_Th_Thao_H-Street_OG_Unisex_PUMA_Black-PUMA_Sil_1_mwfiwf.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773889146/Giy_Th_Thao_H-Street_OG_Unisex_PUMA_Black-PUMA_Sil_2_kuxpqb.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773889133/Swatch_for_Safe_Lake-PUMA_Silver_qaxmo1.png",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773889132/Swatch_for_PUMA_Red-PUMA_Silver_jraysk.png",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773889132/Swatch_for_Poison_Pink-PUMA_Silver_ljnem1.png",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773889132/Swatch_for_Fizzy_Green-PUMA_Silver_tkrpf7.png"
+    ],
+
+    variants: [
+      {
+        color: ["Đen", "Xanh lá", "Đỏ", "Hồng", "Xanh dương"],
+        sizes: [
+          { size: "35", stock: 6 },
+          { size: "36", stock: 8 },
+          { size: "37", stock: 5 },
+          { size: "38", stock: 3 },
+          { size: "39", stock: 6 },
+          { size: "40", stock: 8 },
+          { size: "41", stock: 5 },
+          { size: "42", stock: 3 },
+          { size: "43", stock: 6 },
+          { size: "44", stock: 8 },
+          { size: "45", stock: 5 },
+          { size: "46", stock: 3 }
+        ]
+      }
+    ],
+
+    shortDescription: "Giày sneaker unisex phong cách retro, nhẹ và dễ phối đồ.",
+
+    description: "Puma H-Street OG là phiên bản tái hiện từ dòng giày chạy bộ cổ điển những năm 2000, mang đậm tinh thần thể thao kết hợp thời trang đường phố. Thiết kế low-profile cùng upper siêu nhẹ giúp di chuyển linh hoạt, trong khi form dáng gọn gàng tạo nên phong cách retro hiện đại, phù hợp cho cả nam và nữ.",
+
+    specifications: {
+      material: "Vải dệt + da tổng hợp",
+      sole: "Cao su",
+      fit: "Slim fit",
+      style: "Lifestyle",
+      gender: "Unisex"
+    },
+
+    rating: 4.4,
+    reviewCount: 36,
+    sold: 180,
+    views: 1500,
+},
+{
+    id: "prod_004",
+
+    name: "Giày Thể Thao Puma x Guizio H-Street Unisex",
+    slug: "puma-x-guizio-h-street-sneakers-unisex",
+    brand: "Puma",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "3,000,000",
+    originalPrice: "3,000,000",
+    discountPercent: 0,
+
+    thumbnail: "https://res.cloudinary.com/dii0ugduv/image/upload/v1773890314/PUMA_x_GUIZIO_H-Street_Sneakers_Unisex_Warm_White__mxxeqf.jpg",
+    images: [
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773890313/PUMA_x_GUIZIO_H-Street_Sneakers_Unisex_Warm_White__1_paube8.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773890313/PUMA_x_GUIZIO_H-Street_Sneakers_Unisex_Warm_White__2_ekltin.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773890311/PUMA-x-GUIZIO-H-Street-Sneakers-Unisex_pkmz7p.avif",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773890310/PUMA-x-GUIZIO-H-Street-Sneakers-Unisex_1_ofqgxi.avif",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773890309/PUMA-x-GUIZIO-H-Street-Sneakers-Unisex_2_e7feah.avif",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773890309/PUMA-x-GUIZIO-H-Street-Sneakers-Unisex_4_ic6etn.avif",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773890309/PUMA-x-GUIZIO-H-Street-Sneakers-Unisex_5_x84gvh.avif"
+    ],
+
+    variants: [
+      {
+        color: "Trắng",
+        sizes: [
+          { size: "36", stock: 8 },
+          { size: "37", stock: 5 },
+          { size: "38", stock: 3 },
+          { size: "39", stock: 6 },
+          { size: "40", stock: 8 },
+          { size: "41", stock: 5 },
+          { size: "42", stock: 3 }
+        ]
+      }
+    ],
+
+    shortDescription: "Giày sneaker collab thời trang, thiết kế retro hiện đại và nổi bật.",
+
+    description: "Puma x Guizio H-Street là phiên bản hợp tác mang đậm dấu ấn thời trang, kết hợp tinh thần thể thao cổ điển với phong cách contemporary. Thiết kế low-profile đặc trưng, form dáng gọn nhẹ cùng phối màu tinh tế giúp đôi giày dễ dàng trở thành điểm nhấn trong outfit hàng ngày. Phù hợp cho cả nam và nữ yêu thích phong cách streetwear cao cấp.",
+
+    specifications: {
+      material: "Vải dệt cao cấp + da tổng hợp",
+      sole: "Cao su",
+      fit: "Slim fit",
+      style: "Lifestyle",
+      gender: "Unisex"
+    },
+
+    rating: 4.6,
+    reviewCount: 24,
+    sold: 95,
+    views: 1100,
+},
+{
+    id: "prod_005",
+
+    name: "Giày Thể Thao Puma H-Street Premium Unisex",
+    slug: "giay-the-thao-puma-h-street-premium-unisex",
+    brand: "Puma",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "2,500,000",
+    originalPrice: "3,000,000",
+    discountPercent: 17,
+
+    thumbnail: "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891014/Gi%C3%A0y-Th%E1%BB%83-Thao-H-Street-Premium-Unisex_4_x2rjcp.avif",
+    images: [
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891018/Gi%C3%A0y-Th%E1%BB%83-Thao-H-Street-Premium-Unisex_5_gtzcxh.avif",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891016/Gi%C3%A0y-Th%E1%BB%83-Thao-H-Street-Premium-Unisex_o0cyk6.avif",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891015/Gi%C3%A0y-Th%E1%BB%83-Thao-H-Street-Premium-Unisex_3_n7zuxl.avif",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891015/Gi%C3%A0y-Th%E1%BB%83-Thao-H-Street-Premium-Unisex_2_ma05bt.avif",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891014/Gi%C3%A0y-Th%E1%BB%83-Thao-H-Street-Premium-Unisex_1_hvsh7u.avif",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891014/Gi%C3%A0y-Th%E1%BB%83-Thao-H-Street-Premium-Unisex_4_x2rjcp.avif"
+    ],
+
+    variants: [
+      {
+        color: "Nâu đỏ",
+        sizes: [
+          { size: "36", stock: 8 },
+          { size: "37", stock: 5 },
+          { size: "38", stock: 3 },
+          { size: "39", stock: 6 },
+          { size: "40", stock: 8 },
+          { size: "41", stock: 5 },
+          { size: "42", stock: 3 },
+          { size: "43", stock: 6 },
+          { size: "44", stock: 8 }
+        ]
+      }
+    ],
+
+    shortDescription: "Giày sneaker unisex phiên bản premium, thiết kế retro và chất liệu cao cấp.",
+
+    description: "Puma H-Street Premium là phiên bản nâng cấp của dòng H-Street cổ điển, lấy cảm hứng từ giày chạy bộ thập niên 2000. Thiết kế low-profile đặc trưng kết hợp cùng chất liệu cao cấp mang lại cảm giác nhẹ, thoải mái và thời trang. Phù hợp cho phong cách streetwear hiện đại, dễ phối đồ trong nhiều hoàn cảnh.",
+
+    specifications: {
+      material: "Vải dệt cao cấp + da tổng hợp",
+      sole: "Cao su",
+      fit: "Slim fit",
+      style: "Lifestyle",
+      gender: "Unisex"
+    },
+
+    rating: 4.5,
+    reviewCount: 31,
+    sold: 140,
+    views: 1300,
+},
+{
+    id: "prod_006",
+
+    name: "Giày Thể Thao Puma Talon Biology Unisex",
+    slug: "giay-the-thao-puma-talon-biology-unisex",
+    brand: "Puma",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "3,700,000",
+    originalPrice: "3,700,000",
+    discountPercent: 0,
+
+    thumbnail: "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891364/Giy_th_thao_Talon_Biology_Unisex_Gray_Skies-PUMA_B_6_nfe9ew.jpg",
+    images: [
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891364/Giy_th_thao_Talon_Biology_Unisex_Gray_Skies-PUMA_B_3_jfurog.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891365/Giy_th_thao_Talon_Biology_Unisex_Gray_Skies-PUMA_B_ixqu8f.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891366/Giy_th_thao_Talon_Biology_Unisex_Gray_Skies-PUMA_B_5_bozerw.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891367/Giy_th_thao_Talon_Biology_Unisex_Gray_Skies-PUMA_B_4_k9iasp.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891368/Giy_th_thao_Talon_Biology_Unisex_Gray_Skies-PUMA_B_2_uo2ivc.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891370/Giy_th_thao_Talon_Biology_Unisex_Gray_Skies-PUMA_B_1_ln4wv1.jpg"
+    ],
+
+    variants: [
+      {
+        color: "Đen",
+        sizes: [
+          { size: "39", stock: 6 },
+          { size: "40", stock: 8 },
+          { size: "41", stock: 5 },
+          { size: "42", stock: 3 },
+          { size: "43", stock: 6 },
+          { size: "44", stock: 8 },
+          { size: "45", stock: 5 },
+          { size: "46", stock: 3 }
+        ]
+      }
+    ],
+
+    shortDescription: "Giày sneaker unisex phong cách Y2K, thiết kế táo bạo và hiện đại.",
+
+    description: "Puma Talon Biology là mẫu giày mang đậm tinh thần Y2K với thiết kế hướng đến tương lai. Phần upper liền khối kết hợp cùng các lớp overlay độc đáo tạo nên vẻ ngoài mạnh mẽ và khác biệt. Lấy cảm hứng từ dòng giày thể thao đầu những năm 2000, sản phẩm mang lại sự cân bằng giữa hiệu năng và phong cách streetwear hiện đại.",
+
+    specifications: {
+      material: "Vải tổng hợp + TPU",
+      sole: "Cao su",
+      fit: "Regular fit",
+      style: "Lifestyle",
+      gender: "Unisex"
+    },
+
+    rating: 4.3,
+    reviewCount: 22,
+    sold: 85,
+    views: 980,
+},
+{
+    id: "prod_007",
+
+    name: "Giày Bóng Rổ Puma MB.05 Mist Unisex",
+    slug: "giay-bong-ro-puma-mb-05-mist-unisex",
+    brand: "Puma",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "3,150,000",
+    originalPrice: "3,500,000",
+    discountPercent: 10,
+
+    thumbnail: "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891701/Giy_Bng_R_MB05_Mist_Unisex_PUMA_White-Gold_large-V_epbwh2.jpg",
+    images: [
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891703/Giy_Bng_R_MB05_Mist_Unisex_PUMA_White-Gold_large-V_2_ss45yk.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891702/Giy_Bng_R_MB05_Mist_Unisex_PUMA_White-Gold_large-V_1_jhcyeb.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891699/Giy_Bng_R_MB05_Mist_Unisex_PUMA_White-Gold_large-V_3_uwl10v.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891697/Giy_Bng_R_MB05_Mist_Unisex_PUMA_White-Gold_large-V_4_z33jys.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891696/Giy_Bng_R_MB05_Mist_Unisex_PUMA_White-Gold_large-V_5_wbnc5g.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891696/Giy_Bng_R_MB05_Mist_Unisex_PUMA_White-Gold_large-V_6_v9myrf.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773891698/Gi%C3%A0y-B%C3%B3ng-R%E1%BB%95-MB_dxxtfa.avif"
+    ],
+
+    variants: [
+      {
+        color: "Trắng",
+        sizes: [
+          { size: "39", stock: 6 },
+          { size: "40", stock: 8 },
+          { size: "41", stock: 5 },
+          { size: "42", stock: 3 },
+          { size: "43", stock: 6 },
+          { size: "44", stock: 8 },
+          { size: "45", stock: 5 },
+          { size: "46", stock: 3 },
+          { size: "47", stock: 6 }
+        ]
+      }
+    ],
+
+    shortDescription: "Giày bóng rổ hiệu suất cao, thiết kế signature của LaMelo Ball.",
+
+    description: "Puma MB.05 Mist là mẫu giày signature của LaMelo Ball, được thiết kế cho lối chơi tốc độ và linh hoạt trên sân. Form giày ôm chân kết hợp cùng bộ đệm êm và độ bám cao giúp tối ưu hiệu suất thi đấu. Thiết kế nổi bật với chi tiết “One of One”, họa tiết đặc trưng và phối màu trắng tinh tế, thể hiện phong cách riêng biệt của Melo.",
+
+    specifications: {
+      material: "Vải dệt kỹ thuật + TPU",
+      sole: "Cao su hiệu năng cao",
+      fit: "Regular fit",
+      style: "Basketball",
+      gender: "Unisex"
+    },
+
+    rating: 4.7,
+    reviewCount: 64,
+    sold: 280,
+    views: 2600,
+},
+{
+    id: "prod_008",
+
+    name: "Giày Thể Thao Puma x Aston Martin F1 RS-Surge Unisex",
+    slug: "giay-the-thao-puma-x-aston-martin-aramco-f1-team-rs-surge-unisex",
+    brand: "Puma",
+    categoryId: ["cat_sneaker_nam"],
+
+    price: "2,800,000",
+    originalPrice: "3,300,000",
+    discountPercent: 17,
+
+    thumbnail: "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892161/Giy_th_thao_c_thp_PUMA_x_ASTON_MARTIN_ARAMCO_F1_TE_ehoj1a.jpg",
+    images: [
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892156/Gi%C3%A0y-th%E1%BB%83-thao-c%E1%BB%95-th%E1%BA%A5p-PUMA-x-ASTON-MARTIN-ARAMCO-F1_-TEAM-RS-Surge-Unisex_2_eofspv.avif",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892157/Gi%C3%A0y-th%E1%BB%83-thao-c%E1%BB%95-th%E1%BA%A5p-PUMA-x-ASTON-MARTIN-ARAMCO-F1_-TEAM-RS-Surge-Unisex_nsrlah.avif",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892159/Giy_th_thao_c_thp_PUMA_x_ASTON_MARTIN_ARAMCO_F1_TE_1_aiyvlc.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892160/Giy_th_thao_c_thp_PUMA_x_ASTON_MARTIN_ARAMCO_F1_TE_2_isbdx9.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892156/Gi%C3%A0y-th%E1%BB%83-thao-c%E1%BB%95-th%E1%BA%A5p-PUMA-x-ASTON-MARTIN-ARAMCO-F1_-TEAM-RS-Surge-Unisex_1_cqxze9.avif",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892161/Giy_th_thao_c_thp_PUMA_x_ASTON_MARTIN_ARAMCO_F1_TE_ehoj1a.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892163/Gi%C3%A0y-th%E1%BB%83-thao-c%E1%BB%95-th%E1%BA%A5p-PUMA-x-ASTON-MARTIN-ARAMCO-F1_-TEAM-RS-Surge-Unisex_3_rbcrd5.avif"
+    ],
+
+    variants: [
+      {
+        color: "Đen",
+        sizes: [
+          { size: "39", stock: 6 },
+          { size: "40", stock: 8 },
+          { size: "41", stock: 5 },
+          { size: "42", stock: 3 },
+          { size: "43", stock: 6 },
+          { size: "44", stock: 8 },
+          { size: "45", stock: 5 },
+          { size: "46", stock: 3 }
+        ]
+      }
+    ],
+
+    shortDescription: "Giày sneaker collab F1, thiết kế thể thao hiện đại và đậm chất tốc độ.",
+
+    description: "Puma x Aston Martin F1 RS-Surge là mẫu giày lấy cảm hứng từ đường đua, kết hợp giữa hiệu năng thể thao và phong cách lifestyle hiện đại. Thiết kế mạnh mẽ, form dáng năng động cùng các chi tiết đặc trưng từ đội đua Aston Martin mang lại vẻ ngoài nổi bật. Phù hợp cho những ai yêu thích tốc độ và phong cách thể thao cao cấp.",
+
+    specifications: {
+      material: "Vải dệt + da tổng hợp",
+      sole: "Cao su",
+      fit: "Regular fit",
+      style: "Collab",
+      gender: "Unisex"
+    },
+
+    rating: 4.6,
+    reviewCount: 28,
+    sold: 120,
+    views: 1400,
+},
+{
+    id: "prod_009",
+
+    name: "Giày Thể Thao Puma Speedcat Venus Nữ",
+    slug: "giay-the-thao-speedcat-venus-nu",
+    brand: "Puma",
+    categoryId: ["cat_sneaker_nu"],
+
+    price: "3,200,000",
+    originalPrice: "3,500,000",
+    discountPercent: 9,
+
+    thumbnail: "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892507/Giy_Th_Thao_Speedcat_Venus_N_Chocolate_Brown_large_2_wymhtg.jpg",
+    images: [
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892508/Giy_Th_Thao_Speedcat_Venus_N_Chocolate_Brown_large_wqf2lv.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892505/Giy_Th_Thao_Speedcat_Venus_N_Chocolate_Brown_large_1_mq9tgx.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892504/Gi%C3%A0y-Th%E1%BB%83-Thao-Speedcat-Venus-N%E1%BB%AF_2_lgo88x.avif",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892502/Gi%C3%A0y-Th%E1%BB%83-Thao-Speedcat-Venus-N%E1%BB%AF_tmffuv.avif",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892501/Gi%C3%A0y-Th%E1%BB%83-Thao-Speedcat-Venus-N%E1%BB%AF_1_hwudup.avif",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892499/Gi%C3%A0y-Th%E1%BB%83-Thao-Speedcat-Venus-N%E1%BB%AF_4_kcccaq.avif",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892499/Gi%C3%A0y-Th%E1%BB%83-Thao-Speedcat-Venus-N%E1%BB%AF_3_wdvbgh.avif"
+    ],
+
+    variants: [
+      {
+        color: "Đỏ",
+        sizes: [
+          { size: "35", stock: 6 },
+          { size: "36", stock: 8 },
+          { size: "37", stock: 5 },
+          { size: "38", stock: 3 },
+          { size: "39", stock: 6 }
+        ]
+      }
+    ],
+
+    shortDescription: "Giày sneaker nữ phong cách motorsport, thiết kế low-profile cổ điển.",
+
+    description: "Puma Speedcat Venus là phiên bản nữ của dòng Speedcat mang cảm hứng từ đường đua. Thiết kế low-profile ôm chân cùng form dáng gọn nhẹ giúp di chuyển linh hoạt và dễ phối đồ. Các chi tiết đặc trưng từ giày đua kết hợp cùng phong cách hiện đại tạo nên một đôi sneaker vừa thể thao vừa thời trang.",
+
+    specifications: {
+      material: "Da lộn + vải dệt",
+      sole: "Cao su",
+      fit: "Slim fit",
+      style: "Lifestyle",
+      gender: "Nữ"
+    },
+
+    rating: 4.5,
+    reviewCount: 41,
+    sold: 190,
+    views: 1750,
+},
+{
+    id: "prod_010",
+
+    name: "Giày Chạy Bộ Puma MagMax Nitro 2 Nữ",
+    slug: "giay-chay-bo-puma-magmax-nitro-2-nu",
+    brand: "Puma",
+    categoryId: ["cat_sneaker_nu"],
+
+    price: "4,800,000",
+    originalPrice: "5,800,000",
+    discountPercent: 17,
+
+    thumbnail: "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892827/Gi%C3%A0y-ch%E1%BA%A1y-b%E1%BB%99-MagMax-NITRO_-2-cho-n%E1%BB%AF_1_kkvt5v.avif",
+    images: [
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892836/Giy_chy_b_MagMax_NITRO_2_cho_n_Warm_White-PUMA_Bla_bpmtkc.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892835/Giy_chy_b_MagMax_NITRO_2_cho_n_Warm_White-PUMA_Bla_2_ttg6jc.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892831/Gi%C3%A0y-ch%E1%BA%A1y-b%E1%BB%99-MagMax-NITRO_-2-cho-n%E1%BB%AF_s2fyo0.avif",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892830/Gi%C3%A0y-ch%E1%BA%A1y-b%E1%BB%99-MagMax-NITRO_-2-cho-n%E1%BB%AF_2_asb62r.avif",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892827/Gi%C3%A0y-ch%E1%BA%A1y-b%E1%BB%99-MagMax-NITRO_-2-cho-n%E1%BB%AF_1_kkvt5v.avif",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892833/Giy_chy_b_MagMax_NITRO_2_cho_n_Warm_White-PUMA_Bla_1_tqgpxn.jpg",
+      "https://res.cloudinary.com/dii0ugduv/image/upload/v1773892827/Gi%C3%A0y-ch%E1%BA%A1y-b%E1%BB%99-MagMax-NITRO_-2-cho-n%E1%BB%AF_3_wqwjkr.avif"
+    ],
+
+    variants: [
+      {
+        color: "Trắng",
+        sizes: [
+          { size: "35", stock: 6 },
+          { size: "36", stock: 8 },
+          { size: "37", stock: 5 },
+          { size: "38", stock: 3 },
+          { size: "39", stock: 6 },
+          { size: "40", stock: 8 }
+        ]
+      }
+    ],
+
+    shortDescription: "Giày chạy bộ nữ đệm tối đa, nhẹ và hoàn trả năng lượng cao.",
+
+    description: "Puma MagMax Nitro 2 là dòng giày chạy bộ max-cushion được thiết kế cho sự êm ái và hiệu suất tối đa. Công nghệ NITROFOAM™ mang lại độ nảy và hoàn trả năng lượng vượt trội, giúp mỗi bước chạy trở nên nhẹ nhàng hơn. Upper vải lưới thoáng khí kết hợp cùng thiết kế ôm chân tạo sự thoải mái trong suốt quá trình vận động.",
+
+    specifications: {
+      material: "Vải lưới kỹ thuật (engineered mesh)",
+      sole: "Cao su + NITROFOAM™",
+      fit: "Regular fit",
+      style: "Running",
+      gender: "Nữ"
+    },
+
+    rating: 4.5,
+    reviewCount: 41,
+    sold: 190,
+    views: 1750,
+}
 
   
 ];

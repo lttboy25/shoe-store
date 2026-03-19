@@ -11,7 +11,6 @@ import Popup from "./components/common/Popup";
 import Rating from "./components/common/Rating";
 import Dropdown from "./components/common/Dropdown";
 import Promotion from "./components/common/Promotion";
-import products from "./data/products";
 import LoginForm from "./components/section/auth/LoginForm";
 import RegisterForm from "./components/section/auth/RegisterForm";
 import Header from "./components/layout/Header";
@@ -21,9 +20,8 @@ import ProductSizeCart from "./components/product/ProductSize/ProductSizeCart";
 import ProductSizeDetail from "./components/product/ProductSize/ProductSizeDetail";
 import ProductQuantityCart from "./components/product/ProductQuantity/ProductQuantityCart";
 import ProductQuantityDetail from "./components/product/ProductQuantity/ProductQuantityDetail";
-import {Cloudinary} from "@cloudinary/url-gen";
-import {AdvancedImage} from '@cloudinary/react';
-import {fill} from "@cloudinary/url-gen/actions/resize";
+
+import products from "./data/products.js";
 
 
 function App() {
@@ -47,14 +45,6 @@ function App() {
     }
   };
 
-  const cld = new Cloudinary({
-      cloud: {
-        cloudName: 'shoe-store-ptgdud'
-      }
-    });
-
-  const hinhDemo = cld.image('bitis-ez-lift-xanh-duong_opycff');
-  hinhDemo.resize(fill().width(250).height(250));
 
   return (
     <>
@@ -86,7 +76,7 @@ function App() {
       <HomeHero />
       <h1 style={{ marginBottom: "55px" }}>App test</h1>
       
-      <ProductGrid list={products} quantity={2}/>
+      {/* <ProductGrid list={products} quantity={2}/> */}
 
 
       <Breadcrumb
@@ -177,6 +167,9 @@ function App() {
         <h2>Promotion test</h2>
         <Promotion title="25" />
       </div>
+
+      <ProductGrid list={products} />
+
     </>
   );
 }
