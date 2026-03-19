@@ -3,6 +3,7 @@ import MainLayout from '../../components/layout/MainLayout'
 import HomeHero from '../../components/section/home/HomeHero'
 import ProductGrid from '../../components/product/ProductGrid/ProductGrid.jsx'
 import products from '../../data/products.js'
+import CategoryBannerSection from '../../components/section/home/CategoryBannerSection.jsx'
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
                 <div>
                     <span>DANH MỤC MUA HÀNG</span>
                 </div>
+                <CategoryBannerSection />
             </div>
         }/>
     </>

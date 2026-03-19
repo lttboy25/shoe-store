@@ -1,5 +1,5 @@
 import React from 'react'
-// import Footer from './Footer.jsx'
+import Footer from './Footer.jsx'
 import Header from './Header.jsx'
 
 export default function MainLayout({props}) {
@@ -7,7 +7,7 @@ export default function MainLayout({props}) {
     <div>
         <Header/>
         {props}
-        {/* <Footer/> */}
+        <Footer/>
     </div>
   )
 }
