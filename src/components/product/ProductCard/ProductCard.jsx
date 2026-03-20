@@ -38,13 +38,22 @@ function ProductCard({ product }) {
       </div>
 
       <div className="product-price">
-        <span className="product-original-price">
+        
+        {
+          product.discountPercent > 0 && (
+            <span className="product-original-price">
           {product.originalPrice} đ
         </span>
+          )
+        }
         <span className="product-sale-price">
           {product.price} đ
         </span>
-        <Promotion title={`${product.discountPercent}`} />
+        {
+          product.discountPercent > 0 && (
+            <Promotion title={`${product.discountPercent}`} />
+          )
+        }
       </div>
     </div>
   );

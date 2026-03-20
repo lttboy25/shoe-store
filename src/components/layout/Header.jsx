@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Header = () => {
   return (
@@ -17,43 +18,59 @@ const Header = () => {
         {/* Left: Logo + Menu */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '40px' }}>
           {/* Logo */}
-          <div style={{
-            width: '40px',
-            height: '40px',
-            backgroundColor: '#ccc',
-            borderRadius: '50%'
+          <Link to="/">                               
+            <div style={{
+              width: '40px',
+              height: '40px',
+              backgroundColor: '#ccc',
+              borderRadius: '50%'
           }}></div>
+          </Link>
 
           {/* Menu */}
           <nav style={{ display: 'flex', gap: '32px' }}>
-            <a href="#" style={{
-              color: '#333',
-              fontSize: '13px',
-              fontWeight: '500',
-              textDecoration: 'none',
+          <Link 
+              to="/best-sellers" 
+              style={{
+                color: '#333',
+                fontSize: '13px',
+                fontWeight: '500',
+                textDecoration: 'none',
+                textTransform: 'uppercase'
+              }}
+            >
+              SẢN PHẨM BÁN CHẠY
+            </Link>
+            <Link 
+              to="/men" 
+              style={{
+                color: '#333',
+                fontSize: '13px',
+                fontWeight: '500',
+                textDecoration: 'none',
               textTransform: 'uppercase'
-            }}>SẢN PHẨM BÁN CHẠY</a>
-            <a href="#" style={{
-              color: '#333',
-              fontSize: '13px',
-              fontWeight: '500',
-              textDecoration: 'none',
+            }}>NAM</Link>
+            <Link 
+              to="/women" 
+              style={{
+                color: '#333',
+                fontSize: '13px',
+                fontWeight: '500',
+                textDecoration: 'none',
               textTransform: 'uppercase'
-            }}>NAM</a>
-            <a href="#" style={{
-              color: '#333',
-              fontSize: '13px',
-              fontWeight: '500',
-              textDecoration: 'none',
-              textTransform: 'uppercase'
-            }}>NỮ</a>
-            <a href="#" style={{
-              color: '#333',
-              fontSize: '13px',
-              fontWeight: '500',
-              textDecoration: 'none',
-              textTransform: 'uppercase'
-            }}>PHỤ KIỆN</a>
+            }}>NỮ</Link>
+            <Link 
+              to="/accessories" 
+              style={{
+                color: '#333',
+                fontSize: '13px',
+                fontWeight: '500',
+                textDecoration: 'none',
+                textTransform: 'uppercase'
+              }}
+            >
+              PHỤ KIỆN
+            </Link>
           </nav>
         </div>
 
