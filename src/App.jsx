@@ -1,13 +1,11 @@
-import React, { useState } from "react";
 import "./App.css";
-
-import Home from "./pages/Home/Home.jsx";
+import AppRoutes from "./routes/AppRoutes.jsx";
 
 
 function App() {
   return (
     <>
-      <Home />
+      <AppRoutes />
     </>
   );
 }
