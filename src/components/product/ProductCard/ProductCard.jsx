@@ -3,6 +3,7 @@ import Promotion from "../../common/Promotion";
 import "./ProductCard.css";
 import likeIcon from "../../../assets/icon/heart-like.svg";
 import unlikeIcon from "../../../assets/icon/heart-un-like.svg";
+import { Link } from "react-router";
 
 function ProductCard({ product }) {
   const [like, setLike] = useState(false);
@@ -13,6 +14,13 @@ function ProductCard({ product }) {
   }
 
   return (
+  
+  <Link 
+      to={`/cua-hang/${product.id}`} 
+      style={{ textDecoration: "none", color: "inherit" }}
+    >
+  
+
     <div className="product-card">
       <div className="product-image-wrapper">
         <img
@@ -38,15 +46,25 @@ function ProductCard({ product }) {
       </div>
 
       <div className="product-price">
-        <span className="product-original-price">
+        
+        {
+          product.discountPercent > 0 && (
+            <span className="product-original-price">
           {product.originalPrice} đ
         </span>
+          )
+        }
         <span className="product-sale-price">
           {product.price} đ
         </span>
-        <Promotion title={`${product.discountPercent}`} />
+        {
+          product.discountPercent > 0 && (
+            <Promotion title={`${product.discountPercent}`} />
+          )
+        }
       </div>
     </div>
+    </Link>
   );
 }
 
