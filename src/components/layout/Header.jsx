@@ -143,6 +143,12 @@ const Header = () => {
                 {TEST_CART.length}
               </span>
             </button>
+
+            <Link to="/checkout">
+  <button style={{ background: "#000", color: "#fff", padding: "8px 16px", borderRadius: "6px", border: "none" }}>
+    Đi tới thanh toán
+  </button>
+</Link>
         </div>
       </div>
     </header>
