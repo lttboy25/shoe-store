@@ -1,42 +1,45 @@
 const products = [
   {
     id: "prod_001",
-    name: "Giày Thể Thao Biti's Hunter Core Đen",
-    slug: "giay-the-thao-bitis-hunter-core-den",
+    name: "Giày Thể Thao Biti's Hunter EZ Lift Nam",
+    slug: "giay-the-thao-bitis-hunter-ez-lift-nam",
     brand: "Biti's",
     categoryId: ["cat_sneaker_nam"],
-    price: 890000,
-    originalPrice: 1090000,
-    discountPercent: 18,
-    thumbnail: "https://res.cloudinary.com/shoe-store-ptgdud/image/upload/v1770641740/bitis-ez-lift-xanh-duong_opycff.jpg",
+    price: 1295000,
+    originalPrice: 1295000,
+    discountPercent: 0,
+    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771339712/Cam_suqmki.jpg",
     images: [
-      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77",
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
-      "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519"
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339718/Cam_l3i5bg.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339724/Cam_gjlebx.jpg",
+      "https://res.cloudinary.com/dezeregal/image/upload/v1771339731/Cam_btrbmu.jpg"
     ],
     variants: [{
-      color: ["Trắng"],
+      color: ["Cam"],
       sizes: [
-        { size: "40", stock: 6 },
-        { size: "41", stock: 8 },
-        { size: "42", stock: 5 },
-        { size: "43", stock: 3 }
+        { size: "39", stock: 4 },
+        { size: "40", stock: 3 },
+        { size: "41", stock: 3 },
+        { size: "42", stock: 2 },
+        { size: "43", stock: 1 },
+        { size: "44", stock: 1 }
       ]
     }],
-    shortDescription: "Giày sneaker nam phong cách thể thao, dễ phối đồ.",
-    description: "Biti's Hunter Core mang phong cách năng động, đế êm nhẹ, phù hợp đi học và đi chơi.",
+    shortDescription: "Giày thể thao năng động, đế êm nhẹ.",
+    description: "Thiết kế hiện đại với upper lưới thoáng khí, đế êm giúp di chuyển linh hoạt cả ngày.",
     specifications: {
-      material: "Vải tổng hợp",
-      sole: "Cao su",
+      material: "Mesh",
+      sole: "EVA + Rubber",
       fit: "Regular fit",
-      style: "Sneaker",
+      style: "Lifestyle",
       gender: "Nam"
     },
-    rating: 4.5,
-    reviewCount: 42,
-    sold: 210,
-    views: 1850,
+    rating: 4.3,
+    reviewCount: 25,
+    sold: 140,
+    views: 1100,
   },
+  
   {
     id: "prod_002",
     name: "Giày Chạy Bộ Puma Deviate Nitro 4 Nam",
@@ -758,46 +761,46 @@ const products = [
     sold: 150,
     views: 1200,
   },
-  {
+
+{
     id: "prod_020",
-    name: "Giày Thể Thao Biti's Hunter EZ Lift Nam",
-    slug: "giay-the-thao-bitis-hunter-ez-lift-nam",
+    name: "Giày Thể Thao Biti's Hunter Core Đen",
+    slug: "giay-the-thao-bitis-hunter-core-den",
     brand: "Biti's",
     categoryId: ["cat_sneaker_nam"],
-    price: 1295000,
-    originalPrice: 1295000,
-    discountPercent: 0,
-    thumbnail: "https://res.cloudinary.com/dezeregal/image/upload/v1771339712/Cam_suqmki.jpg",
+    price: 890000,
+    originalPrice: 1090000,
+    discountPercent: 18,
+    thumbnail: "https://res.cloudinary.com/shoe-store-ptgdud/image/upload/v1770641740/bitis-ez-lift-xanh-duong_opycff.jpg",
     images: [
-      "https://res.cloudinary.com/dezeregal/image/upload/v1771339718/Cam_l3i5bg.jpg",
-      "https://res.cloudinary.com/dezeregal/image/upload/v1771339724/Cam_gjlebx.jpg",
-      "https://res.cloudinary.com/dezeregal/image/upload/v1771339731/Cam_btrbmu.jpg"
+      "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519"
     ],
     variants: [{
-      color: ["Cam"],
+      color: ["Trắng"],
       sizes: [
-        { size: "39", stock: 4 },
-        { size: "40", stock: 3 },
-        { size: "41", stock: 3 },
-        { size: "42", stock: 2 },
-        { size: "43", stock: 1 },
-        { size: "44", stock: 1 }
+        { size: "40", stock: 6 },
+        { size: "41", stock: 8 },
+        { size: "42", stock: 5 },
+        { size: "43", stock: 3 }
       ]
     }],
-    shortDescription: "Giày thể thao năng động, đế êm nhẹ.",
-    description: "Thiết kế hiện đại với upper lưới thoáng khí, đế êm giúp di chuyển linh hoạt cả ngày.",
+    shortDescription: "Giày sneaker nam phong cách thể thao, dễ phối đồ.",
+    description: "Biti's Hunter Core mang phong cách năng động, đế êm nhẹ, phù hợp đi học và đi chơi.",
     specifications: {
-      material: "Mesh",
-      sole: "EVA + Rubber",
+      material: "Vải tổng hợp",
+      sole: "Cao su",
       fit: "Regular fit",
-      style: "Lifestyle",
+      style: "Sneaker",
       gender: "Nam"
     },
-    rating: 4.3,
-    reviewCount: 25,
-    sold: 140,
-    views: 1100,
+    rating: 4.5,
+    reviewCount: 42,
+    sold: 210,
+    views: 1850,
   },
+
   {
     id: "prod_021",
     name: "Giày Thể Thao Biti's Hunter Evo Đen Nam",
