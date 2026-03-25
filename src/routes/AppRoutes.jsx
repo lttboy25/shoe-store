@@ -3,6 +3,7 @@ import Home from '../pages/Home/Home.jsx'
 import { Routes, Route } from "react-router";
 import Product from '../pages/Product/Product.jsx'
 import ProductDetail from '../pages/ProductDetail/ProductDetail.jsx';
+import Checkout from '../pages/Checkout/Checkout.jsx';
 export default function AppRoutes() {
   return (
     <div>
@@ -11,6 +12,7 @@ export default function AppRoutes() {
           <Route path='/cua-hang' element={<Product />} />
           
           <Route path='/cua-hang/:id' element={<ProductDetail />}/>
+          <Route path="/checkout" element={<Checkout />} />
     </Routes>
     </div>
   )

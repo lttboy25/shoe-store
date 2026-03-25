@@ -1,0 +1,226 @@
+import React, { useState } from "react";
+import Header from "../../components/layout/Header";
+import Footer from "../../components/layout/Footer";
+import icon1 from "../../assets/icon/image45.png";
+import icon2 from "../../assets/icon/image46.png";
+import icon3 from "../../assets/icon/image47.png";
+import SuccessModalCheckout from "./SuccessModalCheckout";
+
+const Checkout = () => {
+
+    const [paymentMethod, setPaymentMethod] = useState("");
+    const [userBankInfo, setUserBankInfo] = useState("");
+    const [showError, setShowError] = useState(false);
+    const [bankInputError, setBankInputError] = useState(false);
+    const [isOrderSuccess, setIsOrderSuccess] = useState(false);
+
+
+    const handleOrder = () => {
+        let hasError = false;
+
+        if (!paymentMethod) {
+            setShowError(true);
+            hasError = true;
+        } else {
+            setShowError(false);
+        }
+
+        if (paymentMethod === "bank" && !userBankInfo.trim()) {
+            setBankInputError(true);
+            hasError = true;
+        } else {
+            setBankInputError(false);
+        }
+
+        if (hasError) return;
+
+        setIsOrderSuccess(true);
+    };
+
+    return (
+        <>
+            <Header />
+
+            <div className="container my-4 position-relative">
+                {/* Tiêu đề Thanh toán */}
+                <div className="container my-4">
+                    <div className="d-flex align-items-center mb-4">
+                        <div className="flex-grow-1 border-top"></div>
+                        <h3 className="mx-3 fw-bold text-center">THANH TOÁN</h3>
+                        <div className="flex-grow-1 border-top"></div>
+                    </div>
+                </div>
+
+                {/* 1. Thông tin nhận hàng */}
+                <div style={{ backgroundColor: '#f4f3f3', fontSize: "19px" }} className=" mb-4 p-3 shadow-sm">
+                    <h6 style={{ fontSize: '15px' }} className="text-info fw-bold"> <img src={icon1} alt="icon" /> Thông tin nhận hàng</h6>
+                    <div className="d-flex justify-content-between align-items-center px-2">
+                        <div className="d-flex gap-4 flex-wrap align-items-center">
+                            <strong>Trần Thanh Trường - 0763681139</strong>
+                            <span style={{ fontSize: '19px' }}>Số 472/36 Lê Đức Thọ, Phường Gò Vấp, TP Hồ Chí Minh</span>
+                        </div>
+                        <span className="text-primary fw-bold" style={{ cursor: "pointer" }}>Thay đổi</span>
+                    </div>
+                </div>
+
+                {/* 2. Sản phẩm */}
+                <div className="mb-3 p-3 shadow-sm" style={{ backgroundColor: '#f4f3f3' }}>
+                    <div className="card-body p-0">
+                        <h6 className="text-info mb-0 fw-bold d-flex align-items-center mb-3">
+                            <img src={icon2} alt="icon" className="me-2" style={{ width: '30px' }} />
+                            SẢN PHẨM
+                        </h6>
+
+                        <div className="row g-0 p-3 d-none d-md-flex text-secondary fw-bold" style={{ fontSize: '14px' }}>
+                            <div className="col-md-6"></div>
+                            <div className="col-md-2 text-center">Đơn giá</div>
+                            <div className="col-md-2 text-center">Số lượng</div>
+                            <div className="col-md-2 text-end">Thành tiền</div>
+                        </div>
+
+                        <div className="row g-0 p-0 align-items-center mb-3 px-3">
+                            <div className="col-md-6 d-flex align-items-center">
+                                <img src="https://res.cloudinary.com/dii0ugduv/image/upload/v1773891364/Giy_th_thao_Talon_Biology_Unisex_Gray_Skies-PUMA_B_6_nfe9ew.jpg" alt="PUMA Talon Biology" className="border me-3 shadow-sm" style={{ width: '80px', height: '80px', objectFit: 'cover' }} />
+                                <div>
+                                    <p className="mb-0 fw-bold text-dark" style={{ lineHeight: '1.2' }}>
+                                        466 - Giày Talon Biology Unisex Skies-PUMA [HÀNG CHÍNH HÃNG]
+                                    </p>
+                                    <small className="text-muted">Size: 41</small>
+                                </div>
+                            </div>
+                            <div className="col-md-2 text-center text-dark">3.000.000₫</div>
+                            <div className="col-md-2 text-center text-dark">1</div>
+                            <div className="col-md-2 text-end fw-bold text-danger">3.000.000₫</div>
+                        </div>
+
+                        <div className="row g-0 p-3">
+                            <hr />
+                            <div className="col-md-8 d-flex">
+                                <div style={{ minWidth: '180px', marginRight: '80px' }}>
+                                    <span className="text-dark fw-bold">Phương thức vận chuyển:</span>
+                                </div>
+                                <div className="ps-2">
+                                    <span className="text-dark fw-bold">Vận chuyển tiêu chuẩn</span>
+                                    <div className="text-muted mt-1 small" style={{ maxWidth: '300px' }}>
+                                        Giao hàng từ 5 - 6 ngày cho đơn đặt trước 14:00, không tính Chủ nhật & ngày lễ
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-2 text-center">
+                                <button className="btn btn-link p-0 text-decoration-none fw-bold">Thay đổi</button>
+                            </div>
+                            <div className="col-md-2 text-end fw-bold text-dark">50.000₫</div>
+                        </div>
+
+                        <div className="p-3 d-flex justify-content-end align-items-center border-top">
+                            <span style={{ fontSize: '19px' }} className="me-4 text-dark fw-bold">Tổng số tiền:</span>
+                            <strong className="text-danger" style={{ fontSize: '24px' }}>3.050.000₫</strong>
+                        </div>
+                    </div>
+                </div>
+
+                {/* 3. PHƯƠNG THỨC THANH TOÁN */}
+                <div
+                    style={{
+                        backgroundColor: "#f4f3f3",
+                        minHeight: "280px",
+                        border: showError ? "2px solid #dc3545" : "none"
+                    }}
+                    className="mb-4 p-4 mt-4 shadow-sm"
+                >
+                    <div className="d-flex align-items-center flex-wrap gap-4 mb-3">
+                        <h6 className="mb-0 d-flex align-items-center gap-2 fw-bold" style={{ color: "#00CCFF" }}>
+                            <img src={icon3} alt="icon" style={{ width: "24px" }} />
+                            PHƯƠNG THỨC THANH TOÁN
+                        </h6>
+
+                        <div className="d-flex gap-3">
+                            <button
+                                onClick={() => { setPaymentMethod('cod'); setShowError(false); }}
+                                className={`btn px-4 py-2 transition-all fw-bold ${paymentMethod === 'cod'
+                                        ? 'btn-dark border-4 fw-bold shadow'
+                                        : 'btn-outline-dark fw-normal'
+                                    }`}
+                            >
+                                Thanh toán khi nhận hàng
+                            </button>
+
+                            <button
+                                onClick={() => { setPaymentMethod('bank'); setShowError(false); }}
+                                className={`btn px-4 py-2 transition-all fw-bold ${paymentMethod === 'bank'
+                                        ? 'btn-danger border-4 fw-bold shadow'
+                                        : 'btn-outline-danger fw-normal'
+                                    }`}
+                            >
+                                Thanh toán bằng ngân hàng
+                            </button>
+                        </div>
+                    </div>
+
+                    {showError && (
+                        <div className="text-danger fw-bold mb-3 small animate__animated animate__shakeX">
+                            <i className="bi bi-exclamation-triangle-fill me-1"></i>
+                            Vui lòng chọn một phương thức thanh toán!
+                        </div>
+                    )}
+
+                    {paymentMethod === 'cod' && (
+                        <div className="mt-3 p-4 border border-2 rounded bg-white shadow-sm animate__animated animate__fadeIn">
+                            <h6 className="fw-bold text-dark mb-2">XÁC NHẬN: THANH TOÁN KHI NHẬN HÀNG (COD)</h6>
+                            <p className="mb-0 fw-bold text-secondary">
+                                * Bạn sẽ thanh toán tiền mặt khi nhận hàng. Số tiền: <strong className="text-danger">3.050.000₫</strong>
+                            </p>
+                        </div>
+                    )}
+
+                    {paymentMethod === 'bank' && (
+                        <div className="mt-3 p-4 border border-2 rounded bg-white shadow-sm animate__animated animate__fadeIn text-dark">
+                            <label className="form-label fw-bold mb-2">Nhập số tài khoản / Ngân hàng của bạn:</label>
+                            <input
+                                type="text"
+                                className={`form-control border-3 py-2 fw-bold ${bankInputError ? 'border-danger bg-light' : ''}`}
+                                placeholder="Ví dụ: Vietcombank - 1023456789"
+                                value={userBankInfo}
+                                onChange={(e) => {
+                                    setUserBankInfo(e.target.value);
+                                    if (e.target.value.trim()) setBankInputError(false);
+                                }}
+                            />
+                            {bankInputError && <div className="text-danger fw-bold mt-1 small">Vui lòng nhập thông tin ngân hàng!</div>}
+                            <div className="form-text text-muted mt-2 fw-bold italic">
+                                * Chuyển khoản <strong>3.050.000₫</strong> vào: <span className="text-danger">VCB - 1023456789 - ABC SHOE STORE</span>
+                            </div>
+                        </div>
+                    )}
+
+                    <div className="mt-5">
+                        <hr className="border-2" style={{ borderColor: '#adb5bd' }} />
+                        <div className="d-flex justify-content-between align-items-center flex-wrap pt-2 text-dark">
+                            <p className="mb-0 text-secondary" style={{ fontSize: '15px' }}>
+                                Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo các chính sách của ABC Shoe
+                            </p>
+                            <button
+                                onClick={handleOrder}
+                                className="btn btn-dark fw-bold px-5 py-3 shadow"
+                                style={{ borderRadius: "0", fontSize: "1.2rem" }}
+                            >
+                                ĐẶT HÀNG
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                
+            <SuccessModalCheckout 
+                isOpen={isOrderSuccess} 
+                customerName="Trần Thanh Trường" 
+            />
+
+            </div>
+
+            <Footer />
+        </>
+    );
+}
+
+export default Checkout;
