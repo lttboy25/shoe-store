@@ -16,7 +16,7 @@ function ProductCard({ product }) {
   return (
   
   <Link 
-      to={`/cua-hang/${product.id}`} 
+      to={`/cua-hang/${product.slug}`} 
       style={{ textDecoration: "none", color: "inherit" }}
     >
   

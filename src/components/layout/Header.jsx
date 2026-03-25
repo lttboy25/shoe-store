@@ -100,6 +100,18 @@ const Header = () => {
               >
                 PHỤ KIỆN
               </Link>
+              <Link
+                to="/ve-chung-toi"
+                style={{
+                  color: '#333',
+                  fontSize: '13px',
+                  fontWeight: '500',
+                  textDecoration: 'none',
+                  textTransform: 'uppercase'
+                }}
+              >
+                Về chúng tôi
+              </Link>
             </nav>
           </div>
 

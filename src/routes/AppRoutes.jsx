@@ -7,14 +7,16 @@ import Checkout from '../pages/Checkout/Checkout.jsx';
 import CartPage from '../pages/Cart/CartPage.jsx';
 import LoginForm from '../components/section/auth/LoginForm.jsx';
 import RegisterForm from '../components/section/auth/RegisterForm.jsx';
+import About from "../pages/About.jsx";
 export default function AppRoutes() {
   return (
     <div>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/cua-hang' element={<Product />} />
+          <Route path='/ve-chung-toi' element={<About />} />
           
-          <Route path='/cua-hang/:id' element={<ProductDetail />}/>
+          <Route path='/cua-hang/:slug' element={<ProductDetail />}/>
           <Route path="/thanh-toan" element={<Checkout />} />
           <Route path="/gio-hang" element={<CartPage />} />
           <Route path="/dang-nhap" element={<LoginForm />} />

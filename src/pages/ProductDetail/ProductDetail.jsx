@@ -7,28 +7,27 @@ import products from "../../data/products";
 import MainLayout from "../../components/layout/MainLayout";
 import "./ProductDetail.css";
 
-// ─── Spec label map ────────────────────────────────────────────────────────
-const SPEC_LABELS = {
-  material: "Chất liệu:",
-  sole: "Đế:",
-  fit: "Form giày:",
-  style: "Phong cách:",
-  gender: "Giới tính:",
-};
 
 export default function ProductDetail() {
-  const { id } = useParams();
-  const product = products.find((p) => p.id === id);
-
+  const { slug } = useParams();
+  const product = products.find((p) => p.slug === slug);
+  
+  const SPEC_LABELS = {
+    material: "Chất liệu:",
+    sole: "Đế:",
+    fit: "Form giày:",
+    style: "Phong cách:",
+    gender: "Giới tính:",
+  };
+  
   const relatedProducts = product
     ? products.filter(
         (p) =>
-          p.id !== product.id &&
+          p.slug !== product.slug &&
           p.categoryId?.some((cat) => product.categoryId?.includes(cat))
       )
     : [];
 
-  // ── Not found ──────────────────────────────────────────────────────────
   if (!product) {
     return (
       <MainLayout
@@ -36,7 +35,7 @@ export default function ProductDetail() {
           <div className="pd-not-found">
             <h2 className="pd-not-found__title">Không tìm thấy sản phẩm</h2>
             <p className="pd-not-found__text">
-              Sản phẩm với id <strong>{id}</strong> không tồn tại.
+              Sản phẩm với slug <strong>{slug}</strong> không tồn tại.
             </p>
             <Link to="/cua-hang" className="pd-not-found__link">
               ← Quay lại danh sách
@@ -47,12 +46,10 @@ export default function ProductDetail() {
     );
   }
 
-  // ── Derived data ───────────────────────────────────────────────────────
   const sizes = product.variants[0]?.sizes ?? [];
   const colors = product.variants[0]?.color ?? [];
   const allImages = product.images?.length ? product.images : [product.thumbnail];
 
-  // ── State ──────────────────────────────────────────────────────────────
   const [activeImg, setActiveImg] = useState(0);
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedColor, setSelectedColor] = useState(colors[0] ?? null);
@@ -73,7 +70,6 @@ export default function ProductDetail() {
   const decrease = () => setQuantity((q) => Math.max(1, q - 1));
   const increase = () => setQuantity((q) => q + 1);
 
-  // ── Render ─────────────────────────────────────────────────────────────
   return (
     <MainLayout
       props={
