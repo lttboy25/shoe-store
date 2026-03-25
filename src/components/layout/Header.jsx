@@ -126,11 +126,14 @@ const Header = () => {
             </button>
 
             {/* User Icon */}
+            <Link to={"/dang-nhap"}>
+            
             <button style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px' }}>
               <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
               </svg>
             </button>
+            </Link>
 
             {/* Cart Icon */}
             {/* Cart → mở modal */}
@@ -148,8 +151,7 @@ const Header = () => {
           </div>
         </div>
       </header>
-
-      <CartModal
+          <CartModal
         isOpen={cartOpen}
         onClose={() => setCartOpen(false)}
         cartItems={TEST_CART}

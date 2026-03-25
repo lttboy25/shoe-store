@@ -217,11 +217,11 @@ export default function CartPage() {
                   <span>Tổng cộng</span>
                   <span className="cp-total-val">{fmt(total)}</span>
                 </div>
-                <Link to="/checkout" style={{ textDecoration: "none" }}>
+                <Link to="/thanh-toan" style={{ textDecoration: "none" }}>
                   <button className="cp-checkout-btn">THANH TOÁN NGAY →</button>
                 </Link>
 
-                <Link to="/best-sellers" style={{ textDecoration: "none" }}>
+                <Link to="/cua-hang" style={{ textDecoration: "none" }}>
                   <button className="cp-continue-btn">← Tiếp tục mua sắm</button>
                 </Link>
               </div>
