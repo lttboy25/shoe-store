@@ -90,13 +90,13 @@ export default function CartModal({ isOpen, onClose, cartItems = [], productsMap
             </div>
 
             {/* Buttons */}
-            <Link to="/checkout" style={{ textDecoration: "none" }} onClick={onClose}>
+            <Link to="/thanh-toan" style={{ textDecoration: "none" }} onClick={onClose}>
               <button style={s.checkoutBtn}>
                 THANH TOÁN NGAY →
               </button>
             </Link>
 
-            <Link to="/cart-page" style={{ textDecoration: "none" }} onClick={onClose}>
+            <Link to="/gio-hang" style={{ textDecoration: "none" }} onClick={onClose}>
               <button style={s.viewCartBtn}>
                 Xem giỏ hàng đầy đủ
               </button>

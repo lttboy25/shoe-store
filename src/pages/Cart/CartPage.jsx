@@ -1,8 +1,8 @@
 import { useState } from "react";
 import './CartPage.css';
-import Header from "../../components/layout/Header";
+import Header from "../../components/layout/Header.jsx";
 import products from '../../data/products.js';
-import Footer from "../../components/layout/Footer";
+import Footer from "../../components/layout/Footer.jsx";
 import { currentUser } from '../../data/users.js';
 import EditAddressModal from "./EditAddressModal.jsx";
 import { Link } from "react-router";
@@ -14,8 +14,8 @@ const PRODUCTS_MAP = Object.fromEntries(
       id: p.id,
       name: p.name,
       brand: p.brand,
-      price: parseInt(p.price.replace(/[.,]/g, ""), 10),
-      originalPrice: parseInt(p.originalPrice.replace(/[.,]/g, ""), 10),
+      price: p.price,
+      originalPrice: p.originalPrice,
       discountPercent: p.discountPercent,
       thumbnail: p.thumbnail,
       sizes: p.variants[0]?.sizes.map((s) => s.size) ?? [],
