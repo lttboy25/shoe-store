@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./CartPage.css";
 import Header from "../../components/layout/Header.jsx";
 import products from "../../data/products.js";
@@ -6,6 +6,7 @@ import Footer from "../../components/layout/Footer.jsx";
 import { currentUser } from "../../data/users.js";
 import EditAddressModal from "./EditAddressModal.jsx";
 import { Link } from "react-router";
+import { getCartItems, saveCartItems } from "../../utils/cartStorage";
 
 const PRODUCTS_MAP = Object.fromEntries(
   products.map((p) => [
@@ -27,14 +28,7 @@ function fmt(n) {
   return n.toLocaleString("vi-VN") + "đ";
 }
 
-const initCart = () =>
-  products.slice(0, 4).map((p) => ({
-    cid: p.id + "_" + Math.random().toString(36).slice(2),
-    pid: p.id,
-    size: p.variants[0]?.sizes[0]?.size ?? "",
-    qty: 1,
-    checked: false,
-  }));
+const initCart = () => getCartItems();
 
 export default function CartPage() {
   const [cart, setCart] = useState(initCart);
@@ -46,6 +40,10 @@ export default function CartPage() {
   const [customer, setCustomer] = useState(currentUser);
   const [showModal, setShowModal] = useState(false);
 
+  useEffect(() => {
+    saveCartItems(cart);
+  }, [cart]);
+
   const upd = (cid, patch) =>
     setCart((prev) =>
       prev.map((c) => (c.cid === cid ? { ...c, ...patch } : c)),
@@ -56,10 +54,10 @@ export default function CartPage() {
     setCart((p) => p.map((c) => ({ ...c, checked: !allOn })));
   const selectedN = cart.filter((c) => c.checked).length;
 
-  const subtotal = cart.reduce(
-    (s, c) => s + PRODUCTS_MAP[c.pid].price * c.qty,
-    0,
-  );
+  const subtotal = cart.reduce((s, c) => {
+    const product = PRODUCTS_MAP[c.pid];
+    return product ? s + product.price * c.qty : s;
+  }, 0);
   const total = Math.max(0, subtotal - discount);
 
   const applyCoupon = () => {
@@ -121,6 +119,7 @@ export default function CartPage() {
                 ) : (
                   cart.map((c, i) => {
                     const p = PRODUCTS_MAP[c.pid];
+                    if (!p) return null;
                     const hasDisc = p.discountPercent > 0;
                     return (
                       <div

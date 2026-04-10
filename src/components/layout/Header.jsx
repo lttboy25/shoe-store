@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CartModal from "../../pages/Cart/CartModal.jsx";
 import products from "../../data/products.js";
+import { getCartItems } from "../../utils/cartStorage";
 
 const iconBtn = {
   background: "none",
@@ -26,15 +27,22 @@ const PRODUCTS_MAP = Object.fromEntries(
   ]),
 );
 
-const TEST_CART = products.slice(0, 3).map((p) => ({
-  cid: p.id + "_test",
-  pid: p.id,
-  size: p.variants?.[0]?.sizes?.[0]?.size ?? "",
-  qty: 1,
-}));
-
 const Header = () => {
   const [cartOpen, setCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState(() => getCartItems());
+
+  useEffect(() => {
+    const syncCart = () => setCartItems(getCartItems());
+
+    window.addEventListener("storage", syncCart);
+    window.addEventListener("cart:updated", syncCart);
+
+    return () => {
+      window.removeEventListener("storage", syncCart);
+      window.removeEventListener("cart:updated", syncCart);
+    };
+  }, []);
+
   return (
     <>
       <header
@@ -228,7 +236,7 @@ const Header = () => {
                   justifyContent: "center",
                 }}
               >
-                {TEST_CART.length}
+                {cartItems.length}
               </span>
             </button>
           </div>
@@ -237,7 +245,7 @@ const Header = () => {
       <CartModal
         isOpen={cartOpen}
         onClose={() => setCartOpen(false)}
-        cartItems={TEST_CART}
+        cartItems={cartItems}
         productsMap={PRODUCTS_MAP}
       />
       <style>{`

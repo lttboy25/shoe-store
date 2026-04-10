@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router";
 function fmt(n) {
   return Number(n).toLocaleString("vi-VN") + "đ";
@@ -18,7 +18,7 @@ export default function CartModal({
     };
     if (isOpen) document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
-  }, [isOpen]);
+  }, [isOpen, onClose]);
 
   useEffect(() => {
     const handler = (e) => {
@@ -26,7 +26,7 @@ export default function CartModal({
     };
     if (isOpen) window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [isOpen]);
+  }, [isOpen, onClose]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -135,7 +135,7 @@ export default function CartModal({
         {cartItems.length === 0 && (
           <div style={s.footer}>
             <Link
-              to="/cart-page"
+              to="/gio-hang"
               style={{ textDecoration: "none" }}
               onClick={onClose}
             >
