@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CartModal from "../../pages/Cart/CartModal.jsx";
 import products from "../../data/products.js";
@@ -30,6 +31,29 @@ const PRODUCTS_MAP = Object.fromEntries(
 const Header = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState(() => getCartItems());
+  const [keyword, setKeyword] = useState("");
+  const [showSuggest, setShowSuggest] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const removeVietnameseTones = (str) => {
+    return str
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/đ/g, "d")
+      .replace(/Đ/g, "D");
+  };
+
+  const suggestions = useMemo(() => {
+    const value = removeVietnameseTones(keyword.trim().toLowerCase());
+    if (!value) return [];
+
+    return products
+      .filter((p) =>
+        removeVietnameseTones(p.name.toLowerCase()).includes(value),
+      )
+      .slice(0, 5);
+  }, [keyword]);
 
   useEffect(() => {
     const syncCart = () => setCartItems(getCartItems());
@@ -150,19 +174,91 @@ const Header = () => {
             }}
           >
             {/* Search */}
-            <input
-              type="text"
-              style={{
-                width: "300px",
-                padding: "8px 12px",
-                border: "1px solid #ccc",
-                borderRadius: "4px",
-                fontSize: "14px",
-              }}
-            />
+            <div style={{ position: "relative" }}>
+              <input
+                type="text"
+                placeholder="Tìm sản phẩm..."
+                value={keyword}
+                onChange={(e) => {
+                  setKeyword(e.target.value);
+                  setShowSuggest(true);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    if (!keyword.trim()) return;
 
+                    const path =
+                      location.pathname === "/"
+                        ? "/cua-hang"
+                        : location.pathname;
+
+                    navigate(`${path}?search=${encodeURIComponent(keyword)}`);
+                  }
+                }}
+                onBlur={() => setTimeout(() => setShowSuggest(false), 200)}
+                style={{
+                  width: "300px",
+                  padding: "8px 12px",
+                  border: "1px solid #ccc",
+                  borderRadius: "4px",
+                  fontSize: "14px",
+                }}
+              />
+
+              {/* 🔽 Dropdown gợi ý */}
+              {showSuggest && suggestions.length > 0 && (
+                <ul
+                  style={{
+                    position: "absolute",
+                    top: "100%",
+                    left: 0,
+                    right: 0,
+                    background: "#fff",
+                    border: "1px solid #ccc",
+                    listStyle: "none",
+                    margin: 0,
+                    padding: 0,
+                    zIndex: 1000,
+                  }}
+                >
+                  {suggestions.map((p) => (
+                    <li
+                      key={p.id}
+                      style={{
+                        padding: "8px",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => {
+                        setKeyword(p.name);
+                        setShowSuggest(false);
+
+                        const path =
+                          location.pathname === "/"
+                            ? "/cua-hang"
+                            : location.pathname;
+
+                        navigate(
+                          `${path}?search=${encodeURIComponent(p.name)}`,
+                        );
+                      }}
+                    >
+                      {p.name}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
             {/* Search Icon */}
             <button
+              onClick={() => {
+                if (!keyword.trim()) return;
+
+                const path =
+                  location.pathname === "/" ? "/cua-hang" : location.pathname;
+
+                navigate(`${path}?search=${encodeURIComponent(keyword)}`);
+                setShowSuggest(false);
+              }}
               style={{
                 background: "none",
                 border: "none",
@@ -182,7 +278,6 @@ const Header = () => {
                 <path d="m21 21-4.35-4.35" />
               </svg>
             </button>
-
             {/* User Icon */}
             <Link to={"/dang-nhap"}>
               <button
@@ -203,7 +298,6 @@ const Header = () => {
                 </svg>
               </button>
             </Link>
-
             {/* Cart Icon */}
             {/* Cart → mở modal */}
             <button
