@@ -1,40 +1,31 @@
 import React from "react";
 import Home from "../pages/Home/Home.jsx";
 import { Routes, Route } from "react-router";
-import Product from '../pages/Product/Product.jsx'
-<<<<<<< HEAD
-import CartPage from '../pages/Cart/CartPage.jsx';
-=======
-import ProductDetail from '../pages/ProductDetail/ProductDetail.jsx';
-import Checkout from '../pages/Checkout/Checkout.jsx';
-import CartPage from '../pages/Cart/CartPage.jsx';
-import LoginForm from '../components/section/auth/LoginForm.jsx';
-import RegisterForm from '../components/section/auth/RegisterForm.jsx';
+import Product from "../pages/Product/Product.jsx";
+import ProductDetail from "../pages/ProductDetail/ProductDetail.jsx";
+import Checkout from "../pages/Checkout/Checkout.jsx";
+import CartPage from "../pages/Cart/CartPage.jsx";
+import LoginForm from "../components/section/auth/LoginForm.jsx";
+import RegisterForm from "../components/section/auth/RegisterForm.jsx";
 import About from "../pages/About.jsx";
-import MenProduct from "../pages/Product/MenProduct.jsx"
-import WomenProduct from "../pages/Product/WomenProduct.jsx"
->>>>>>> 163e3d0bc8c9f6e4340a61bc05215e119d91a9d6
+import MenProduct from "../pages/Product/MenProduct.jsx";
+import WomenProduct from "../pages/Product/WomenProduct.jsx";
 export default function AppRoutes() {
   return (
     <div>
-        <Routes>
-          <Route path='/' element={<Home />} />
-<<<<<<< HEAD
-          <Route path='/best-sellers' element={<Product />} />
-          <Route path='/cart-page' element={<CartPage/>} />
-=======
-          <Route path='/cua-hang' element={<Product />} />
-          <Route path='/cua-hang-do-nam' element={<MenProduct />} />
-          <Route path='/cua-hang-do-nu' element={<WomenProduct />} />
-          <Route path='/ve-chung-toi' element={<About />} />
-          
-          <Route path='/cua-hang/:slug' element={<ProductDetail />}/>
-          <Route path="/thanh-toan" element={<Checkout />} />
-          <Route path="/gio-hang" element={<CartPage />} />
-          <Route path="/dang-nhap" element={<LoginForm />} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cua-hang" element={<Product />} />
+        <Route path="/cua-hang-do-nam" element={<MenProduct />} />
+        <Route path="/cua-hang-do-nu" element={<WomenProduct />} />
+        <Route path="/ve-chung-toi" element={<About />} />
+
+        <Route path="/cua-hang/:slug" element={<ProductDetail />} />
+        <Route path="/thanh-toan" element={<Checkout />} />
+        <Route path="/gio-hang" element={<CartPage />} />
+        <Route path="/dang-nhap" element={<LoginForm />} />
         <Route path="/dang-ky" element={<RegisterForm />} />
->>>>>>> 163e3d0bc8c9f6e4340a61bc05215e119d91a9d6
-    </Routes>
+      </Routes>
     </div>
   );
 }

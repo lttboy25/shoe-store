@@ -551,8 +551,4 @@
   }
   .modal-save:hover { background: #e53935; }
   @keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
-<<<<<<< HEAD
   @keyframes slideUp { from { transform: translateY(20px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
-=======
-  @keyframes slideUp { from { transform: translateY(20px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
->>>>>>> 163e3d0bc8c9f6e4340a61bc05215e119d91a9d6
