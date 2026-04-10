@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import MainLayout from "../../layout/MainLayout";
 import { useNavigate } from "react-router-dom";
+import { notify } from "../../../utils/notify";
+import { setCurrentAccount } from "../../../utils/authStorage";
+import { login } from "../../../service/authService";
 
 function LoginForm() {
   const [username, setUsername] = useState("");
@@ -12,21 +15,33 @@ function LoginForm() {
     e.preventDefault();
 
     if (!username.trim()) {
-      alert("Vui lòng nhập tên đăng nhập");
+      notify("Vui lòng nhập tên đăng nhập", "error");
       return;
     }
 
     if (!password.trim()) {
-      alert("Vui lòng nhập mật khẩu");
+      notify("Vui lòng nhập mật khẩu", "error");
       return;
     }
 
     if (password.length < 6) {
-      alert("Mật khẩu phải >= 6 ký tự");
+      notify("Mật khẩu phải >= 6 ký tự", "error");
       return;
     }
 
-    alert("Đăng nhập thành công (giả lập)");
+    const result = login({ username, password });
+    if (!result.success) {
+      notify(result.message, "error");
+      return;
+    }
+
+    setCurrentAccount({
+      username: result.user.username,
+      name: result.user.name,
+      email: result.user.email,
+    });
+    notify(result.message, "success");
+    navigate("/profile");
   };
 
   return (

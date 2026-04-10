@@ -1,17 +1,18 @@
 import { useState } from "react";
-import { useParams, Link } from "react-router";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import Breadcrumb from "../../components/common/Breadcrumb";
 import Button from "../../components/common/Button";
 import ProductGrid from "../../components/product/ProductGrid/ProductGrid";
 import products from "../../data/products";
 import MainLayout from "../../components/layout/MainLayout";
+import { addCartItem, setBuyNowItem } from "../../utils/cartStorage";
 import "./ProductDetail.css";
-
 
 export default function ProductDetail() {
   const { slug } = useParams();
+  const navigate = useNavigate();
   const product = products.find((p) => p.slug === slug);
-  
+
   const SPEC_LABELS = {
     material: "Chất liệu:",
     sole: "Đế:",
@@ -19,14 +20,28 @@ export default function ProductDetail() {
     style: "Phong cách:",
     gender: "Giới tính:",
   };
-  
+
   const relatedProducts = product
     ? products.filter(
         (p) =>
           p.slug !== product.slug &&
-          p.categoryId?.some((cat) => product.categoryId?.includes(cat))
+          p.categoryId?.some((cat) => product.categoryId?.includes(cat)),
       )
     : [];
+
+  const sizes = product?.variants[0]?.sizes ?? [];
+  const colors = product?.variants[0]?.color ?? [];
+  const allImages = product?.images?.length
+    ? product.images
+    : [product?.thumbnail].filter(Boolean);
+
+  const [activeImg, setActiveImg] = useState(0);
+  const [selectedSize, setSelectedSize] = useState(
+    sizes.find(({ stock }) => stock > 0)?.size ?? null,
+  );
+  const [selectedColor, setSelectedColor] = useState(colors[0] ?? null);
+  const [quantity, setQuantity] = useState(1);
+  const [showDesc, setShowDesc] = useState(false);
 
   if (!product) {
     return (
@@ -46,16 +61,6 @@ export default function ProductDetail() {
     );
   }
 
-  const sizes = product.variants[0]?.sizes ?? [];
-  const colors = product.variants[0]?.color ?? [];
-  const allImages = product.images?.length ? product.images : [product.thumbnail];
-
-  const [activeImg, setActiveImg] = useState(0);
-  const [selectedSize, setSelectedSize] = useState(null);
-  const [selectedColor, setSelectedColor] = useState(colors[0] ?? null);
-  const [quantity, setQuantity] = useState(1);
-  const [showDesc, setShowDesc] = useState(false);
-
   const breadcrumbItems = [
     { label: "Trang chủ", href: "/" },
     { label: "Cửa hàng", href: "/cua-hang" },
@@ -69,6 +74,36 @@ export default function ProductDetail() {
 
   const decrease = () => setQuantity((q) => Math.max(1, q - 1));
   const increase = () => setQuantity((q) => q + 1);
+
+  const handleAddToCart = () => {
+    if (!selectedSize) {
+      window.alert("Vui lòng chọn size trước khi thêm vào giỏ hàng.");
+      return false;
+    }
+
+    addCartItem({
+      pid: product.id,
+      size: selectedSize,
+      qty: quantity,
+    });
+
+    return true;
+  };
+
+  const handleBuyNow = () => {
+    if (!selectedSize) {
+      window.alert("Vui lòng chọn size trước khi mua ngay.");
+      return;
+    }
+
+    setBuyNowItem({
+      pid: product.id,
+      size: selectedSize,
+      qty: quantity,
+    });
+
+    navigate("/thanh-toan");
+  };
 
   return (
     <MainLayout
@@ -127,7 +162,9 @@ export default function ProductDetail() {
               {/* RIGHT: Product info */}
               <div className="col-lg-5">
                 <h1 className="pd-name">{product.name}</h1>
-                <p className="pd-sku">Mã số: {product.id.replace("prod_", "")}</p>
+                <p className="pd-sku">
+                  Mã số: {product.id.replace("prod_", "")}
+                </p>
 
                 {/* Price */}
                 <div className="pd-price">
@@ -185,16 +222,32 @@ export default function ProductDetail() {
                 <div className="pd-qty">
                   <div className="pd-label">Số lượng:</div>
                   <div className="pd-qty__control">
-                    <button onClick={decrease} className="pd-qty__btn">−</button>
+                    <button onClick={decrease} className="pd-qty__btn">
+                      −
+                    </button>
                     <div className="pd-qty__value">{quantity}</div>
-                    <button onClick={increase} className="pd-qty__btn">+</button>
+                    <button onClick={increase} className="pd-qty__btn">
+                      +
+                    </button>
                   </div>
                 </div>
 
                 {/* Action buttons */}
                 <div className="pd-actions">
-                  <Button title="Mua ngay" variant="dark" width="100%" height={48} />
-                  <Button title="Thêm vào giỏ hàng" variant="light" width="100%" height={48} />
+                  <Button
+                    title="Mua ngay"
+                    variant="dark"
+                    width="100%"
+                    height={48}
+                    onClick={handleBuyNow}
+                  />
+                  <Button
+                    title="Thêm vào giỏ hàng"
+                    variant="light"
+                    width="100%"
+                    height={48}
+                    onClick={handleAddToCart}
+                  />
                 </div>
 
                 {/* Mô tả toggle */}
@@ -213,7 +266,9 @@ export default function ProductDetail() {
 
                   {showDesc && (
                     <div className="pd-desc-toggle__body">
-                      <p className="pd-desc-toggle__text">{product.shortDescription}</p>
+                      <p className="pd-desc-toggle__text">
+                        {product.shortDescription}
+                      </p>
                       <button className="pd-desc-toggle__more">Xem thêm</button>
                     </div>
                   )}
@@ -232,7 +287,10 @@ export default function ProductDetail() {
 
           {/* ── Full description ── */}
           <div className="container pb-2">
-            <div className="pd-section" style={{ paddingTop: 24, marginBottom: 24 }}>
+            <div
+              className="pd-section"
+              style={{ paddingTop: 24, marginBottom: 24 }}
+            >
               <h2 className="pd-section__title">Mô tả sản phẩm</h2>
               <p className="pd-section__desc">{product.description}</p>
             </div>
@@ -244,7 +302,9 @@ export default function ProductDetail() {
                 <tbody>
                   {Object.entries(product.specifications).map(([key, val]) => (
                     <tr key={key}>
-                      <td className="pd-spec-table__key">{SPEC_LABELS[key] ?? key}</td>
+                      <td className="pd-spec-table__key">
+                        {SPEC_LABELS[key] ?? key}
+                      </td>
                       <td className="pd-spec-table__val">{val}</td>
                     </tr>
                   ))}
@@ -277,4 +337,4 @@ export default function ProductDetail() {
       }
     />
   );
-} 
+}

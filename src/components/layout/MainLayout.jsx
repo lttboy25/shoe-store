@@ -1,14 +1,15 @@
-import React from 'react'
-import Footer from './Footer.jsx'
-import Header from './Header.jsx'
+import React from "react";
+import Footer from "./Footer.jsx";
+import Header from "./Header.jsx";
 
-export default function MainLayout({props, link}) {
+export default function MainLayout({ props, children }) {
   return (
     <div>
-        <Header/>
-        
-        {props}
-        <Footer/>
+      <Header />
+
+      {props}
+      {children}
+      <Footer />
     </div>
-  )
+  );
 }
