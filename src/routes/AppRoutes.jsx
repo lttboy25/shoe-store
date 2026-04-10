@@ -10,6 +10,9 @@ import RegisterForm from "../components/section/auth/RegisterForm.jsx";
 import About from "../pages/About.jsx";
 import MenProduct from "../pages/Product/MenProduct.jsx";
 import WomenProduct from "../pages/Product/WomenProduct.jsx";
+import ProfilePage from "../pages/Profile/ProfilePage.jsx";
+import FavoritesPage from "../pages/Favourite/FavoritesPage.jsx";
+
 export default function AppRoutes() {
   return (
     <div>
@@ -18,11 +21,13 @@ export default function AppRoutes() {
         <Route path="/cua-hang" element={<Product />} />
         <Route path="/cua-hang-do-nam" element={<MenProduct />} />
         <Route path="/cua-hang-do-nu" element={<WomenProduct />} />
+        <Route path="/yeu-thich" element={<FavoritesPage />} />
         <Route path="/ve-chung-toi" element={<About />} />
 
         <Route path="/cua-hang/:slug" element={<ProductDetail />} />
         <Route path="/thanh-toan" element={<Checkout />} />
         <Route path="/gio-hang" element={<CartPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/dang-nhap" element={<LoginForm />} />
         <Route path="/dang-ky" element={<RegisterForm />} />
       </Routes>

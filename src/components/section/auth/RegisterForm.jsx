@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { register } from "../../../service/authService";
 import { useNavigate } from "react-router-dom";
 import MainLayout from "../../layout/MainLayout";
+import { notify } from "../../../utils/notify";
+import { setCurrentAccount } from "../../../utils/authStorage";
 
 function RegisterForm() {
   const [username, setUsername] = useState("");
@@ -15,33 +17,33 @@ function RegisterForm() {
     e.preventDefault();
 
     if (!username.trim()) {
-      alert("Vui lòng nhập tên đăng nhập");
+      notify("Vui lòng nhập tên đăng nhập", "error");
       return;
     }
 
     if (!email.trim()) {
-      alert("Vui lòng nhập email");
+      notify("Vui lòng nhập email", "error");
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      alert("Email không hợp lệ");
+      notify("Email không hợp lệ", "error");
       return;
     }
 
     if (!password.trim()) {
-      alert("Vui lòng nhập mật khẩu");
+      notify("Vui lòng nhập mật khẩu", "error");
       return;
     }
 
     if (password.length < 6) {
-      alert("Mật khẩu phải >= 6 ký tự");
+      notify("Mật khẩu phải >= 6 ký tự", "error");
       return;
     }
 
     if (password !== confirmPassword) {
-      alert("Mật khẩu nhập lại không khớp");
+      notify("Mật khẩu nhập lại không khớp", "error");
       return;
     }
 
@@ -52,9 +54,10 @@ function RegisterForm() {
     });
 
     if (!result.success) {
-      alert(result.message);
+      notify(result.message, "error");
     } else {
-      alert(result.message);
+      setCurrentAccount({ username, email, name: username });
+      notify(result.message, "success");
 
       navigate("/dang-nhap");
     }

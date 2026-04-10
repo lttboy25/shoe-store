@@ -3,10 +3,11 @@ import "./CartPage.css";
 import Header from "../../components/layout/Header.jsx";
 import products from "../../data/products.js";
 import Footer from "../../components/layout/Footer.jsx";
-import { currentUser } from "../../data/users.js";
 import EditAddressModal from "./EditAddressModal.jsx";
 import { Link } from "react-router";
 import { getCartItems, saveCartItems } from "../../utils/cartStorage";
+import { getProfile, saveProfile } from "../../utils/profileStorage";
+import { notify } from "../../utils/notify";
 
 const PRODUCTS_MAP = Object.fromEntries(
   products.map((p) => [
@@ -37,7 +38,7 @@ export default function CartPage() {
   const [couponMsg, setCouponMsg] = useState(null);
   const [note, setNote] = useState("");
 
-  const [customer, setCustomer] = useState(currentUser);
+  const [customer, setCustomer] = useState(() => getProfile());
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
@@ -347,7 +348,11 @@ export default function CartPage() {
       {showModal && (
         <EditAddressModal
           customer={customer}
-          onSave={(updated) => setCustomer(updated)}
+          onSave={(updated) => {
+            setCustomer(updated);
+            saveProfile(updated);
+            notify("Đã cập nhật thông tin giao hàng", "success");
+          }}
           onClose={() => setShowModal(false)}
         />
       )}

@@ -11,6 +11,9 @@ import {
   getBuyNowItem,
   getCartItems,
 } from "../../utils/cartStorage";
+import { addOrderHistory, getProfile } from "../../utils/profileStorage";
+import EditAddressModal from "../Cart/EditAddressModal";
+import { notify } from "../../utils/notify";
 
 const PRODUCTS_MAP = Object.fromEntries(
   products.map((p) => [
@@ -35,8 +38,11 @@ const Checkout = () => {
   const [showError, setShowError] = useState(false);
   const [bankInputError, setBankInputError] = useState(false);
   const [isOrderSuccess, setIsOrderSuccess] = useState(false);
+  const [showShippingModal, setShowShippingModal] = useState(false);
+  const [pendingOrder, setPendingOrder] = useState(false);
   const [buyNowItem] = useState(() => getBuyNowItem());
   const [cartItems] = useState(() => getCartItems());
+  const [customer, setCustomer] = useState(() => getProfile());
 
   useEffect(() => {
     if (buyNowItem) {
@@ -57,8 +63,65 @@ const Checkout = () => {
   const shippingFee = checkoutItems.length > 0 ? 50000 : 0;
   const grandTotal = subtotal + shippingFee;
 
+  const hasShippingInfo =
+    customer.name?.trim() && customer.phone?.trim() && customer.address?.trim();
+
+  const finalizeOrder = () => {
+    addOrderHistory({
+      id: `ORD-${Date.now()}`,
+      createdAt: new Date().toISOString(),
+      paymentMethod,
+      shippingFee,
+      total: grandTotal,
+      customerName: customer.name || customer.username || "Khách hàng",
+      items: checkoutItems.map((item) => ({
+        cid: item.cid,
+        pid: item.pid,
+        name: item.product.name,
+        price: item.product.price,
+        size: item.size,
+        qty: item.qty,
+      })),
+    });
+
+    setIsOrderSuccess(true);
+    setPendingOrder(false);
+  };
+
+  const handleAddressSave = (nextCustomer) => {
+    setCustomer(nextCustomer);
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(
+        "shoe_store_profile",
+        JSON.stringify(nextCustomer),
+      );
+    }
+
+    notify("Đã cập nhật thông tin giao hàng", "success");
+    setShowShippingModal(false);
+
+    if (pendingOrder) {
+      setPendingOrder(false);
+      if (!paymentMethod) {
+        notify("Hãy chọn phương thức thanh toán trước khi đặt hàng", "error");
+        return;
+      }
+      finalizeOrder();
+    }
+  };
+
   const handleOrder = () => {
     let hasError = false;
+
+    if (!hasShippingInfo) {
+      notify(
+        "Vui lòng thêm họ tên, số điện thoại và địa chỉ nhận hàng",
+        "error",
+      );
+      setPendingOrder(true);
+      setShowShippingModal(true);
+      return;
+    }
 
     if (!paymentMethod) {
       setShowError(true);
@@ -76,7 +139,7 @@ const Checkout = () => {
 
     if (hasError) return;
 
-    setIsOrderSuccess(true);
+    finalizeOrder();
   };
 
   return (
@@ -104,17 +167,21 @@ const Checkout = () => {
           </h6>
           <div className="d-flex justify-content-between align-items-center px-2">
             <div className="d-flex gap-4 flex-wrap align-items-center">
-              <strong>Trần Thanh Trường - 0763681139</strong>
+              <strong>
+                {customer.name || customer.username || "Chưa cập nhật"} -{" "}
+                {customer.phone || "Chưa cập nhật"}
+              </strong>
               <span style={{ fontSize: "19px" }}>
-                Số 472/36 Lê Đức Thọ, Phường Gò Vấp, TP Hồ Chí Minh
+                {customer.address || "Vui lòng thêm địa chỉ giao hàng"}
               </span>
             </div>
-            <span
+            <button
               className="text-primary fw-bold"
-              style={{ cursor: "pointer" }}
+              style={{ cursor: "pointer", background: "none", border: "none" }}
+              onClick={() => setShowShippingModal(true)}
             >
               Thay đổi
-            </span>
+            </button>
           </div>
         </div>
 
@@ -357,6 +424,14 @@ const Checkout = () => {
       </div>
 
       <Footer />
+
+      {showShippingModal && (
+        <EditAddressModal
+          customer={customer}
+          onSave={handleAddressSave}
+          onClose={() => setShowShippingModal(false)}
+        />
+      )}
     </>
   );
 };

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useMemo, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import CartModal from "../../pages/Cart/CartModal.jsx";
 import products from "../../data/products.js";
 import { getCartItems } from "../../utils/cartStorage";
+import logoImage from "../../assets/icon/logo.png";
 
 const iconBtn = {
   background: "none",
@@ -28,8 +29,24 @@ const PRODUCTS_MAP = Object.fromEntries(
 );
 
 const Header = () => {
+  const navigate = useNavigate();
   const [cartOpen, setCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState(() => getCartItems());
+  const [searchValue, setSearchValue] = useState("");
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
+
+  const searchSuggestions = useMemo(() => {
+    const keyword = searchValue.trim().toLowerCase();
+    if (!keyword) return [];
+
+    return products
+      .filter((product) => {
+        const name = String(product.name ?? "").toLowerCase();
+        const brand = String(product.brand ?? "").toLowerCase();
+        return name.includes(keyword) || brand.includes(keyword);
+      })
+      .slice(0, 5);
+  }, [searchValue]);
 
   useEffect(() => {
     const syncCart = () => setCartItems(getCartItems());
@@ -42,6 +59,26 @@ const Header = () => {
       window.removeEventListener("cart:updated", syncCart);
     };
   }, []);
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    const keyword = searchValue.trim();
+
+    if (!keyword) {
+      navigate("/cua-hang");
+      return;
+    }
+
+    navigate(`/cua-hang?search=${encodeURIComponent(keyword)}`);
+  };
+
+  const openSearchResult = (keyword) => {
+    const value = String(keyword ?? "").trim();
+    if (!value) return;
+    setSearchValue(value);
+    setIsSearchFocused(false);
+    navigate(`/cua-hang?search=${encodeURIComponent(value)}`);
+  };
 
   return (
     <>
@@ -65,14 +102,17 @@ const Header = () => {
           <div style={{ display: "flex", alignItems: "center", gap: "40px" }}>
             {/* Logo */}
             <Link to="/">
-              <div
+              <img
+                src={logoImage}
+                alt="Logo"
                 style={{
-                  width: "40px",
-                  height: "40px",
-                  backgroundColor: "#ccc",
+                  width: 56,
+                  height: 56,
+                  objectFit: "cover",
                   borderRadius: "50%",
+                  border: "1px solid #ddd",
                 }}
-              ></div>
+              />
             </Link>
 
             {/* Menu */}
@@ -81,7 +121,7 @@ const Header = () => {
                 to="/cua-hang"
                 style={{
                   color: "#333",
-                  fontSize: "13px",
+                  fontSize: "14px",
                   fontWeight: "500",
                   textDecoration: "none",
                   textTransform: "uppercase",
@@ -93,7 +133,7 @@ const Header = () => {
                 to="/cua-hang-do-nam"
                 style={{
                   color: "#333",
-                  fontSize: "13px",
+                  fontSize: "14px",
                   fontWeight: "500",
                   textDecoration: "none",
                   textTransform: "uppercase",
@@ -105,7 +145,7 @@ const Header = () => {
                 to="/cua-hang-do-nu"
                 style={{
                   color: "#333",
-                  fontSize: "13px",
+                  fontSize: "14px",
                   fontWeight: "500",
                   textDecoration: "none",
                   textTransform: "uppercase",
@@ -114,22 +154,22 @@ const Header = () => {
                 NỮ
               </Link>
               <Link
-                to="/accessories"
+                to="/yeu-thich"
                 style={{
                   color: "#333",
-                  fontSize: "13px",
+                  fontSize: "14px",
                   fontWeight: "500",
                   textDecoration: "none",
                   textTransform: "uppercase",
                 }}
               >
-                PHỤ KIỆN
+                YÊU THÍCH
               </Link>
               <Link
                 to="/ve-chung-toi"
                 style={{
                   color: "#333",
-                  fontSize: "13px",
+                  fontSize: "14px",
                   fontWeight: "500",
                   textDecoration: "none",
                   textTransform: "uppercase",
@@ -146,56 +186,143 @@ const Header = () => {
               display: "flex",
               alignItems: "center",
               margin: "0 16px",
-              gap: "16px",
+              gap: "24px",
             }}
           >
             {/* Search */}
-            <input
-              type="text"
-              style={{
-                width: "300px",
-                padding: "8px 12px",
-                border: "1px solid #ccc",
-                borderRadius: "4px",
-                fontSize: "14px",
-              }}
-            />
-
-            {/* Search Icon */}
-            <button
-              style={{
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                padding: "4px",
-              }}
-            >
-              <svg
-                width="20"
-                height="20"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                strokeWidth="2"
+            <div style={{ position: "relative" }}>
+              <form
+                onSubmit={handleSearch}
+                style={{ display: "flex", alignItems: "center" }}
               >
-                <circle cx="11" cy="11" r="8" />
-                <path d="m21 21-4.35-4.35" />
-              </svg>
-            </button>
+                <input
+                  type="text"
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
+                  onFocus={() => setIsSearchFocused(true)}
+                  onBlur={() => {
+                    setTimeout(() => setIsSearchFocused(false), 150);
+                  }}
+                  placeholder="Tìm sản phẩm..."
+                  style={{
+                    width: "300px",
+                    height: "40px",
+                    padding: "0 12px",
+                    border: "1px solid #ccc",
+                    borderRadius: "4px 0 0 4px",
+                    fontSize: "14px",
+                    outline: "none",
+                    boxSizing: "border-box",
+                  }}
+                />
+
+                <button
+                  type="submit"
+                  style={{
+                    background: "#111",
+                    border: "1px solid #111",
+                    cursor: "pointer",
+                    width: "44px",
+                    height: "40px",
+                    padding: 0,
+                    borderRadius: "0 4px 4px 0",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    boxSizing: "border-box",
+                  }}
+                  aria-label="Tìm kiếm"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    fill="none"
+                    stroke="white"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                  >
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.35-4.35" />
+                  </svg>
+                </button>
+              </form>
+
+              {isSearchFocused && searchSuggestions.length > 0 && (
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "calc(100% + 8px)",
+                    left: 0,
+                    width: "100%",
+                    background: "#fff",
+                    border: "1px solid #ddd",
+                    borderRadius: 8,
+                    boxShadow: "0 10px 24px rgba(0, 0, 0, 0.12)",
+                    overflow: "hidden",
+                    zIndex: 20,
+                  }}
+                >
+                  {searchSuggestions.map((product) => (
+                    <button
+                      key={product.id}
+                      type="button"
+                      onMouseDown={(event) => event.preventDefault()}
+                      onClick={() => openSearchResult(product.name)}
+                      style={{
+                        width: "100%",
+                        border: "none",
+                        background: "#fff",
+                        textAlign: "left",
+                        padding: "10px 12px",
+                        cursor: "pointer",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 10,
+                      }}
+                    >
+                      <img
+                        src={product.thumbnail}
+                        alt={product.name}
+                        style={{
+                          width: 34,
+                          height: 34,
+                          objectFit: "cover",
+                          borderRadius: 6,
+                        }}
+                      />
+                      <div style={{ minWidth: 0 }}>
+                        <div
+                          style={{
+                            fontSize: 13,
+                            fontWeight: 600,
+                            color: "#222",
+                          }}
+                        >
+                          {product.name}
+                        </div>
+                        <div style={{ fontSize: 12, color: "#777" }}>
+                          {product.brand}
+                        </div>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {/* User Icon */}
-            <Link to={"/dang-nhap"}>
+            <Link to={"/profile"}>
               <button
                 style={{
                   background: "none",
                   border: "none",
                   cursor: "pointer",
-                  padding: "4px",
+                  padding: "6px",
                 }}
               >
                 <svg
-                  width="20"
-                  height="20"
+                  width="24"
+                  height="24"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -211,8 +338,8 @@ const Header = () => {
               style={{ ...iconBtn, position: "relative" }}
             >
               <svg
-                width="20"
-                height="20"
+                width="24"
+                height="24"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
