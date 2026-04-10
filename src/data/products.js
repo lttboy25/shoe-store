@@ -15,7 +15,7 @@ const products = [
       "https://res.cloudinary.com/dezeregal/image/upload/v1771339731/Cam_btrbmu.jpg"
     ],
     variants: [{
-      color: ["Cam"],
+      color: ["Trắng"],
       sizes: [
         { size: "39", stock: 4 },
         { size: "40", stock: 3 },
