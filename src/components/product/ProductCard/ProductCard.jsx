@@ -68,7 +68,6 @@ function ProductCard({ product }) {
             className="product-image"
           />
 
-          {/* Hover overlay with action buttons */}
           <div className="product-hover-overlay">
             <button
               className="product-action-btn buy-now-btn"
@@ -76,7 +75,9 @@ function ProductCard({ product }) {
               title="Mua ngay"
             >
               <svg viewBox="0 0 24 24" className="action-icon">
-                <path d="M7 4V3m10 1v-1m4 4h-1m0 10H4m16-5v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16-3h1m-16 0H3m2 0a2 2 0 012-2h8a2 2 0 012 2" />
+                <rect x="3" y="6" width="18" height="12" rx="2" />
+                <path d="M3 10h18" />
+                <circle cx="12" cy="14" r="2" />
               </svg>
             </button>
             <button
@@ -85,7 +86,10 @@ function ProductCard({ product }) {
               title="Thêm vào giỏ hàng"
             >
               <svg viewBox="0 0 24 24" className="action-icon">
-                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.293 6.464a1 1 0 00.97 1.228h12.646a1 1 0 00.97-1.228L17 13m-10 0h6m-3-4v4m0 0l-2 2m2-2l2 2" />
+                <circle cx="9" cy="19" r="1.5" />
+                <circle cx="17" cy="19" r="1.5" />
+                <path d="M3 4h2l2 10h11l2-6H7" />
+                <path d="M13 7v4m-2-2h4" />
               </svg>
             </button>
           </div>
