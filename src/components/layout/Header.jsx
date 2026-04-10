@@ -71,7 +71,7 @@ const Header = () => {
                 Cửa hàng
               </Link>
               <Link
-                to="/men"
+                to="/cua-hang-do-nam"
                 style={{
                   color: '#333',
                   fontSize: '13px',
@@ -80,7 +80,7 @@ const Header = () => {
                   textTransform: 'uppercase'
                 }}>NAM</Link>
               <Link
-                to="/women"
+                to="/cua-hang-do-nu"
                 style={{
                   color: '#333',
                   fontSize: '13px',

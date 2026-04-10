@@ -8,12 +8,16 @@ import CartPage from '../pages/Cart/CartPage.jsx';
 import LoginForm from '../components/section/auth/LoginForm.jsx';
 import RegisterForm from '../components/section/auth/RegisterForm.jsx';
 import About from "../pages/About.jsx";
+import MenProduct from "../pages/Product/MenProduct.jsx"
+import WomenProduct from "../pages/Product/WomenProduct.jsx"
 export default function AppRoutes() {
   return (
     <div>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/cua-hang' element={<Product />} />
+          <Route path='/cua-hang-do-nam' element={<MenProduct />} />
+          <Route path='/cua-hang-do-nu' element={<WomenProduct />} />
           <Route path='/ve-chung-toi' element={<About />} />
           
           <Route path='/cua-hang/:slug' element={<ProductDetail />}/>
