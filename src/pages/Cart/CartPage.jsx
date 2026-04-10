@@ -1,8 +1,14 @@
 import { useState } from "react";
 import './CartPage.css';
+<<<<<<< HEAD
 import Header from "../../components/layout/Header";
 import products from '../../data/products.js';
 import Footer from "../../components/layout/Footer";
+=======
+import Header from "../../components/layout/Header.jsx";
+import products from '../../data/products.js';
+import Footer from "../../components/layout/Footer.jsx";
+>>>>>>> 163e3d0bc8c9f6e4340a61bc05215e119d91a9d6
 import { currentUser } from '../../data/users.js';
 import EditAddressModal from "./EditAddressModal.jsx";
 import { Link } from "react-router";
@@ -14,8 +20,13 @@ const PRODUCTS_MAP = Object.fromEntries(
       id: p.id,
       name: p.name,
       brand: p.brand,
+<<<<<<< HEAD
       price: parseInt(p.price.replace(/[.,]/g, ""), 10),
       originalPrice: parseInt(p.originalPrice.replace(/[.,]/g, ""), 10),
+=======
+      price: p.price,
+      originalPrice: p.originalPrice,
+>>>>>>> 163e3d0bc8c9f6e4340a61bc05215e119d91a9d6
       discountPercent: p.discountPercent,
       thumbnail: p.thumbnail,
       sizes: p.variants[0]?.sizes.map((s) => s.size) ?? [],
@@ -217,11 +228,19 @@ export default function CartPage() {
                   <span>Tổng cộng</span>
                   <span className="cp-total-val">{fmt(total)}</span>
                 </div>
+<<<<<<< HEAD
                 <Link to="/checkout" style={{ textDecoration: "none" }}>
                   <button className="cp-checkout-btn">THANH TOÁN NGAY →</button>
                 </Link>
 
                 <Link to="/best-sellers" style={{ textDecoration: "none" }}>
+=======
+                <Link to="/thanh-toan" style={{ textDecoration: "none" }}>
+                  <button className="cp-checkout-btn">THANH TOÁN NGAY →</button>
+                </Link>
+
+                <Link to="/cua-hang" style={{ textDecoration: "none" }}>
+>>>>>>> 163e3d0bc8c9f6e4340a61bc05215e119d91a9d6
                   <button className="cp-continue-btn">← Tiếp tục mua sắm</button>
                 </Link>
               </div>

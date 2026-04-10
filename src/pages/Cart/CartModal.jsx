@@ -90,13 +90,21 @@ export default function CartModal({ isOpen, onClose, cartItems = [], productsMap
             </div>
 
             {/* Buttons */}
+<<<<<<< HEAD
             <Link to="/checkout" style={{ textDecoration: "none" }} onClick={onClose}>
+=======
+            <Link to="/thanh-toan" style={{ textDecoration: "none" }} onClick={onClose}>
+>>>>>>> 163e3d0bc8c9f6e4340a61bc05215e119d91a9d6
               <button style={s.checkoutBtn}>
                 THANH TOÁN NGAY →
               </button>
             </Link>
 
+<<<<<<< HEAD
             <Link to="/cart-page" style={{ textDecoration: "none" }} onClick={onClose}>
+=======
+            <Link to="/gio-hang" style={{ textDecoration: "none" }} onClick={onClose}>
+>>>>>>> 163e3d0bc8c9f6e4340a61bc05215e119d91a9d6
               <button style={s.viewCartBtn}>
                 Xem giỏ hàng đầy đủ
               </button>
@@ -203,4 +211,8 @@ const s = {
       fontFamily: "inherit", fontSize: 13, fontWeight: 600, cursor: "pointer",
     },
   };
+<<<<<<< HEAD
   
+=======
+    
+>>>>>>> 163e3d0bc8c9f6e4340a61bc05215e119d91a9d6

@@ -15,9 +15,12 @@ const SORT_OPTIONS = [
 
 export default function Product() {
   const [sortValue, setSortValue] = useState('')
+    const femaleProducts = products.filter(
+      p => p.specifications?.gender?.toLowerCase() !== "nam"
+    );
 
   const sortedProducts = useMemo(() => {
-    const list = [...products]
+    const list = [...femaleProducts]
     switch (sortValue) {
       case 'price_asc':  return list.sort((a, b) => a.price - b.price)
       case 'price_desc': return list.sort((a, b) => b.price - a.price)
@@ -30,9 +33,8 @@ export default function Product() {
   return (
     <MainLayout props={
       <div>
-        <HeaderLine title="Cửa hàng" />
+        <HeaderLine title="Sản phẩm nữ" />
 
-        {/* Sort bar */}
         <div style={{
           display: 'flex',
           justifyContent: 'flex-end',
