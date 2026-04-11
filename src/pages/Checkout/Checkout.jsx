@@ -10,6 +10,7 @@ import {
   clearBuyNowItem,
   getBuyNowItem,
   getCartItems,
+  saveCartItems,
 } from "../../utils/cartStorage";
 import { addOrderHistory, getProfile } from "../../utils/profileStorage";
 import EditAddressModal from "../Cart/EditAddressModal";
@@ -41,7 +42,7 @@ const Checkout = () => {
   const [showShippingModal, setShowShippingModal] = useState(false);
   const [pendingOrder, setPendingOrder] = useState(false);
   const [buyNowItem] = useState(() => getBuyNowItem());
-  const [cartItems] = useState(() => getCartItems());
+  const [cartItems, setCartItems] = useState(() => getCartItems());
   const [customer, setCustomer] = useState(() => getProfile());
 
   useEffect(() => {
@@ -83,6 +84,11 @@ const Checkout = () => {
         qty: item.qty,
       })),
     });
+
+    if (!buyNowItem) {
+      saveCartItems([]);
+      setCartItems([]);
+    }
 
     setIsOrderSuccess(true);
     setPendingOrder(false);
