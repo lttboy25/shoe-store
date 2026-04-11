@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { register } from "../../../service/authService";
 import { useNavigate } from "react-router-dom";
 import MainLayout from "../../layout/MainLayout";
 import { notify } from "../../../utils/notify";
-import { setCurrentAccount } from "../../../utils/authStorage";
+import AuthContext from "../../../context/AuthContext.jsx";
 
 function RegisterForm() {
   const [username, setUsername] = useState("");
@@ -12,6 +12,8 @@ function RegisterForm() {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const navigate = useNavigate();
+
+  const { login: authLogin } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -56,10 +58,10 @@ function RegisterForm() {
     if (!result.success) {
       notify(result.message, "error");
     } else {
-      setCurrentAccount({ username, email, name: username });
+      authLogin({ username, email, name: username });
       notify(result.message, "success");
 
-      navigate("/dang-nhap");
+      navigate("/profile");
     }
   };
 

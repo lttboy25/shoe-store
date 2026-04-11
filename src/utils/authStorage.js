@@ -8,6 +8,11 @@ function safeParse(raw, fallback) {
   }
 }
 
+function notifyAuthChanged() {
+  if (typeof window === "undefined") return;
+  window.dispatchEvent(new Event("auth:updated"));
+}
+
 export function getCurrentAccount() {
   if (typeof window === "undefined") return null;
   return safeParse(window.localStorage.getItem(CURRENT_ACCOUNT_KEY), null);
@@ -16,9 +21,11 @@ export function getCurrentAccount() {
 export function setCurrentAccount(account) {
   if (typeof window === "undefined") return;
   window.localStorage.setItem(CURRENT_ACCOUNT_KEY, JSON.stringify(account));
+  notifyAuthChanged();
 }
 
 export function clearCurrentAccount() {
   if (typeof window === "undefined") return;
   window.localStorage.removeItem(CURRENT_ACCOUNT_KEY);
+  notifyAuthChanged();
 }

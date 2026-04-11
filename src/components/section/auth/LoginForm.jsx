@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import MainLayout from "../../layout/MainLayout";
 import { useNavigate } from "react-router-dom";
 import { notify } from "../../../utils/notify";
-import { setCurrentAccount } from "../../../utils/authStorage";
 import { login } from "../../../service/authService";
+import AuthContext from "../../../context/AuthContext.jsx";
 
 function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+
+  const { login: authLogin } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,7 +37,7 @@ function LoginForm() {
       return;
     }
 
-    setCurrentAccount({
+    authLogin({
       username: result.user.username,
       name: result.user.name,
       email: result.user.email,
