@@ -12,6 +12,9 @@ import MenProduct from "../pages/Product/MenProduct.jsx";
 import WomenProduct from "../pages/Product/WomenProduct.jsx";
 import ProfilePage from "../pages/Profile/ProfilePage.jsx";
 import FavoritesPage from "../pages/Favourite/FavoritesPage.jsx";
+import WarrantyPolicy from "../pages/CustomerServicePages/WarrantyPolicy.jsx";
+import ReturnPolicy from "../pages/CustomerServicePages/ReturnPolicy.jsx";
+import FAQ from "../pages/CustomerServicePages/FAQ.jsx";
 
 export default function AppRoutes() {
   return (
@@ -30,6 +33,10 @@ export default function AppRoutes() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/dang-nhap" element={<LoginForm />} />
         <Route path="/dang-ky" element={<RegisterForm />} />
+
+        <Route path="/chinh-sach-bao-hanh" element={<WarrantyPolicy />} />
+        <Route path="/chinh-sach-doi-tra" element={<ReturnPolicy />} />
+        <Route path="/cau-hoi-thuong-gap" element={<FAQ />} />
       </Routes>
     </div>
   );
