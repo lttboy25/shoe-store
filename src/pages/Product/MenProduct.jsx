@@ -5,7 +5,6 @@ import Dropdown from "../../components/common/Dropdown";
 import ProductGrid from "../../components/product/ProductGrid/ProductGrid";
 import Pagination from "../../components/common/Pagination";
 import products from "../../data/products";
-import { useLocation } from "react-router-dom";
 
 const SORT_OPTIONS = [
   { value: "default", label: "Mặc định" },
@@ -19,13 +18,12 @@ export default function Product() {
   const [sortValue, setSortValue] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 16;
-  const location = useLocation();
-  const searchKeyword =
-    new URLSearchParams(location.search).get("search")?.trim().toLowerCase() ||
-    "";
+  const maleProducts = products.filter(
+    (p) => p.specifications?.gender?.toLowerCase() !== "nữ",
+  );
 
   const sortedProducts = useMemo(() => {
-    const list = [...products];
+    const list = [...maleProducts];
     switch (sortValue) {
       case "price_asc":
         return list.sort((a, b) => a.price - b.price);
@@ -40,37 +38,22 @@ export default function Product() {
     }
   }, [sortValue]);
 
-  const filteredProducts = useMemo(() => {
-    if (!searchKeyword) return sortedProducts;
-
-    return sortedProducts.filter((product) => {
-      const name = String(product.name ?? "").toLowerCase();
-      const brand = String(product.brand ?? "").toLowerCase();
-      return name.includes(searchKeyword) || brand.includes(searchKeyword);
-    });
-  }, [sortedProducts, searchKeyword]);
-
   useEffect(() => {
     setCurrentPage(1);
   }, [sortValue]);
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [searchKeyword]);
-
-  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+  const totalPages = Math.ceil(sortedProducts.length / itemsPerPage);
   const paginatedProducts = useMemo(() => {
     const start = (currentPage - 1) * itemsPerPage;
-    return filteredProducts.slice(start, start + itemsPerPage);
-  }, [filteredProducts, currentPage]);
+    return sortedProducts.slice(start, start + itemsPerPage);
+  }, [sortedProducts, currentPage]);
 
   return (
     <MainLayout
       props={
         <div>
-          <HeaderLine title="Cửa hàng" />
+          <HeaderLine title="Sản phẩm nam" />
 
-          {/* Sort bar */}
           <div
             style={{
               display: "flex",
@@ -95,11 +78,6 @@ export default function Product() {
 
           {/* Product grid */}
           <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 16px" }}>
-            {searchKeyword && (
-              <div style={{ marginBottom: 12, fontSize: 14, color: "#666" }}>
-                Kết quả cho: <strong>"{searchKeyword}"</strong>
-              </div>
-            )}
             <ProductGrid list={paginatedProducts} quantity={itemsPerPage} />
             <Pagination
               page={currentPage}
