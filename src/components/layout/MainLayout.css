@@ -1,0 +1,17 @@
+/* Main Layout - Footer sticky at bottom */
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout-content {
+  flex: 1; /* Takes up available space, pushing footer to bottom */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure footer stays at bottom */
+footer {
+  margin-top: auto;
+}

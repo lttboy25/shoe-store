@@ -5,8 +5,6 @@ import Product from "../pages/Product/Product.jsx";
 import ProductDetail from "../pages/ProductDetail/ProductDetail.jsx";
 import Checkout from "../pages/Checkout/Checkout.jsx";
 import CartPage from "../pages/Cart/CartPage.jsx";
-import LoginForm from "../components/section/auth/LoginForm.jsx";
-import RegisterForm from "../components/section/auth/RegisterForm.jsx";
 import About from "../pages/About.jsx";
 import MenProduct from "../pages/Product/MenProduct.jsx";
 import WomenProduct from "../pages/Product/WomenProduct.jsx";
@@ -15,7 +13,8 @@ import FavoritesPage from "../pages/Favourite/FavoritesPage.jsx";
 import WarrantyPolicy from "../pages/CustomerServicePages/WarrantyPolicy.jsx";
 import ReturnPolicy from "../pages/CustomerServicePages/ReturnPolicy.jsx";
 import FAQ from "../pages/CustomerServicePages/FAQ.jsx";
-
+import Login from "../pages/Auth/Login.jsx";
+import Register from "../pages/Auth/Register.jsx"
 export default function AppRoutes() {
   return (
     <div>
@@ -31,8 +30,8 @@ export default function AppRoutes() {
         <Route path="/thanh-toan" element={<Checkout />} />
         <Route path="/gio-hang" element={<CartPage />} />
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/dang-nhap" element={<LoginForm />} />
-        <Route path="/dang-ky" element={<RegisterForm />} />
+        <Route path="/dang-nhap" element={<Login />} />
+        <Route path="/dang-ky" element={<Register />} />
 
         <Route path="/chinh-sach-bao-hanh" element={<WarrantyPolicy />} />
         <Route path="/chinh-sach-doi-tra" element={<ReturnPolicy />} />

@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import { register } from "../../../service/authService";
+import { register } from "../../../service/authService.js";
 import { useNavigate } from "react-router-dom";
-import MainLayout from "../../layout/MainLayout";
-import { notify } from "../../../utils/notify";
+import MainLayout from "../../layout/MainLayout.jsx";
+import { notify } from "../../../utils/notify.js";
 import AuthContext from "../../../context/AuthContext.jsx";
 
 function RegisterForm() {
@@ -66,8 +66,6 @@ function RegisterForm() {
   };
 
   return (
-    <MainLayout
-      props={
         <div className="container d-flex justify-content-center mt-5">
           <div style={{ width: "600px" }}>
             <h2 className="text-center mb-4 fw-bold">Đăng ký</h2>
@@ -135,8 +133,6 @@ function RegisterForm() {
             </div>
           </div>
         </div>
-      }
-    />
   );
 }
 

@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import MainLayout from "../../layout/MainLayout";
+import MainLayout from "../../layout/MainLayout.jsx";
 import { useNavigate } from "react-router-dom";
-import { notify } from "../../../utils/notify";
-import { login } from "../../../service/authService";
+import { notify } from "../../../utils/notify.js";
+import { login } from "../../../service/authService.js";
 import AuthContext from "../../../context/AuthContext.jsx";
 
 function LoginForm() {
@@ -47,8 +47,6 @@ function LoginForm() {
   };
 
   return (
-    <MainLayout
-      props={
         <div className="container d-flex justify-content-center mt-5">
           <div style={{ width: "600px" }}>
             <h2 className="text-center mb-4 fw-bold">Đăng nhập</h2>
@@ -94,8 +92,6 @@ function LoginForm() {
             </div>
           </div>
         </div>
-      }
-    />
   );
 }
 
