@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { register } from "../../../service/authService";
+import React, { useContext, useState } from "react";
+import { register } from "../../../service/authService.js";
 import { useNavigate } from "react-router-dom";
-import MainLayout from "../../layout/MainLayout";
-import { notify } from "../../../utils/notify";
-import { setCurrentAccount } from "../../../utils/authStorage";
+import MainLayout from "../../layout/MainLayout.jsx";
+import { notify } from "../../../utils/notify.js";
+import AuthContext from "../../../context/AuthContext.jsx";
 
 function RegisterForm() {
   const [username, setUsername] = useState("");
@@ -12,6 +12,8 @@ function RegisterForm() {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const navigate = useNavigate();
+
+  const { login: authLogin } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -56,16 +58,14 @@ function RegisterForm() {
     if (!result.success) {
       notify(result.message, "error");
     } else {
-      setCurrentAccount({ username, email, name: username });
+      authLogin({ username, email, name: username });
       notify(result.message, "success");
 
-      navigate("/dang-nhap");
+      navigate("/profile");
     }
   };
 
   return (
-    <MainLayout
-      props={
         <div className="container d-flex justify-content-center mt-5">
           <div style={{ width: "600px" }}>
             <h2 className="text-center mb-4 fw-bold">Đăng ký</h2>
@@ -133,8 +133,6 @@ function RegisterForm() {
             </div>
           </div>
         </div>
-      }
-    />
   );
 }
 

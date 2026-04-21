@@ -1,8 +1,10 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CartModal from "../../pages/Cart/CartModal.jsx";
 import products from "../../data/products.js";
 import { getCartItems } from "../../utils/cartStorage";
+import { notify } from "../../utils/notify";
+import AuthContext from "../../context/AuthContext.jsx";
 import logoImage from "../../assets/icon/logo.png";
 
 const iconBtn = {
@@ -34,6 +36,13 @@ const Header = () => {
   const [cartItems, setCartItems] = useState(() => getCartItems());
   const [searchValue, setSearchValue] = useState("");
   const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const { currentAccount, isAuthenticated, logout } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logout();
+    notify("Đã đăng xuất", "success");
+    navigate("/dang-nhap");
+  };
 
   const searchSuggestions = useMemo(() => {
     const keyword = searchValue.trim().toLowerCase();
@@ -98,9 +107,7 @@ const Header = () => {
             margin: "0 auto",
           }}
         >
-          {/* Left: Logo + Menu */}
           <div style={{ display: "flex", alignItems: "center", gap: "40px" }}>
-            {/* Logo */}
             <Link to="/">
               <img
                 src={logoImage}
@@ -115,7 +122,6 @@ const Header = () => {
               />
             </Link>
 
-            {/* Menu */}
             <nav style={{ display: "flex", gap: "32px" }}>
               <Link
                 to="/cua-hang"
@@ -180,7 +186,6 @@ const Header = () => {
             </nav>
           </div>
 
-          {/* Right: Search + Icons */}
           <div
             style={{
               display: "flex",
@@ -189,7 +194,6 @@ const Header = () => {
               gap: "24px",
             }}
           >
-            {/* Search */}
             <div style={{ position: "relative" }}>
               <form
                 onSubmit={handleSearch}
@@ -311,28 +315,63 @@ const Header = () => {
             </div>
 
             {/* User Icon */}
-            <Link to={"/profile"}>
-              <button
-                style={{
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                  padding: "6px",
-                }}
-              >
-                <svg
-                  width="24"
-                  height="24"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
+            {isAuthenticated ? (
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <Link to="/profile">
+                  <button
+                    style={{
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                      padding: "6px",
+                    }}
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
+                  </button>
+                </Link>
+                <span style={{ fontSize: 14, color: "#333", fontWeight: 500 }}>
+                  Xin chào {currentAccount?.name || currentAccount?.username}
+                </span>
+                <button
+                  onClick={handleLogout}
+                  style={{
+                    background: "#111",
+                    color: "#fff",
+                    border: "none",
+                    borderRadius: 4,
+                    padding: "8px 12px",
+                    cursor: "pointer",
+                    fontSize: 13,
+                  }}
                 >
-                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                </svg>
-              </button>
-            </Link>
+                  Đăng xuất
+                </button>
+              </div>
+            ) : (
+              <Link to="/dang-nhap">
+                <button
+                  style={{
+                    background: "#111",
+                    color: "#fff",
+                    border: "none",
+                    borderRadius: 4,
+                    padding: "8px 12px",
+                    cursor: "pointer",
+                    fontSize: 13,
+                  }}
+                >
+                  Đăng nhập
+                </button>
+              </Link>
+            )}
 
-            {/* Cart Icon */}
-            {/* Cart → mở modal */}
             <button
               onClick={() => setCartOpen(true)}
               style={{ ...iconBtn, position: "relative" }}
@@ -345,7 +384,6 @@ const Header = () => {
               >
                 <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
               </svg>
-              {/* Badge */}
               <span
                 style={{
                   position: "absolute",

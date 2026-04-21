@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import MainLayout from "../../components/layout/MainLayout";
 import ProfileLayout from "../../components/layout/ProfileLayout";
 import EditAddressModal from "../Cart/EditAddressModal";
@@ -8,16 +8,25 @@ import {
   saveProfile,
 } from "../../utils/profileStorage";
 import { notify } from "../../utils/notify";
-import { clearCurrentAccount } from "../../utils/authStorage";
+import AuthContext from "../../context/AuthContext.jsx";
 import { useNavigate } from "react-router-dom";
 
 export default function ProfilePage() {
+  const { currentAccount, isAuthenticated, logout } = useContext(AuthContext);
   const [customer, setCustomer] = useState(() => getProfile());
   const [showModal, setShowModal] = useState(false);
   const [activeTab, setActiveTab] = useState("orders");
   const navigate = useNavigate();
 
-  const orders = useMemo(() => getOrderHistory(), []);
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/dang-nhap");
+      return;
+    }
+    setCustomer(getProfile());
+  }, [isAuthenticated, currentAccount, navigate]);
+
+  const orders = useMemo(() => getOrderHistory(), [currentAccount]);
   const totalSpent = orders.reduce(
     (sum, order) => sum + Number(order.total || 0),
     0,
@@ -31,7 +40,7 @@ export default function ProfilePage() {
   };
 
   const handleLogout = () => {
-    clearCurrentAccount();
+    logout();
     notify("Đã đăng xuất", "success");
     navigate("/dang-nhap");
   };

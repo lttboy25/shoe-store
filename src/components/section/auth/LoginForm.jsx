@@ -1,15 +1,17 @@
-import React, { useState } from "react";
-import MainLayout from "../../layout/MainLayout";
+import React, { useContext, useState } from "react";
+import MainLayout from "../../layout/MainLayout.jsx";
 import { useNavigate } from "react-router-dom";
-import { notify } from "../../../utils/notify";
-import { setCurrentAccount } from "../../../utils/authStorage";
-import { login } from "../../../service/authService";
+import { notify } from "../../../utils/notify.js";
+import { login } from "../../../service/authService.js";
+import AuthContext from "../../../context/AuthContext.jsx";
 
 function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+
+  const { login: authLogin } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,7 +37,7 @@ function LoginForm() {
       return;
     }
 
-    setCurrentAccount({
+    authLogin({
       username: result.user.username,
       name: result.user.name,
       email: result.user.email,
@@ -45,8 +47,6 @@ function LoginForm() {
   };
 
   return (
-    <MainLayout
-      props={
         <div className="container d-flex justify-content-center mt-5">
           <div style={{ width: "600px" }}>
             <h2 className="text-center mb-4 fw-bold">Đăng nhập</h2>
@@ -92,8 +92,6 @@ function LoginForm() {
             </div>
           </div>
         </div>
-      }
-    />
   );
 }
 

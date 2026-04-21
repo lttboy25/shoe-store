@@ -66,7 +66,14 @@ export function getProfile() {
   }
 
   return {
-    ...currentUsers[0],
+    id: "",
+    name: stored?.name || "",
+    username: "",
+    phone: stored?.phone || "",
+    email: stored?.email || "",
+    address: stored?.address || "",
+    avatar: currentUsers[0].avatar,
+    role: "guest",
     ...(stored ?? {}),
   };
 }
