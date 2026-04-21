@@ -6,6 +6,7 @@ import ProductGrid from "../../components/product/ProductGrid/ProductGrid";
 import products from "../../data/products";
 import MainLayout from "../../components/layout/MainLayout";
 import { addCartItem, setBuyNowItem } from "../../utils/cartStorage";
+import { notify } from "../../utils/notify";
 import "./ProductDetail.css";
 
 export default function ProductDetail() {
@@ -77,28 +78,31 @@ export default function ProductDetail() {
 
   const handleAddToCart = () => {
     if (!selectedSize) {
-      window.alert("Vui lòng chọn size trước khi thêm vào giỏ hàng.");
+      notify("Vui lòng chọn size trước khi thêm vào giỏ hàng.", "error");
       return false;
     }
 
     addCartItem({
       pid: product.id,
       size: selectedSize,
+      color: selectedColor,
       qty: quantity,
     });
 
+    notify(`Đã thêm ${quantity} sản phẩm vào giỏ hàng`, "success");
     return true;
   };
 
   const handleBuyNow = () => {
     if (!selectedSize) {
-      window.alert("Vui lòng chọn size trước khi mua ngay.");
+      notify("Vui lòng chọn size trước khi mua ngay.", "error");
       return;
     }
 
     setBuyNowItem({
       pid: product.id,
       size: selectedSize,
+      color: selectedColor,
       qty: quantity,
     });
 

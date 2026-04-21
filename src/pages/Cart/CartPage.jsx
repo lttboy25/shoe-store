@@ -21,6 +21,7 @@ const PRODUCTS_MAP = Object.fromEntries(
       discountPercent: p.discountPercent,
       thumbnail: p.thumbnail,
       sizes: p.variants[0]?.sizes.map((s) => s.size) ?? [],
+      colors: p.variants?.map((v) => v.color[0]) ?? [],
     },
   ]),
 );
@@ -176,6 +177,21 @@ export default function CartPage() {
 
                         {/* controls */}
                         <div className="cp-ctrls">
+                          <div className="cp-ctrl-row">
+                            <span className="cp-ctrl-lbl">Màu</span>
+                            <select
+                              className="cp-sel"
+                              value={c.color || ""}
+                              onChange={(e) =>
+                                upd(c.cid, { color: e.target.value })
+                              }
+                            >
+                              <option value="">--Chọn màu--</option>
+                              {p.colors.map((color) => (
+                                <option key={color}>{color}</option>
+                              ))}
+                            </select>
+                          </div>
                           <div className="cp-ctrl-row">
                             <span className="cp-ctrl-lbl">Size</span>
                             <select

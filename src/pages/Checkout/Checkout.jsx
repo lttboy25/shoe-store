@@ -4,6 +4,7 @@ import Footer from "../../components/layout/Footer";
 import icon1 from "../../assets/icon/image45.png";
 import icon2 from "../../assets/icon/image46.png";
 import icon3 from "../../assets/icon/image47.png";
+import qrCode from "../../assets/img/qr-code.svg";
 import SuccessModalCheckout from "./SuccessModalCheckout";
 import products from "../../data/products";
 import {
@@ -81,6 +82,7 @@ const Checkout = () => {
         name: item.product.name,
         price: item.product.price,
         size: item.size,
+        color: item.color,
         qty: item.qty,
       })),
     });
@@ -245,8 +247,15 @@ const Checkout = () => {
                       >
                         {item.product.name}
                       </p>
-                      <small className="text-muted">
-                        Size: {item.size || "-"}
+                      <small className="text-muted d-block">
+                        {item.color && (
+                          <span className="badge bg-secondary me-1">
+                            Màu: {item.color}
+                          </span>
+                        )}
+                        <span className="badge bg-info">
+                          Size: {item.size || "-"}
+                        </span>
                       </small>
                     </div>
                   </div>
@@ -378,29 +387,116 @@ const Checkout = () => {
 
           {paymentMethod === "bank" && (
             <div className="mt-3 p-4 border border-2 rounded bg-white shadow-sm animate__animated animate__fadeIn text-dark">
-              <label className="form-label fw-bold mb-2">
-                Nhập số tài khoản / Ngân hàng của bạn:
-              </label>
-              <input
-                type="text"
-                className={`form-control border-3 py-2 fw-bold ${bankInputError ? "border-danger bg-light" : ""}`}
-                placeholder="Ví dụ: Vietcombank - 1023456789"
-                value={userBankInfo}
-                onChange={(e) => {
-                  setUserBankInfo(e.target.value);
-                  if (e.target.value.trim()) setBankInputError(false);
-                }}
-              />
-              {bankInputError && (
-                <div className="text-danger fw-bold mt-1 small">
-                  Vui lòng nhập thông tin ngân hàng!
+              <h6 className="fw-bold text-dark mb-4">
+                HƯỚNG DẪN CHUYỂN KHOẢN NGÂN HÀNG
+              </h6>
+
+              <div className="row g-4 mb-4">
+                {/* QR Code Section */}
+                <div className="col-md-6 text-center">
+                  <h6 className="fw-bold text-secondary mb-3">
+                    Quét mã QR của ABC Shoe Store
+                  </h6>
+                  <div
+                    className="p-3 border border-secondary rounded"
+                    style={{ backgroundColor: "#f9f9f9" }}
+                  >
+                    <img
+                      src={qrCode}
+                      alt="QR Code"
+                      style={{
+                        width: "100%",
+                        maxWidth: "250px",
+                        height: "auto",
+                      }}
+                    />
+                  </div>
                 </div>
-              )}
-              <div className="form-text text-muted mt-2 fw-bold italic">
-                * Chuyển khoản <strong>{fmt(grandTotal)}</strong> vào:{" "}
-                <span className="text-danger">
-                  VCB - 1023456789 - ABC SHOE STORE
-                </span>
+
+                {/* Bank Info Section */}
+                <div className="col-md-6">
+                  <div
+                    className="p-3 border border-start-5 rounded"
+                    style={{
+                      backgroundColor: "#f0f8ff",
+                      borderLeft: "4px solid #dc3545",
+                    }}
+                  >
+                    <div className="mb-3">
+                      <label className="form-label fw-bold text-secondary">
+                        Ngân hàng:
+                      </label>
+                      <p className="fs-5 fw-bold text-dark mb-0">
+                        Vietcombank (VCB)
+                      </p>
+                    </div>
+
+                    <div className="mb-3">
+                      <label className="form-label fw-bold text-secondary">
+                        Số tài khoản:
+                      </label>
+                      <p className="fs-5 fw-bold text-dark mb-0 text-danger">
+                        1023456789
+                      </p>
+                    </div>
+
+                    <div className="mb-3">
+                      <label className="form-label fw-bold text-secondary">
+                        Chủ tài khoản:
+                      </label>
+                      <p className="fs-5 fw-bold text-dark mb-0">
+                        ABC SHOE STORE
+                      </p>
+                    </div>
+
+                    <div
+                      className="px-3 py-2 rounded"
+                      style={{ backgroundColor: "#fff3cd" }}
+                    >
+                      <p className="mb-0 fw-bold text-danger">
+                        Nội dung chuyển khoản: <br />
+                        <span className="text-dark">
+                          "ABC SHOE STORE - {fmt(grandTotal)}"
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="p-3 rounded"
+                style={{
+                  backgroundColor: "#e7f3ff",
+                  borderLeft: "4px solid #0066cc",
+                }}
+              >
+                <p className="mb-1 fw-bold text-dark">
+                  <i className="bi bi-info-circle me-2"></i>
+                  Sau khi chuyển khoản, vui lòng cung cấp bằng chứng chuyển
+                  khoản để xác nhận.
+                </p>
+              </div>
+
+              <div className="mt-3">
+                <label className="form-label fw-bold">
+                  Xác nhận tài khoản của bạn:
+                </label>
+                <input
+                  type="text"
+                  className={`form-control border-3 py-2 fw-bold ${bankInputError ? "border-danger bg-light" : ""}`}
+                  placeholder="Ví dụ: Vietcombank - 1023456789 (Để xác nhận chuyển khoản)"
+                  value={userBankInfo}
+                  onChange={(e) => {
+                    setUserBankInfo(e.target.value);
+                    if (e.target.value.trim()) setBankInputError(false);
+                  }}
+                />
+                {bankInputError && (
+                  <div className="text-danger fw-bold mt-1 small">
+                    Vui lòng nhập thông tin ngân hàng xác nhận!
+                  </div>
+                )}
               </div>
             </div>
           )}
@@ -425,7 +521,7 @@ const Checkout = () => {
 
         <SuccessModalCheckout
           isOpen={isOrderSuccess}
-          customerName="Trần Thanh Trường"
+          customerName={customer.name || customer.username || "Khách hàng"}
         />
       </div>
 

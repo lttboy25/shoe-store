@@ -59,7 +59,7 @@ export const register = (newUser) => {
     };
   }
 
-  users.push({
+  const newUserObj = {
     id: `user_${Date.now()}`,
     username: newUser.username,
     name: newUser.username,
@@ -69,12 +69,14 @@ export const register = (newUser) => {
     avatar: "https://i.pravatar.cc/150?img=12",
     role: "customer",
     passwordHash: hashPassword(newUser.password),
-  });
+  };
+  users.push(newUserObj);
   saveUsers(users);
 
   return {
     success: true,
     message: "Đăng ký thành công",
+    user: newUserObj,
   };
 };
 

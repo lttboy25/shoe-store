@@ -15,7 +15,13 @@ function ProductCard({ product }) {
   const { isFavorited, toggleFavorite } = useFavorites();
   const { addToCart } = useCart();
   const [isLikeHovered, setIsLikeHovered] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [modalAction, setModalAction] = useState(null); // "buy" or "cart"
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null);
 
+  const sizes = product?.variants?.[0]?.sizes ?? [];
+  const colors = product?.variants?.map((v) => v.color[0]) ?? [];
   const favorited = isFavorited(product.id);
 
   function handleLike(e) {
@@ -31,27 +37,48 @@ function ProductCard({ product }) {
   function handleBuyNow(e) {
     e.preventDefault();
     e.stopPropagation();
-    // Add to buy now and navigate to checkout
-    setBuyNowItem({
-      pid: product.id,
-      size: "",
-      qty: 1,
-    });
-    navigate("/thanh-toan");
+    setModalAction("buy");
+    setShowModal(true);
   }
 
   function handleAddToCart(e) {
     e.preventDefault();
     e.stopPropagation();
-    addToCart({
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      thumbnail: product.thumbnail,
-      slug: product.slug,
-      quantity: 1,
-    });
-    notify("Đã thêm vào giỏ hàng", "success");
+    setModalAction("cart");
+    setShowModal(true);
+  }
+
+  function handleConfirmModal() {
+    if (!selectedSize) {
+      notify("Vui lòng chọn size", "error");
+      return;
+    }
+
+    if (modalAction === "buy") {
+      setBuyNowItem({
+        pid: product.id,
+        size: selectedSize,
+        color: selectedColor,
+        qty: 1,
+      });
+      navigate("/thanh-toan");
+    } else {
+      addToCart({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        thumbnail: product.thumbnail,
+        slug: product.slug,
+        size: selectedSize,
+        color: selectedColor,
+        quantity: 1,
+      });
+      notify("Đã thêm vào giỏ hàng", "success");
+    }
+
+    setShowModal(false);
+    setSelectedSize(null);
+    setSelectedColor(null);
   }
 
   return (
@@ -127,6 +154,199 @@ function ProductCard({ product }) {
           )}
         </div>
       </div>
+
+      {/* Size & Color Selection Modal */}
+      {showModal && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 9999,
+          }}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setShowModal(false);
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "#fff",
+              borderRadius: "8px",
+              padding: "32px",
+              maxWidth: "500px",
+              width: "90%",
+              maxHeight: "90vh",
+              overflowY: "auto",
+              boxShadow: "0 10px 40px rgba(0, 0, 0, 0.2)",
+            }}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
+          >
+            <h3
+              style={{
+                marginBottom: "24px",
+                fontSize: "18px",
+                fontWeight: "bold",
+              }}
+            >
+              Chọn Size & Màu
+            </h3>
+
+            {/* Size Selection */}
+            <div style={{ marginBottom: "24px" }}>
+              <label
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "bold",
+                  display: "block",
+                  marginBottom: "12px",
+                }}
+              >
+                Size <span style={{ color: "#dc3545" }}>*</span>
+              </label>
+              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                {sizes.map(({ size }) => (
+                  <button
+                    key={size}
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setSelectedSize(size);
+                    }}
+                    style={{
+                      padding: "8px 14px",
+                      fontSize: "13px",
+                      border:
+                        selectedSize === size
+                          ? "2px solid #333"
+                          : "1px solid #ddd",
+                      backgroundColor:
+                        selectedSize === size ? "#f0f0f0" : "#fff",
+                      cursor: "pointer",
+                      borderRadius: "4px",
+                      fontWeight: selectedSize === size ? "600" : "normal",
+                      transition: "all 0.2s",
+                    }}
+                  >
+                    {size}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Color Selection */}
+            {colors.length > 0 && (
+              <div style={{ marginBottom: "24px" }}>
+                <label
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: "bold",
+                    display: "block",
+                    marginBottom: "12px",
+                  }}
+                >
+                  Màu
+                </label>
+                <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+                  {colors.map((color) => (
+                    <button
+                      key={color}
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setSelectedColor(color);
+                      }}
+                      style={{
+                        padding: "8px 14px",
+                        fontSize: "13px",
+                        border:
+                          selectedColor === color
+                            ? "2px solid #333"
+                            : "1px solid #ddd",
+                        backgroundColor:
+                          selectedColor === color ? "#f0f0f0" : "#fff",
+                        cursor: "pointer",
+                        borderRadius: "4px",
+                        fontWeight: selectedColor === color ? "600" : "normal",
+                        transition: "all 0.2s",
+                      }}
+                    >
+                      {color}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Buttons */}
+            <div style={{ display: "flex", gap: "12px", marginTop: "32px" }}>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  setShowModal(false);
+                }}
+                style={{
+                  flex: 1,
+                  padding: "12px",
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  border: "1px solid #ddd",
+                  backgroundColor: "#f5f5f5",
+                  cursor: "pointer",
+                  borderRadius: "4px",
+                  transition: "all 0.2s",
+                }}
+                onMouseEnter={(e) =>
+                  (e.target.style.backgroundColor = "#efefef")
+                }
+                onMouseLeave={(e) =>
+                  (e.target.style.backgroundColor = "#f5f5f5")
+                }
+              >
+                Hủy
+              </button>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleConfirmModal();
+                }}
+                style={{
+                  flex: 1,
+                  padding: "12px",
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  border: "none",
+                  backgroundColor: "#333",
+                  color: "#fff",
+                  cursor: "pointer",
+                  borderRadius: "4px",
+                  transition: "all 0.2s",
+                }}
+                onMouseEnter={(e) => (e.target.style.backgroundColor = "#555")}
+                onMouseLeave={(e) => (e.target.style.backgroundColor = "#333")}
+              >
+                {modalAction === "buy" ? "Mua ngay" : "Thêm vào giỏ hàng"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </Link>
   );
 }

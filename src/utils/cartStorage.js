@@ -6,6 +6,7 @@ function normalizeCartItem(item) {
     cid: String(item?.cid ?? ""),
     pid: String(item?.pid ?? ""),
     size: String(item?.size ?? ""),
+    color: String(item?.color ?? ""),
     qty: Math.max(1, Number(item?.qty) || 1),
     checked: Boolean(item?.checked),
   };
@@ -51,16 +52,20 @@ export function saveCartItems(items) {
   notifyCartChanged();
 }
 
-export function addCartItem({ pid, size = "", qty = 1 }) {
+export function addCartItem({ pid, size = "", color = "", qty = 1 }) {
   const safePid = String(pid ?? "").trim();
   if (!safePid) return getCartItems();
 
   const safeSize = String(size ?? "").trim();
+  const safeColor = String(color ?? "").trim();
   const safeQty = Math.max(1, Number(qty) || 1);
   const current = getCartItems();
 
   const existedIndex = current.findIndex(
-    (item) => item.pid === safePid && item.size === safeSize,
+    (item) =>
+      item.pid === safePid &&
+      item.size === safeSize &&
+      item.color === safeColor,
   );
 
   if (existedIndex >= 0) {
@@ -70,9 +75,10 @@ export function addCartItem({ pid, size = "", qty = 1 }) {
     };
   } else {
     current.push({
-      cid: `${safePid}_${safeSize || "nosize"}_${Date.now()}`,
+      cid: `${safePid}_${safeSize || "nosize"}_${safeColor || "nocolor"}_${Date.now()}`,
       pid: safePid,
       size: safeSize,
+      color: safeColor,
       qty: safeQty,
       checked: false,
     });
@@ -82,7 +88,7 @@ export function addCartItem({ pid, size = "", qty = 1 }) {
   return current;
 }
 
-export function setBuyNowItem({ pid, size = "", qty = 1 }) {
+export function setBuyNowItem({ pid, size = "", color = "", qty = 1 }) {
   if (typeof window === "undefined") return;
 
   const safePid = String(pid ?? "").trim();
@@ -92,6 +98,7 @@ export function setBuyNowItem({ pid, size = "", qty = 1 }) {
     cid: `${safePid}_${Date.now()}`,
     pid: safePid,
     size,
+    color,
     qty,
     checked: true,
   });
