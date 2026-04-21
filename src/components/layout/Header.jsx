@@ -33,6 +33,7 @@ const PRODUCTS_MAP = Object.fromEntries(
 const Header = () => {
   const navigate = useNavigate();
   const [cartOpen, setCartOpen] = useState(false);
+  const [showProfileModal, setShowProfileModal] = useState(false);
   const [cartItems, setCartItems] = useState(() => getCartItems());
   const [searchValue, setSearchValue] = useState("");
   const [isSearchFocused, setIsSearchFocused] = useState(false);
@@ -40,6 +41,7 @@ const Header = () => {
 
   const handleLogout = () => {
     logout();
+    setShowProfileModal(false);
     notify("Đã đăng xuất", "success");
     navigate("/dang-nhap");
   };
@@ -63,11 +65,24 @@ const Header = () => {
     window.addEventListener("storage", syncCart);
     window.addEventListener("cart:updated", syncCart);
 
+    const handleClickOutside = (e) => {
+      if (
+        showProfileModal &&
+        e.target.closest &&
+        !e.target.closest("button[title='Tài khoản']")
+      ) {
+        setShowProfileModal(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
     return () => {
       window.removeEventListener("storage", syncCart);
       window.removeEventListener("cart:updated", syncCart);
+      document.removeEventListener("click", handleClickOutside);
     };
-  }, []);
+  }, [showProfileModal]);
 
   const handleSearch = (event) => {
     event.preventDefault();
@@ -316,43 +331,167 @@ const Header = () => {
 
             {/* User Icon */}
             {isAuthenticated ? (
-              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                <Link to="/profile">
-                  <button
-                    style={{
-                      background: "none",
-                      border: "none",
-                      cursor: "pointer",
-                      padding: "6px",
-                    }}
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                    </svg>
-                  </button>
-                </Link>
-                <span style={{ fontSize: 14, color: "#333", fontWeight: 500 }}>
-                  Xin chào {currentAccount?.name || currentAccount?.username}
-                </span>
+              <div style={{ position: "relative" }}>
                 <button
-                  onClick={handleLogout}
+                  onClick={() => setShowProfileModal(!showProfileModal)}
                   style={{
-                    background: "#111",
-                    color: "#fff",
+                    background: "none",
                     border: "none",
-                    borderRadius: 4,
-                    padding: "8px 12px",
                     cursor: "pointer",
-                    fontSize: 13,
+                    padding: "6px",
                   }}
+                  title="Tài khoản"
                 >
-                  Đăng xuất
+                  <svg
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                  </svg>
                 </button>
+
+                {/* Profile Dropdown Modal */}
+                {showProfileModal && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "calc(100% + 12px)",
+                      right: 0,
+                      backgroundColor: "#fff",
+                      border: "1px solid #ddd",
+                      borderRadius: "8px",
+                      boxShadow: "0 4px 16px rgba(0, 0, 0, 0.15)",
+                      zIndex: 1000,
+                      minWidth: "280px",
+                      overflow: "hidden",
+                    }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {/* Profile Header */}
+                    <div
+                      style={{
+                        padding: "16px",
+                        borderBottom: "1px solid #eee",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "12px",
+                      }}
+                    >
+                      {currentAccount?.avatar ? (
+                        <img
+                          src={currentAccount.avatar}
+                          alt={currentAccount.name || currentAccount.username}
+                          style={{
+                            width: "48px",
+                            height: "48px",
+                            borderRadius: "50%",
+                            objectFit: "cover",
+                            flexShrink: 0,
+                          }}
+                        />
+                      ) : (
+                        <div
+                          style={{
+                            width: "48px",
+                            height: "48px",
+                            borderRadius: "50%",
+                            backgroundColor: "#e53935",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            color: "#fff",
+                            fontWeight: "bold",
+                            fontSize: "20px",
+                            flexShrink: 0,
+                          }}
+                        >
+                          {currentAccount?.name?.[0]?.toUpperCase() ||
+                            currentAccount?.username?.[0]?.toUpperCase() ||
+                            "U"}
+                        </div>
+                      )}
+                      <div style={{ flex: 1 }}>
+                        <p
+                          style={{
+                            margin: "0 0 4px 0",
+                            fontWeight: "600",
+                            fontSize: "14px",
+                            color: "#333",
+                          }}
+                        >
+                          {currentAccount?.name ||
+                            currentAccount?.username ||
+                            "Khách hàng"}
+                        </p>
+                        <p
+                          style={{
+                            margin: 0,
+                            fontSize: "12px",
+                            color: "#666",
+                          }}
+                        >
+                          {currentAccount?.email || ""}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Menu Items */}
+                    <div>
+                      <button
+                        onClick={() => {
+                          navigate("/profile");
+                          setShowProfileModal(false);
+                        }}
+                        style={{
+                          width: "100%",
+                          padding: "12px 16px",
+                          border: "none",
+                          background: "none",
+                          textAlign: "left",
+                          fontSize: "14px",
+                          cursor: "pointer",
+                          color: "#333",
+                          borderBottom: "1px solid #eee",
+                          transition: "background-color 0.2s",
+                        }}
+                        onMouseEnter={(e) =>
+                          (e.target.style.backgroundColor = "#f5f5f5")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.target.style.backgroundColor = "transparent")
+                        }
+                      >
+                        Hồ sơ cá nhân
+                      </button>
+
+                      <button
+                        onClick={handleLogout}
+                        style={{
+                          width: "100%",
+                          padding: "12px 16px",
+                          border: "none",
+                          background: "none",
+                          textAlign: "left",
+                          fontSize: "14px",
+                          cursor: "pointer",
+                          color: "#e53935",
+                          fontWeight: "500",
+                          transition: "background-color 0.2s",
+                        }}
+                        onMouseEnter={(e) =>
+                          (e.target.style.backgroundColor = "#fff5f5")
+                        }
+                        onMouseLeave={(e) =>
+                          (e.target.style.backgroundColor = "transparent")
+                        }
+                      >
+                        Đăng xuất
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <Link to="/dang-nhap">

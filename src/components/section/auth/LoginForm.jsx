@@ -41,6 +41,7 @@ function LoginForm() {
       username: result.user.username,
       name: result.user.name,
       email: result.user.email,
+      avatar: result.user.avatar,
     });
     notify(result.message, "success");
     navigate("/profile");

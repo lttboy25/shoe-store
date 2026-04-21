@@ -5,7 +5,8 @@ export function useCart() {
   const addToCart = useCallback((product) => {
     addCartItem({
       pid: product.id,
-      size: "",
+      size: product.size || "",
+      color: product.color || "",
       qty: product.quantity || 1,
     });
   }, []);
