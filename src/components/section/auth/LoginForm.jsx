@@ -44,7 +44,7 @@ function LoginForm() {
       avatar: result.user.avatar,
     });
     notify(result.message, "success");
-    navigate("/profile");
+    navigate("/cua-hang");
   };
 
   return (
@@ -84,7 +84,7 @@ function LoginForm() {
                   <span>Chưa có tài khoản? </span>
                   <span
                     style={{ color: "blue", cursor: "pointer" }}
-                    onClick={() => navigate("/cua-hang")}
+                    onClick={() => navigate("/dang-ky")}
                   >
                     Đăng ký
                   </span>
