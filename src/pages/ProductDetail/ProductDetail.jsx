@@ -3,10 +3,11 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import Breadcrumb from "../../components/common/Breadcrumb";
 import Button from "../../components/common/Button";
 import ProductGrid from "../../components/product/ProductGrid/ProductGrid";
-import products from "../../data/products";
+import products, { specLabels } from "../../data/products";
 import MainLayout from "../../components/layout/MainLayout";
 import { addCartItem, setBuyNowItem } from "../../utils/cartStorage";
 import { notify } from "../../utils/notify";
+import ReviewModal from "./ReviewModal";
 import "./ProductDetail.css";
 
 export default function ProductDetail() {
@@ -14,19 +15,10 @@ export default function ProductDetail() {
   const navigate = useNavigate();
   const product = products.find((p) => p.slug === slug);
 
-  const SPEC_LABELS = {
-    material: "Chất liệu:",
-    sole: "Đế:",
-    fit: "Form giày:",
-    style: "Phong cách:",
-    gender: "Giới tính:",
-  };
-
   const relatedProducts = product
     ? products.filter(
         (p) =>
-          p.slug !== product.slug &&
-          p.categoryId?.some((cat) => product.categoryId?.includes(cat)),
+          p.slug !== product.slug 
       )
     : [];
 
@@ -43,6 +35,16 @@ export default function ProductDetail() {
   const [selectedColor, setSelectedColor] = useState(colors[0] ?? null);
   const [quantity, setQuantity] = useState(1);
   const [showDesc, setShowDesc] = useState(false);
+  const [showReviewModal, setShowReviewModal] = useState(false);
+
+  const handleReviewSubmit = (reviewData) => {
+    notify(
+      `Cảm ơn bạn đã đánh giá! ${reviewData.rating} ⭐`,
+      "success"
+    );
+    setShowReviewModal(false);
+    console.log("Review submitted:", reviewData);
+  };
 
   if (!product) {
     return (
@@ -110,9 +112,10 @@ export default function ProductDetail() {
   };
 
   return (
-    <MainLayout
-      props={
-        <div className="pd-page">
+    <>
+      <MainLayout
+        props={
+          <div className="pd-page">
           {/* Breadcrumb */}
           <div className="container py-2 pd-breadcrumb">
             <Breadcrumb items={breadcrumbItems} />
@@ -307,7 +310,7 @@ export default function ProductDetail() {
                   {Object.entries(product.specifications).map(([key, val]) => (
                     <tr key={key}>
                       <td className="pd-spec-table__key">
-                        {SPEC_LABELS[key] ?? key}
+                        {specLabels[key] ?? key}
                       </td>
                       <td className="pd-spec-table__val">{val}</td>
                     </tr>
@@ -334,11 +337,23 @@ export default function ProductDetail() {
                   ))}
                 </tbody>
               </table>
-              <button className="pd-review-btn">Thêm</button>
+              <button 
+                className="pd-review-btn"
+                onClick={() => setShowReviewModal(true)}
+              >
+                Thêm
+              </button>
             </div>
           </div>
         </div>
       }
     />
+    <ReviewModal
+      isOpen={showReviewModal}
+      onClose={() => setShowReviewModal(false)}
+      onSubmit={handleReviewSubmit}
+      productName={product.name}
+    />
+    </>
   );
 }
