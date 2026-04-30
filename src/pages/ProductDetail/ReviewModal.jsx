@@ -25,7 +25,6 @@ export default function ReviewModal({ isOpen, onClose, onSubmit, productName }) 
       date: new Date().toLocaleDateString("vi-VN"),
     });
 
-    // Reset form
     setRating(5);
     setTitle("");
     setComment("");

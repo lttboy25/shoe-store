@@ -1,4 +1,3 @@
-// CategoryBannerSection.jsx
 import React from "react";
 
 const CategoryItem = ({ title, items, image }) => {
@@ -17,8 +16,6 @@ const CategoryItem = ({ title, items, image }) => {
 
       {/* Nội dung đè lên */}
       <div
-        // 1. Thay 'justify-content-center' thành 'justify-content-start'
-        // 2. Thêm 'pt-5' (padding-top) để đẩy chữ xuống một khoảng cố định
         className="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-start align-items-center pt-5"
       >
         {/* Tiêu đề */}

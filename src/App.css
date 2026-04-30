@@ -1,8 +1,38 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+@media (max-width: 480px) {
+  #root {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* Tablet */
+@media (min-width: 481px) and (max-width: 768px) {
+  #root {
+    margin: 0 auto;
+    max-width: 768px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+  #root {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1400px) {
+  #root {
+    margin: 0 auto;
+    max-width: 1400px;
+  }
 }
 
 .logo {
@@ -11,9 +41,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -40,3 +72,4 @@
 .read-the-docs {
   color: #888;
 }
+

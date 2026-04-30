@@ -1,1 +1,0 @@
-//Hình ảnh được sử dụng trong trang ProductDetail
