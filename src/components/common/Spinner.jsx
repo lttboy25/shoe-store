@@ -1,6 +1,5 @@
 
 const Spinner = ({
-  size = 'md',
   color = 'text-dark',
   className = ''
 }) => {

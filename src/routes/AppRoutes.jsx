@@ -1,4 +1,3 @@
-import React from "react";
 import Home from "../pages/Home/Home.jsx";
 import { Routes, Route } from "react-router";
 import Product from "../pages/Product/Product.jsx";
